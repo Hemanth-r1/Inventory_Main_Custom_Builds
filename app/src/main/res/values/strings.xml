@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">Inventory Main</string>
+    <string name="quote_customer_name">Customer Name</string>
+    <string name="quote_mobile_number">Mobile Number</string>
+    <string name="quote_text_message">Select the item which you want to add below</string>
+    <string name="processor_name">Processor</string>
+    <string name="motherboard_name">MotherBoard</string>
+    <string name="ram_name">Ram</string>
+    <string name="price">Price</string>
+    <string name="graphics_card_name">Graphics Card</string>
+    <string name="power_supply_name">Power Supply</string>
+    <string name="ssd_name">SSD</string>
+    <string name="hdd_name">HDD</string>
+    <string name="cooler_name">Cooler</string>
+    <string name="cabinet_name">Cabinet</string>
+    <string name="case_fans_name">Case Fans</string>
+    <string name="keyboard_name">Keyboard</string>
+    <string name="mouse_name">Mouse</string>
+    <string name="monitor_name">Monitor</string>
+    <string name="service_name">Service and Assembly</string>
+    <string name="cable_name">Cable</string>
+    <string name="headset_name">Headset</string>
+    <string name="description">Description</string>
+    <string name="enter_bill_name">Enter Bill Name</string>
+</resources>
