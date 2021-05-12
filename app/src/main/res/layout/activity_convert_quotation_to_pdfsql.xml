@@ -92,7 +92,7 @@
                         android:ems="8"
                         android:hint="@string/price"
                         android:importantForAutofill="no"
-                        android:inputType="numberDecimal"
+                        android:inputType="number"
                         android:padding="12dp" />
 
                     <EditText
@@ -141,7 +141,8 @@
                         android:layout_height="wrap_content"
                         android:ems="8"
                         android:hint="@string/price"
-                        android:inputType="numberDecimal"
+                        android:importantForAccessibility="yes"
+                        android:inputType="number"
                         android:padding="10dp" />
 
                     <EditText
@@ -190,7 +191,7 @@
                         android:layout_height="wrap_content"
                         android:ems="8"
                         android:hint="@string/price"
-                        android:inputType="numberDecimal"
+                        android:inputType="number"
                         android:padding="10dp" />
                     <EditText
                         android:id="@+id/ramDescription"
@@ -237,7 +238,7 @@
                         android:layout_height="wrap_content"
                         android:ems="8"
                         android:hint="@string/price"
-                        android:inputType="numberDecimal"
+                        android:inputType="number"
                         android:padding="10dp" />
                     <EditText
                         android:id="@+id/graphicsCardDescription"
@@ -284,7 +285,7 @@
                         android:layout_height="wrap_content"
                         android:ems="8"
                         android:hint="@string/price"
-                        android:inputType="numberDecimal"
+                        android:inputType="number"
                         android:padding="10dp" />
                     <EditText
                         android:id="@+id/powerSupplyDescription"
@@ -332,7 +333,7 @@
                         android:layout_height="wrap_content"
                         android:ems="8"
                         android:hint="@string/price"
-                        android:inputType="numberDecimal"
+                        android:inputType="number"
                         android:padding="10dp" />
                     <EditText
                         android:id="@+id/SSDDescription"
@@ -380,7 +381,7 @@
                         android:layout_height="wrap_content"
                         android:ems="8"
                         android:hint="@string/price"
-                        android:inputType="numberDecimal"
+                        android:inputType="number"
                         android:padding="10dp" />
                     <EditText
                         android:id="@+id/HDDDescription"
@@ -429,7 +430,7 @@
                         android:layout_height="wrap_content"
                         android:ems="8"
                         android:hint="@string/price"
-                        android:inputType="numberDecimal"
+                        android:inputType="number"
                         android:padding="10dp" />
 
                     <EditText
@@ -477,7 +478,7 @@
                         android:layout_height="wrap_content"
                         android:ems="8"
                         android:hint="@string/price"
-                        android:inputType="numberDecimal"
+                        android:inputType="number"
                         android:padding="10dp" />
                     <EditText
                         android:id="@+id/cabinetDescription"
@@ -526,7 +527,7 @@
                         android:layout_height="wrap_content"
                         android:ems="8"
                         android:hint="@string/price"
-                        android:inputType="numberDecimal"
+                        android:inputType="number"
                         android:padding="10dp" />
                     <EditText
                         android:id="@+id/headsetDescription"
@@ -574,7 +575,7 @@
                         android:layout_height="wrap_content"
                         android:ems="8"
                         android:hint="@string/price"
-                        android:inputType="numberDecimal"
+                        android:inputType="number"
                         android:padding="10dp" />
                     <EditText
                         android:id="@+id/caseFansDescription"
@@ -622,7 +623,7 @@
                         android:layout_height="wrap_content"
                         android:ems="8"
                         android:hint="@string/price"
-                        android:inputType="numberDecimal"
+                        android:inputType="number"
                         android:padding="10dp" />
                     <EditText
                         android:id="@+id/keyboardDescription"
@@ -670,7 +671,7 @@
                         android:layout_height="wrap_content"
                         android:ems="8"
                         android:hint="@string/price"
-                        android:inputType="numberDecimal"
+                        android:inputType="number"
                         android:padding="10dp" />
                     <EditText
                         android:id="@+id/mouseDescription"
@@ -718,7 +719,7 @@
                         android:layout_height="wrap_content"
                         android:ems="8"
                         android:hint="@string/price"
-                        android:inputType="numberDecimal"
+                        android:inputType="number"
                         android:padding="10dp" />
                     <EditText
                         android:id="@+id/monitorDescription"
@@ -758,7 +759,7 @@
                         android:ems="8"
                         android:inputType="textMultiLine"
                         android:padding="10dp"
-                        android:text="@string/service_name" />
+                        android:hint="@string/service_name" />
 
                     <EditText
                         android:id="@+id/editTextServicePrice"
@@ -766,7 +767,7 @@
                         android:layout_height="wrap_content"
                         android:ems="8"
                         android:hint="@string/price"
-                        android:inputType="numberDecimal"
+                        android:inputType="number"
                         android:padding="10dp" />
                     <EditText
                         android:id="@+id/serviceDescription"
@@ -815,7 +816,7 @@
                         android:layout_height="wrap_content"
                         android:ems="8"
                         android:hint="@string/price"
-                        android:inputType="numberDecimal"
+                        android:inputType="number"
                         android:padding="10dp" />
 
                     <EditText
