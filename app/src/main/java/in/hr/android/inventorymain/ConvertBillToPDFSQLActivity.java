@@ -58,7 +58,7 @@ public class ConvertBillToPDFSQLActivity extends AppCompatActivity {
 
     private void callFindVewById() {
         saveAndPrint = findViewById(R.id.btnSaveAndPrint);
-        printBtn = findViewById(R.id.btnPrint);
+        //printBtn = findViewById(R.id.btnPrint);
         editTextName = findViewById(R.id.editTextCustomerName);
         editTextPhone = findViewById(R.id.editTextPhone);
         editTextQty = findViewById(R.id.editTextQty);
@@ -96,7 +96,6 @@ public class ConvertBillToPDFSQLActivity extends AppCompatActivity {
     }
 
     //Step 4
-
     private void printInvoice() {
 
         PdfDocument pdfDocument = null;

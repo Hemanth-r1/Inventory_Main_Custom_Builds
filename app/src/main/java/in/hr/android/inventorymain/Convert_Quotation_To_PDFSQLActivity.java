@@ -1,7 +1,10 @@
 package in.hr.android.inventorymain;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.SharedPreferences;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -20,6 +23,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Map;
+import java.util.Set;
 
 public class Convert_Quotation_To_PDFSQLActivity extends AppCompatActivity {
 
@@ -39,7 +44,8 @@ public class Convert_Quotation_To_PDFSQLActivity extends AppCompatActivity {
 
     int totalAmount, quoteNo;
     int serialReturn;
-    String billName, numberText;
+    String billName;
+    String numberText;
 
     EditText customerBillName, customerMobileNumber;
 
@@ -103,14 +109,14 @@ public class Convert_Quotation_To_PDFSQLActivity extends AppCompatActivity {
         setContentView(R.layout.activity_convert_quotation_to_pdfsql);
         callFindViewByID();
 
-        convertQuotationToPdfHelperSql = new Convert_Quotation_To_PDF_Helper_SQL(this);
-        sqLiteDatabase = convertQuotationToPdfHelperSql.getWritableDatabase();
+       // convertQuotationToPdfHelperSql = new Convert_Quotation_To_PDF_Helper_SQL(this);
+       // sqLiteDatabase = convertQuotationToPdfHelperSql.getWritableDatabase();
     }
 
     private void callFindViewByID() {
 
         customerBillName = findViewById(R.id.editTextBillName);
-        //customerMobileNumber = findViewById(R.id.editTextCustomerNumber);
+        customerMobileNumber = findViewById(R.id.editTextCustomerNumber);
 
         printOld = findViewById(R.id.oldPrintBtn);
         saveAndPrint = findViewById(R.id.btnSaveAndPrint);
@@ -214,17 +220,13 @@ public class Convert_Quotation_To_PDFSQLActivity extends AppCompatActivity {
         Paint paint = new Paint();
 
         billName = customerBillName.getText().toString();
-        // numberText = customerMobileNumber.getText().toString();
+        numberText = customerMobileNumber.getText().toString();
 
-        /*
         // data to be retrieved
-        String[] column = {"date","nameText", "numberText" , "processorText",
-                "processorPrice", "processorDescription",  "motherboardText", "motherboardPrice", "motherboardDescription",
-                "ramText", "ramPrice", "ramDescription", "graphicsCardText", "graphicsCardPrice","graphics_cardDescription" ,
-                "ssdText", "ssdPrice", "ssdDescription", "amount" };
+        //String[] column = {"quoteNo","date", "numberText" , "processorText","processorPrice", "processorDescription",  "motherboardText", "motherboardPrice", "motherboardDescription","ramText", "ramPrice", "ramDescription", "graphicsCardText", "graphicsCardPrice","graphics_cardDescription" , "ssdText", "ssdPrice", "ssdDescription", "amount" };
 
-        Cursor cursor = sqLiteDatabase.query("QuoteTABLEMain", column, null, null, null, null, null);
-        cursor.move(cursor.getCount());
+       // Cursor cursor = sqLiteDatabase.query("QuoteTABLEMain", column, null, null, null, null, null);
+        //cursor.move(cursor.getCount());
 
             /*
              for A4 size sheet width = 20.98 and height = 29.66, builder below used POST SCRIPT as unit
@@ -630,6 +632,12 @@ public class Convert_Quotation_To_PDFSQLActivity extends AppCompatActivity {
 
         // end of table
         canvas.drawRect(currentPageWidth + 25, currentPageHeight + currentPositionHeight, totalPageWidth - 25, currentPageHeight + currentPositionHeight + 2, paint);
+/*
+        //TODO: INSERT TO DATABASE
+        convertQuotationToPdfHelperSql.insertMain(dateFormat.format(date.getTime()), numberText, processorText, processorPrice, processorDescription,
+                motherboardText, motherboardPrice, motherboardDescription, ramText, ramPrice, ramDescription, graphicsCardText, graphicsCardPrice, graphics_cardDescription,
+                ssdText, ssdPrice,ssdDescription,totalAmount);
+*/
 
         paint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.NORMAL));
         paint.setColor(Color.BLACK);
@@ -649,8 +657,11 @@ public class Convert_Quotation_To_PDFSQLActivity extends AppCompatActivity {
         canvas.drawText(policy6, currentPageWidth + 40, totalPageHeight - 30, paint);
         pdfDocument.finishPage(page);
 
+        //display total value on screen
+        Toast.makeText(Convert_Quotation_To_PDFSQLActivity.this, "Total Value is : RS.  " +totalAmount, Toast.LENGTH_LONG).show();
+
         //File file = new File(this.getExternalFilesDir("/"), cursor.getInt(0) + "_CustomBuilds.pdf");
-        File file = new File(this.getExternalFilesDir("/"), billName + "_" + dateFormat.format(date.getTime()) + "_" + timeFormat.format(date.getTime()) + "_CustomBuilds.pdf");
+        File file = new File(this.getExternalFilesDir("/"), billName+"/"+ customerMobileNumber + "_" + dateFormat.format(date.getTime()) + "_" + "CustomBuilds.pdf");
         quoteNo++;
 
         try {
@@ -661,12 +672,13 @@ public class Convert_Quotation_To_PDFSQLActivity extends AppCompatActivity {
         }
         pdfDocument.close();
         Toast.makeText(Convert_Quotation_To_PDFSQLActivity.this, "Successfully converted to PDF", Toast.LENGTH_LONG).show();
+
     }
 
     private int updateSerialNo(int serialNo) {
         return serialReturn = serialNo + 1;
     }
 
-    public void printOld(View view) {
-    }
+   // public void printOld(View view) {}
+
 }

@@ -47,6 +47,7 @@
             android:ems="10"
             android:inputType="number" />
 
+        <!--
         <Button
             android:id="@+id/btnSaveAndPrint"
             android:layout_width="wrap_content"
@@ -66,5 +67,5 @@
             android:layout_marginTop="0dp"
             android:layout_toEndOf="@+id/btnSaveAndPrint"
             android:text="Print" />
-
+-->
 </RelativeLayout>
