@@ -1,10 +1,5 @@
 package in.hr.android.inventorymain;
 
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.SharedPreferences;
-import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -12,6 +7,9 @@ import android.graphics.Paint;
 import android.graphics.Typeface;
 import android.graphics.pdf.PdfDocument;
 import android.os.Bundle;
+
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -23,10 +21,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Map;
-import java.util.Set;
 
-public class Convert_Quotation_To_PDFSQLActivity extends AppCompatActivity {
+public class Activity_bill_to_PDF extends AppCompatActivity {
 
     String warrantyHeading = "Warranty and Support: ";
     String warranty1 = " 1. All PC built by us will receive ON-SITE warranty for TWO YEARS and FREE technical support.";
@@ -42,20 +38,31 @@ public class Convert_Quotation_To_PDFSQLActivity extends AppCompatActivity {
     String policy5 = "   are subjected to ENQUIRY, if valid, returns are available ";
     String policy6 = "5. Returns can be claimed IF AND ONLY IF the problem is not resolved.";
 
-    int totalAmount, quoteNo;
+    double totalAmount, quoteNo, taxAmount;
     int serialReturn;
-    String billName;
-    String numberText;
 
-    EditText customerBillName, customerMobileNumber;
+    String customerName, customerBillName, customerMobileNumber, customerAddress, customerGst, invoiceNumber;
+    EditText customer_name, customerBill_name, customerMobile_number, customer_address, customer_gst, invoice_number;
 
     EditText processor_name, motherboard_name, ram_name, graphics_card_name, power_supply_name,
             ssd_name, hdd_name, cooler_name, cabinet_name, case_fans_name, keyboard_name,
             mouse_name, monitor_name, service_name, cable_name, headset_name;
 
+    String processorText, motherboardText, ramText, graphicsCardText,
+            ssdText, hddText, powerSupplyText, headsetText, keyboardText,
+            mouseText, cabinetText, monitorText, caseFansText, cableText, serviceText, coolerText;
+
     EditText processor_price, motherboard_price, ram_price, graphics_card_price, power_supply_price,
             ssd_price, hdd_price, cooler_price, cabinet_price, case_fans_price, keyboard_price,
             mouse_price, monitor_price, service_price, cable_price, headset_price;
+
+    EditText processor_tax, motherboard_tax, ram_tax, graphics_card_tax, power_supply_tax,
+            ssd_tax, hdd_tax, cooler_tax, cabinet_tax, case_fans_tax, keyboard_tax,
+            mouse_tax, monitor_tax, service_tax, cable_tax, headset_tax;
+
+    double processorTax, motherboardTax, ramTax, graphics_cardTax, power_supplyTax,
+            ssdTax, hddTax, coolerTax, cabinetTax, case_fansTax, keyboardTax,
+            mouseTax, monitorTax, serviceTax, cableTax, headsetTax;
 
     CheckBox processor, motherboard, ram, graphics_card, power_supply, ssd, hdd, cooler, cabinet,
             case_fans, keyboard, mouse, monitor, service, cable, headset;
@@ -65,36 +72,16 @@ public class Convert_Quotation_To_PDFSQLActivity extends AppCompatActivity {
             case_fans_description, keyboard_description,
             mouse_description, monitor_description, service_description, cable_description, headset_description;
 
-    Button saveAndPrint, printOld;
-
-    String processorText, motherboardText, ramText, graphicsCardText,
-            ssdText, hddText, powerSupplyText, headsetText, keyboardText,
-            mouseText, cabinetText, monitorText, caseFansText, cableText, serviceText, coolerText;
-
     String processorDescription, motherboardDescription, ramDescription, graphics_cardDescription,
             power_supplyDescription, ssdDescription, hddDescription, coolerDescription, cabinetDescription,
             case_fansDescription, keyboardDescription,
             mouseDescription, monitorDescription, serviceDescription, cableDescription, headsetDescription;
 
-    int processorPrice = 0;
-    int motherboardPrice = 0;
-    int ramPrice = 0;
-    int graphicsCardPrice = 0;
-    int ssdPrice = 0;
-    int hddPrice = 0;
-    int powerSupplyPrice = 0;
-    int headsetPrice = 0;
-    int keyboardPrice = 0;
-    int mousePrice = 0;
-    int cabinetPrice = 0;
-    int monitorPrice = 0;
-    int caseFansPrice = 0;
-    int cablePrice = 0;
-    int servicePrice = 0;
-    int coolerPrice = 0;
+    int processorPrice = 0, motherboardPrice = 0, ramPrice = 0, graphicsCardPrice = 0,
+            ssdPrice = 0, hddPrice = 0, powerSupplyPrice = 0, headsetPrice = 0, keyboardPrice = 0,
+            mousePrice = 0, cabinetPrice = 0, monitorPrice = 0, caseFansPrice = 0, cablePrice = 0,
+            servicePrice = 0, coolerPrice = 0;
 
-    Convert_Quotation_To_PDF_Helper_SQL convertQuotationToPdfHelperSql;
-    SQLiteDatabase sqLiteDatabase;
     Date date = new Date();
 
     String datePattern = "dd-MM-YYYY";
@@ -106,100 +93,114 @@ public class Convert_Quotation_To_PDFSQLActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_convert_quotation_to_pdfsql);
+        setContentView(R.layout.activity_bill_to_pdf);
         callFindViewByID();
-
-       // convertQuotationToPdfHelperSql = new Convert_Quotation_To_PDF_Helper_SQL(this);
-       // sqLiteDatabase = convertQuotationToPdfHelperSql.getWritableDatabase();
     }
 
     private void callFindViewByID() {
 
-        customerBillName = findViewById(R.id.editTextBillName);
-        customerMobileNumber = findViewById(R.id.editTextCustomerNumber);
-
-        printOld = findViewById(R.id.oldPrintBtn);
-        saveAndPrint = findViewById(R.id.btnSaveAndPrint);
+        customerBill_name = findViewById(R.id.editTextBillName);
+        customerMobile_number = findViewById(R.id.editTextCustomerNumber);
+        customer_address = findViewById(R.id.editTextCustomerAddress);
+        customer_gst = findViewById(R.id.editTextCustomerGST);
+        customer_name = findViewById(R.id.editTextCustomerName);
+        invoice_number = findViewById(R.id.editTextInvoiceNumber);
 
         processor = findViewById(R.id.checkBoxProcessor);
         processor_name = findViewById(R.id.editTextProcessorName);
         processor_price = findViewById(R.id.editTextProcessorPrice);
         processor_description = findViewById(R.id.processorDescription);
+        processor_tax = findViewById(R.id.editTextProcessorPriceTax);
 
         motherboard = findViewById(R.id.checkBoxMotherBoard);
         motherboard_name = findViewById(R.id.editTextMotherboardName);
         motherboard_price = findViewById(R.id.editTextMotherboardPrice);
         motherboard_description = findViewById(R.id.motherboardDescription);
+        motherboard_tax = findViewById(R.id.editTextMotherboardPriceTax);
 
         ram = findViewById(R.id.checkBoxRam);
         ram_name = findViewById(R.id.editTextRamName);
         ram_price = findViewById(R.id.editTextRamPrice);
         ram_description = findViewById(R.id.ramDescription);
+        ram_tax = findViewById(R.id.editTextRamPriceTax);
 
         graphics_card = findViewById(R.id.checkBoxGraphicsCard);
         graphics_card_name = findViewById(R.id.editTextGraphicsCardName);
         graphics_card_price = findViewById(R.id.editTextGraphicsCardPrice);
         graphics_card_description = findViewById(R.id.graphicsCardDescription);
+        graphics_card_tax = findViewById(R.id.editTextGraphicsCardPriceTax);
 
         ssd = findViewById(R.id.checkBoxSSD);
         ssd_name = findViewById(R.id.editTextSSDName);
         ssd_price = findViewById(R.id.editTextSSDPrice);
         ssd_description = findViewById(R.id.SSDDescription);
+        ssd_tax = findViewById(R.id.editTextSSDPriceTax);
 
         hdd = findViewById(R.id.checkBoxHDD);
         hdd_name = findViewById(R.id.editTextHDDName);
         hdd_price = findViewById(R.id.editTextHDDPrice);
         hdd_description = findViewById(R.id.HDDDescription);
+        hdd_tax = findViewById(R.id.editTextHDDPriceTax);
 
         power_supply = findViewById(R.id.checkBoxPowerSupply);
         power_supply_name = findViewById(R.id.editTextPowerSupplyName);
         power_supply_price = findViewById(R.id.editTextPowerSupplyPrice);
         power_supply_description = findViewById(R.id.powerSupplyDescription);
+        power_supply_tax = findViewById(R.id.editTextPowerSupplyPriceTax);
 
         cooler = findViewById(R.id.checkBoxCooler);
         cooler_name = findViewById(R.id.editTextCoolerName);
         cooler_price = findViewById(R.id.editTextCoolerPrice);
         cooler_description = findViewById(R.id.coolerDescription);
+        cooler_tax = findViewById(R.id.editTextCoolerPriceTax);
 
         cabinet = findViewById(R.id.checkBoxCabinet);
         cabinet_name = findViewById(R.id.editTextCabinetName);
         cabinet_price = findViewById(R.id.editTextCabinetPrice);
         cabinet_description = findViewById(R.id.cabinetDescription);
+        cabinet_tax = findViewById(R.id.editTextCabinetPriceTax);
 
         case_fans = findViewById(R.id.checkBoxCaseFans);
         case_fans_name = findViewById(R.id.editTextCaseFansName);
         case_fans_price = findViewById(R.id.editTextCaseFansPrice);
         case_fans_description = findViewById(R.id.caseFansDescription);
+        case_fans_tax = findViewById(R.id.editTextCaseFansPriceTax);
 
         keyboard = findViewById(R.id.checkBoxKeyboard);
         keyboard_name = findViewById(R.id.editTextKeyboardName);
         keyboard_price = findViewById(R.id.editTextKeyboardPrice);
         keyboard_description = findViewById(R.id.keyboardDescription);
+        keyboard_tax = findViewById(R.id.editTextKeyboardPriceTax);
 
         mouse = findViewById(R.id.checkBoxMouse);
         mouse_name = findViewById(R.id.editTextMouseName);
         mouse_price = findViewById(R.id.editTextMousePrice);
         mouse_description = findViewById(R.id.mouseDescription);
+        mouse_tax = findViewById(R.id.editTextMousePriceTax);
 
         monitor = findViewById(R.id.checkBoxMonitor);
         monitor_name = findViewById(R.id.editTextMonitorName);
         monitor_price = findViewById(R.id.editTextMonitorPrice);
         monitor_description = findViewById(R.id.monitorDescription);
+        monitor_tax = findViewById(R.id.editTextMonitorPriceTax);
 
         cable = findViewById(R.id.checkBoxCable);
         cable_name = findViewById(R.id.editTextCableName);
         cable_price = findViewById(R.id.editTextCablePrice);
         cable_description = findViewById(R.id.cableDescription);
+        cable_tax = findViewById(R.id.editTextCablePriceTax);
 
         headset = findViewById(R.id.checkBoxHeadSet);
         headset_name = findViewById(R.id.editTextHeadsetName);
         headset_price = findViewById(R.id.editTextHeadsetPrice);
         headset_description = findViewById(R.id.headsetDescription);
+        headset_tax = findViewById(R.id.editTextHeadsetPriceTax);
 
         service = findViewById(R.id.checkBoxService);
         service_name = findViewById(R.id.editTextServiceName);
         service_price = findViewById(R.id.editTextServicePrice);
         service_description = findViewById(R.id.serviceDescription);
+        service_tax = findViewById(R.id.editTextServicePriceTax);
     }
 
     public void saveAndPrint(View view) {
@@ -219,14 +220,12 @@ public class Convert_Quotation_To_PDFSQLActivity extends AppCompatActivity {
         PdfDocument pdfDocument = new PdfDocument();
         Paint paint = new Paint();
 
-        billName = customerBillName.getText().toString();
-        numberText = customerMobileNumber.getText().toString();
-
-        // data to be retrieved
-        //String[] column = {"quoteNo","date", "numberText" , "processorText","processorPrice", "processorDescription",  "motherboardText", "motherboardPrice", "motherboardDescription","ramText", "ramPrice", "ramDescription", "graphicsCardText", "graphicsCardPrice","graphics_cardDescription" , "ssdText", "ssdPrice", "ssdDescription", "amount" };
-
-       // Cursor cursor = sqLiteDatabase.query("QuoteTABLEMain", column, null, null, null, null, null);
-        //cursor.move(cursor.getCount());
+        customerBillName = customerBill_name.getText().toString();
+        customerMobileNumber = customerMobile_number.getText().toString();
+        customerAddress = customer_address.getText().toString();
+        customerGst = customer_gst.getText().toString();
+        customerName = customer_name.getText().toString();
+        invoiceNumber = invoice_number.getText().toString();
 
             /*
              for A4 size sheet width = 20.98 and height = 29.66, builder below used POST SCRIPT as unit
@@ -658,11 +657,11 @@ public class Convert_Quotation_To_PDFSQLActivity extends AppCompatActivity {
         pdfDocument.finishPage(page);
 
         //display total value on screen
-        //Toast.makeText(Convert_Quotation_To_PDFSQLActivity.this, "Total Value is : RS.  " +totalAmount, Toast.LENGTH_LONG).show();
+        Toast.makeText(Activity_bill_to_PDF.this, "Total Value is : RS.  " + totalAmount, Toast.LENGTH_LONG).show();
 
         //File file = new File(this.getExternalFilesDir("/"), cursor.getInt(0) + "_CustomBuilds.pdf");
-        //File file = new File(this.getExternalFilesDir("/"), billName+"/"+ customerMobileNumber + "/" + dateFormat.format(date.getTime()) + "CustomBuilds.pdf");
-        File file = new File(this.getExternalFilesDir("/"), billName+"/"+ "CustomBuilds.pdf");
+        File file = new File(this.getExternalFilesDir("/"), customerMobileNumber + "/" + dateFormat.format(date.getTime()) + "CustomBuilds.pdf");
+        //File file = new File(this.getExternalFilesDir("/"), billName + "/" + "CustomBuilds.pdf");
 
         try {
 
@@ -671,7 +670,7 @@ public class Convert_Quotation_To_PDFSQLActivity extends AppCompatActivity {
             e.printStackTrace();
         }
         pdfDocument.close();
-        Toast.makeText(Convert_Quotation_To_PDFSQLActivity.this, "Successfully converted to PDF", Toast.LENGTH_LONG).show();
+        Toast.makeText(Activity_bill_to_PDF.this, "Successfully converted to PDF", Toast.LENGTH_LONG).show();
 
     }
 
@@ -679,6 +678,83 @@ public class Convert_Quotation_To_PDFSQLActivity extends AppCompatActivity {
         return serialReturn = serialNo + 1;
     }
 
-   // public void printOld(View view) {}
+    public void calculateAll(View view) {
 
+        if (processor.isChecked()) {
+            processorPrice = Integer.parseInt(processor_price.getText().toString());
+        }
+        if (motherboard.isChecked()) {
+            motherboardPrice = Integer.parseInt(motherboard_price.getText().toString());
+        }
+        if (ram.isChecked()) {
+            ramPrice = Integer.parseInt(ram_price.getText().toString());
+        }
+        if (graphics_card.isChecked()) {
+            graphicsCardPrice = Integer.parseInt(graphics_card_price.getText().toString());
+        }
+        if (ssd.isChecked()) {
+            ssdPrice = Integer.parseInt(ssd_price.getText().toString());
+        }
+        if (hdd.isChecked()) {
+            hddPrice = Integer.parseInt(hdd_price.getText().toString());
+        }
+        if (power_supply.isChecked()) {
+            powerSupplyPrice = Integer.parseInt(power_supply_price.getText().toString());
+        }
+        if (headset.isChecked()) {
+            headsetPrice = Integer.parseInt(headset_price.getText().toString());
+        }
+        if (keyboard.isChecked()) {
+            keyboardPrice = Integer.parseInt(keyboard_price.getText().toString());
+        }
+        if (mouse.isChecked()) {
+            mousePrice = Integer.parseInt(mouse_price.getText().toString());
+        }
+        if (cabinet.isChecked()) {
+            cabinetPrice = Integer.parseInt(cabinet_price.getText().toString());
+        }
+        if (monitor.isChecked()) {
+            monitorPrice = Integer.parseInt(monitor_price.getText().toString());
+        }
+        if (case_fans.isChecked()) {
+            caseFansPrice = Integer.parseInt(case_fans_price.getText().toString());
+        }
+        if (cable.isChecked()) {
+            cablePrice = Integer.parseInt(cable_price.getText().toString());
+        }
+        if (service.isChecked()) {
+            servicePrice = Integer.parseInt(service_price.getText().toString());
+        }
+        if (cooler.isChecked()) {
+            coolerPrice = Integer.parseInt(cooler_price.getText().toString());
+        }
+
+        totalAmount = processorPrice + motherboardPrice + graphicsCardPrice + ramPrice + ssdPrice
+                + hddPrice + powerSupplyPrice + coolerPrice + cabinetPrice + cablePrice +
+                +servicePrice + caseFansPrice + keyboardPrice + mousePrice + monitorPrice + headsetPrice;
+
+        processorTax = processorPrice * 0.18;
+        motherboardTax = motherboardPrice * 0.18;
+        graphics_cardTax = graphicsCardPrice * 0.18;
+        ramTax = ramPrice * 0.18;
+        ssdTax = ssdPrice * 0.18;
+        hddTax = hddPrice * 0.18;
+        power_supplyTax = powerSupplyPrice * 0.18;
+        coolerTax = coolerPrice * 0.18;
+        cabinetTax = cabinetPrice * 0.18;
+        serviceTax = servicePrice * 0.18;
+        case_fansTax = caseFansPrice * 0.18;
+        cableTax = cablePrice * 0.18;
+        keyboardTax = keyboardPrice * 0.18;
+        mouseTax = mousePrice * 0.18;
+        monitorTax = monitorPrice * 0.18;
+        headsetTax = headsetPrice * 0.18;
+
+        taxAmount = (processorTax + motherboardTax + graphics_cardTax + ramTax + ssdTax +
+                hddTax + power_supplyTax + coolerTax + cabinetTax + serviceTax + case_fansTax + cableTax +
+                keyboardTax + mouseTax + monitorTax + headsetTax);
+
+        Toast.makeText(this, "tax" + taxAmount, Toast.LENGTH_LONG).show();
+
+    }
 }

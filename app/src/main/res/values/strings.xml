@@ -22,4 +22,18 @@
     <string name="headset_name">Headset</string>
     <string name="description">Description</string>
     <string name="enter_bill_name">Enter Bill Name</string>
+    <string name="title_activity_billing_pdf">Activity_Billing_PDF</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="customer_address">Address</string>
+    <string name="customer_gst">GST no</string>
+    <string name="enter_customer_name">Customer Name</string>
+    <string name="tax">Tax</string>
+    <string name="enter_invoice">Invoice Number</string>
 </resources>

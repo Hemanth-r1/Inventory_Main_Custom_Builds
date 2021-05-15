@@ -53,9 +53,9 @@ public class MainActivity extends AppCompatActivity {
         printButton = findViewById(R.id.oldPrintBtn);
         editText = findViewById(R.id.oldPrintEditText);
         dataTable = findViewById(R.id.data_table);
-        floatingAddButton = findViewById(R.id.floatingAddButton);
+        floatingAddButton = findViewById(R.id.floatingAddQuoteButton);
         //floatingEditButton = findViewById(R.id.floatingEditButton);
-        //floatingNewButton = findViewById(R.id.floatingNewButton);
+        floatingNewButton = findViewById(R.id.floatingAddBillButton);
 
         DataTableHeader header = new DataTableHeader.Builder().item("Invoice No", 5)
                 .item("Bill Name", 5)
@@ -81,6 +81,15 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Toast.makeText(MainActivity.this, "Price is MANDATORY for selected Item!!!", Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(MainActivity.this, Convert_Quotation_To_PDFSQLActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        floatingNewButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this, "Price is MANDATORY for selected Item!!!", Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(MainActivity.this, Activity_bill_to_PDF.class);
                 startActivity(intent);
             }
         });
