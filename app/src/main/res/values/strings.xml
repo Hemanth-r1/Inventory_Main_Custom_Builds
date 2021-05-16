@@ -36,4 +36,8 @@
     <string name="enter_customer_name">Customer Name</string>
     <string name="tax">Tax</string>
     <string name="enter_invoice">Invoice Number</string>
+    <string name="customer_address_line1">Address Line 1</string>
+    <string name="customer_address_line2">Address Line 2</string>
+    <string name="customer_address_line3">Address Line 3</string>
+    <string name="rate">Rate</string>
 </resources>

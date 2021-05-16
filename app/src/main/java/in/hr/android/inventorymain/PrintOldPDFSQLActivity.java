@@ -24,13 +24,13 @@ import java.util.Date;
 import ir.androidexception.datatable.DataTable;
 import ir.androidexception.datatable.model.DataTableHeader;
 import ir.androidexception.datatable.model.DataTableRow;
-
+/*
 public class PrintOldPDFSQLActivity extends AppCompatActivity {
 
     Button printButton;
     EditText editText;
     DataTable dataTable;
-    ConvertToPdfHelperSQL helperSQL;
+    //ConvertToPdfHelperSQL helperSQL;
     SQLiteDatabase database;
 
     Date date = new Date();
@@ -208,3 +208,6 @@ public class PrintOldPDFSQLActivity extends AppCompatActivity {
 
 }
 
+
+
+ */

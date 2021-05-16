@@ -20,8 +20,8 @@
         android:id="@+id/editTextInvoiceNumber"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="8"
         android:layout_toEndOf="@+id/editTextBillName"
+        android:ems="8"
         android:hint="@string/enter_invoice"
         android:importantForAutofill="no"
         android:inputType="textLongMessage" />
@@ -40,20 +40,20 @@
         android:id="@+id/editTextCustomerNumber"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toEndOf="@+id/editTextCustomerName"
         android:layout_below="@+id/editTextInvoiceNumber"
+        android:layout_toEndOf="@+id/editTextCustomerName"
         android:ems="8"
         android:hint="@string/quote_mobile_number"
         android:importantForAutofill="no"
         android:inputType="phone" />
 
     <EditText
-        android:id="@+id/editTextCustomerAddress"
+        android:id="@+id/editTextCustomerAddress1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/editTextCustomerName"
         android:ems="8"
-        android:hint="@string/customer_address"
+        android:hint="@string/customer_address_line1"
         android:importantForAutofill="no"
         android:inputType="textMultiLine" />
 
@@ -62,9 +62,30 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/editTextCustomerNumber"
-        android:layout_toEndOf="@+id/editTextCustomerAddress"
+        android:layout_toEndOf="@+id/editTextCustomerAddress1"
         android:ems="8"
         android:hint="@string/customer_gst"
+        android:importantForAutofill="no"
+        android:inputType="textMultiLine" />
+
+    <EditText
+        android:id="@+id/editTextCustomerAddress2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editTextCustomerAddress1"
+        android:ems="8"
+        android:hint="@string/customer_address_line2"
+        android:importantForAutofill="no"
+        android:inputType="textMultiLine" />
+
+    <EditText
+        android:id="@+id/editTextCustomerAddress3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editTextCustomerAddress1"
+        android:layout_toEndOf="@+id/editTextCustomerAddress1"
+        android:ems="8"
+        android:hint="@string/customer_address_line3"
         android:importantForAutofill="no"
         android:inputType="textMultiLine" />
 
@@ -72,7 +93,7 @@
         android:id="@+id/textHeading"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/editTextCustomerAddress"
+        android:layout_below="@+id/editTextCustomerAddress2"
         android:layout_marginTop="15dp"
         android:layout_marginBottom="5dp"
         android:text="@string/quote_text_message" />
@@ -90,8 +111,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:scrollbars="horizontal">
-
-            <LinearLayout
+            <include layout="@layout/item"/>
+          <!--  <LinearLayout
                 android:id="@+id/linerLayout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -146,14 +167,13 @@
                         android:inputType="number"
                         android:padding="12dp" />
 
-                    <EditText
+                    <TextView
                         android:id="@+id/editTextProcessorPriceTax"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:ems="8"
                         android:hint="@string/tax"
                         android:importantForAutofill="no"
-                        android:inputType="number"
                         android:padding="12dp" />
 
                 </LinearLayout>
@@ -194,7 +214,6 @@
                         android:layout_height="wrap_content"
                         android:ems="8"
                         android:hint="@string/description"
-                        android:importantForAutofill="no"
                         android:inputType="textMultiLine"
                         android:padding="12dp" />
 
@@ -204,18 +223,15 @@
                         android:layout_height="wrap_content"
                         android:ems="8"
                         android:hint="@string/price"
-                        android:importantForAccessibility="yes"
                         android:inputType="number"
                         android:padding="10dp" />
 
-                    <EditText
+                    <TextView
                         android:id="@+id/editTextMotherboardPriceTax"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:ems="8"
                         android:hint="@string/tax"
-                        android:importantForAccessibility="yes"
-                        android:inputType="number"
                         android:padding="10dp" />
 
                 </LinearLayout>
@@ -267,13 +283,12 @@
                         android:inputType="number"
                         android:padding="10dp" />
 
-                    <EditText
+                    <TextView
                         android:id="@+id/editTextRamPriceTax"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:ems="8"
                         android:hint="@string/tax"
-                        android:inputType="number"
                         android:padding="10dp" />
 
                 </LinearLayout>
@@ -325,13 +340,12 @@
                         android:inputType="number"
                         android:padding="10dp" />
 
-                    <EditText
+                    <TextView
                         android:id="@+id/editTextGraphicsCardPriceTax"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:ems="8"
                         android:hint="@string/tax"
-                        android:inputType="number"
                         android:padding="10dp" />
 
                 </LinearLayout>
@@ -383,13 +397,12 @@
                         android:inputType="number"
                         android:padding="10dp" />
 
-                    <EditText
+                    <TextView
                         android:id="@+id/editTextPowerSupplyPriceTax"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:ems="8"
                         android:hint="@string/tax"
-                        android:inputType="number"
                         android:padding="10dp" />
 
                 </LinearLayout>
@@ -442,13 +455,12 @@
                         android:inputType="number"
                         android:padding="10dp" />
 
-                    <EditText
+                    <TextView
                         android:id="@+id/editTextSSDPriceTax"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:ems="8"
                         android:hint="@string/tax"
-                        android:inputType="number"
                         android:padding="10dp" />
 
                 </LinearLayout>
@@ -1061,7 +1073,7 @@
                         android:onClick="calculateAll"
                         android:text="Calculate Tax" />
 
-                    <!--
+                    <!-
                     <Button
                         android:id="@+id/btnPrint"
                         android:layout_width="wrap_content"
@@ -1071,8 +1083,8 @@
                         android:layout_marginStart="20dp"
                         android:text="Print old" />
 -->
-                </LinearLayout>
-            </LinearLayout>
+                <!--</LinearLayout>
+            </LinearLayout> -->
         </HorizontalScrollView>
     </ScrollView>
 </RelativeLayout>
