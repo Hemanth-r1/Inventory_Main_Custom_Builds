@@ -1,5 +1,6 @@
 package in.hr.android.inventorymain;
 
+import android.app.ProgressDialog;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -59,12 +60,12 @@ public class Activity_bill_to_PDF extends AppCompatActivity {
             ssd_rate, hdd_rate, cooler_rate, cabinet_rate, case_fans_rate, keyboard_rate,
             mouse_rate, monitor_rate, service_rate, cable_rate, headset_rate;
 
-   float processorRate , motherboardRate , ramRate , graphicsCardRate ,
-            ssdRate , hddRate , powerSupplyRate , headsetRate, keyboardRate ,
-            mouseRate , cabinetRate , monitorRate , caseFansRate , cableRate,
-            serviceRate , coolerRate ;
+    float processorRate, motherboardRate, ramRate, graphicsCardRate,
+            ssdRate, hddRate, powerSupplyRate, headsetRate, keyboardRate,
+            mouseRate, cabinetRate, monitorRate, caseFansRate, cableRate,
+            serviceRate, coolerRate;
 
-   EditText processor_tax, motherboard_tax, ram_tax, graphics_card_tax, power_supply_tax,
+    EditText processor_tax, motherboard_tax, ram_tax, graphics_card_tax, power_supply_tax,
             ssd_tax, hdd_tax, cooler_tax, cabinet_tax, case_fans_tax, keyboard_tax,
             mouse_tax, monitor_tax, service_tax, cable_tax, headset_tax;
 
@@ -85,7 +86,7 @@ public class Activity_bill_to_PDF extends AppCompatActivity {
             case_fansDescription, keyboardDescription,
             mouseDescription, monitorDescription, serviceDescription, cableDescription, headsetDescription;
 
-   float processorPrice = 0, motherboardPrice = 0, ramPrice = 0, graphicsCardPrice = 0,
+    float processorPrice = 0, motherboardPrice = 0, ramPrice = 0, graphicsCardPrice = 0,
             ssdPrice = 0, hddPrice = 0, powerSupplyPrice = 0, headsetPrice = 0, keyboardPrice = 0,
             mousePrice = 0, cabinetPrice = 0, monitorPrice = 0, caseFansPrice = 0, cablePrice = 0,
             servicePrice = 0, coolerPrice = 0;
@@ -372,11 +373,13 @@ public class Activity_bill_to_PDF extends AppCompatActivity {
 
         if (processor.isChecked()) {
             if (processor_name.getText().toString().equals(null)) {
-                processor_name.setText(""); }
+                processor_name.setText("");
+            }
             processorText = processor_name.getText().toString();
             processorPrice = Integer.parseInt(processor_price.getText().toString());
             if (processor_description.getText().toString().equals(null)) {
-                processor_description.setText(""); }
+                processor_description.setText("");
+            }
             processorDescription = processor_description.getText().toString();
             processorRate = Float.parseFloat(processor_rate.getText().toString());
             processorTax = Float.parseFloat(processor_tax.getText().toString());
@@ -386,19 +389,23 @@ public class Activity_bill_to_PDF extends AppCompatActivity {
             canvas.drawText(processorText, currentPageWidth + currentPositionWidth + differentialWidthText, currentPageHeight + currentPositionHeight, paint);
             canvas.drawText(processorDescription, currentPageWidth + currentPositionWidth + differentialWidthDescription, currentPageHeight + currentPositionHeight, paint);
             canvas.drawText("RS.  " + String.valueOf(processorPrice), currentPageWidth + currentPositionWidth + differentialWidthPrice, currentPageHeight + currentPositionHeight, paint);
-            canvas.drawText( String.valueOf(processorRate), currentPageWidth + currentPositionWidth + differentialWidthRate, currentPageHeight + currentPositionHeight, paint);
+            canvas.drawText(String.valueOf(processorRate), currentPageWidth + currentPositionWidth + differentialWidthRate, currentPageHeight + currentPositionHeight, paint);
             canvas.drawText(String.valueOf(processorTax), currentPageWidth + currentPositionWidth + differentialWidthTax, currentPageHeight + currentPositionHeight, paint);
             updateSerialNo(serialNo);
         }
         if (motherboard.isChecked()) {
             currentPositionHeight = currentPositionHeight + 20;
             if (motherboard_name.getText().toString().equals(null)) {
-                motherboard_name.setText(""); } else {
-                motherboardText = motherboard_name.getText().toString(); }
+                motherboard_name.setText("");
+            } else {
+                motherboardText = motherboard_name.getText().toString();
+            }
             motherboardPrice = Integer.parseInt(motherboard_price.getText().toString());
             if (motherboard_description.getText().toString().equals(null)) {
-                motherboard_description.setText(""); } else {
-                motherboardDescription = motherboard_description.getText().toString(); }
+                motherboard_description.setText("");
+            } else {
+                motherboardDescription = motherboard_description.getText().toString();
+            }
             motherboardRate = Float.parseFloat(motherboard_rate.getText().toString());
             motherboardTax = Float.parseFloat(motherboard_tax.getText().toString());
 
@@ -418,8 +425,10 @@ public class Activity_bill_to_PDF extends AppCompatActivity {
             ramText = ram_name.getText().toString();
             ramPrice = Integer.parseInt(ram_price.getText().toString());
             if (ram_description.getText().toString().equals(null)) {
-                ram_description.setText(""); } else {
-                ramDescription = ram_description.getText().toString(); }
+                ram_description.setText("");
+            } else {
+                ramDescription = ram_description.getText().toString();
+            }
             ramRate = Float.parseFloat(ram_rate.getText().toString());
             ramTax = Float.parseFloat(ram_tax.getText().toString());
 
@@ -437,8 +446,10 @@ public class Activity_bill_to_PDF extends AppCompatActivity {
             graphicsCardText = graphics_card_name.getText().toString();
             graphicsCardPrice = Integer.parseInt(graphics_card_price.getText().toString());
             if (graphics_card_description.getText().toString().equals(null)) {
-                graphics_card_description.setText(""); } else {
-                graphics_cardDescription = graphics_card_description.getText().toString(); }
+                graphics_card_description.setText("");
+            } else {
+                graphics_cardDescription = graphics_card_description.getText().toString();
+            }
             graphicsCardRate = Float.parseFloat(graphics_card_rate.getText().toString());
             graphics_cardTax = Float.parseFloat(graphics_card_tax.getText().toString());
 
@@ -457,8 +468,10 @@ public class Activity_bill_to_PDF extends AppCompatActivity {
             ssdText = ssd_name.getText().toString();
             ssdPrice = Integer.parseInt(ssd_price.getText().toString());
             if (ssd_description.getText().toString().equals(null)) {
-                ssd_description.setText(""); } else {
-                ssdDescription = ssd_description.getText().toString(); }
+                ssd_description.setText("");
+            } else {
+                ssdDescription = ssd_description.getText().toString();
+            }
             ssdRate = Float.parseFloat(ssd_rate.getText().toString());
             ssdTax = Float.parseFloat(ssd_tax.getText().toString());
 
@@ -477,8 +490,10 @@ public class Activity_bill_to_PDF extends AppCompatActivity {
             hddText = hdd_name.getText().toString();
             hddPrice = Integer.parseInt(hdd_price.getText().toString());
             if (hdd_description.getText().toString().equals(null)) {
-                hdd_description.setText(""); } else {
-                hddDescription = hdd_description.getText().toString(); }
+                hdd_description.setText("");
+            } else {
+                hddDescription = hdd_description.getText().toString();
+            }
             hddRate = Float.parseFloat(hdd_rate.getText().toString());
             hddTax = Float.parseFloat(hdd_tax.getText().toString());
 
@@ -488,7 +503,7 @@ public class Activity_bill_to_PDF extends AppCompatActivity {
             canvas.drawText(hddDescription, currentPageWidth + currentPositionWidth + differentialWidthDescription, currentPageHeight + currentPositionHeight, paint);
             canvas.drawText("RS. " + String.valueOf(hddPrice), currentPageWidth + currentPositionWidth + differentialWidthPrice, currentPageHeight + currentPositionHeight, paint);
             //canvas.drawRect(currentPageWidth + 25, currentPageHeight + 175, totalPageWidth - 25, currentPageHeight +176, paint);
-            canvas.drawText( String.valueOf(hddRate), currentPageWidth + currentPositionWidth + differentialWidthRate, currentPageHeight + currentPositionHeight, paint);
+            canvas.drawText(String.valueOf(hddRate), currentPageWidth + currentPositionWidth + differentialWidthRate, currentPageHeight + currentPositionHeight, paint);
             canvas.drawText(String.valueOf(hddTax), currentPageWidth + currentPositionWidth + differentialWidthTax, currentPageHeight + currentPositionHeight, paint);
             updateSerialNo(serialReturn);
         }
@@ -497,8 +512,10 @@ public class Activity_bill_to_PDF extends AppCompatActivity {
             powerSupplyText = power_supply_name.getText().toString();
             powerSupplyPrice = Integer.parseInt(power_supply_price.getText().toString());
             if (power_supply_description.getText().toString().equals(null)) {
-                power_supply_description.setText(""); } else {
-                power_supplyDescription = power_supply_description.getText().toString(); }
+                power_supply_description.setText("");
+            } else {
+                power_supplyDescription = power_supply_description.getText().toString();
+            }
             powerSupplyRate = Float.parseFloat(power_supply_rate.getText().toString());
             power_supplyTax = Float.parseFloat(power_supply_tax.getText().toString());
 
@@ -517,8 +534,10 @@ public class Activity_bill_to_PDF extends AppCompatActivity {
             headsetText = headset_name.getText().toString();
             headsetPrice = Integer.parseInt(headset_price.getText().toString());
             if (headset_description.getText().toString().equals(null)) {
-                headset_description.setText(""); } else {
-                headsetDescription = headset_description.getText().toString(); }
+                headset_description.setText("");
+            } else {
+                headsetDescription = headset_description.getText().toString();
+            }
             headsetRate = Float.parseFloat(headset_rate.getText().toString());
             headsetTax = Float.parseFloat(headset_tax.getText().toString());
 
@@ -537,8 +556,10 @@ public class Activity_bill_to_PDF extends AppCompatActivity {
             keyboardText = keyboard_name.getText().toString();
             keyboardPrice = Integer.parseInt(keyboard_price.getText().toString());
             if (keyboard_description.getText().toString().equals(null)) {
-                keyboard_description.setText(""); } else {
-                keyboardDescription = keyboard_description.getText().toString(); }
+                keyboard_description.setText("");
+            } else {
+                keyboardDescription = keyboard_description.getText().toString();
+            }
             keyboardRate = Float.parseFloat(keyboard_rate.getText().toString());
             keyboardTax = Float.parseFloat(keyboard_tax.getText().toString());
 
@@ -557,8 +578,10 @@ public class Activity_bill_to_PDF extends AppCompatActivity {
             mouseText = mouse_name.getText().toString();
             mousePrice = Integer.parseInt(mouse_price.getText().toString());
             if (mouse_description.getText().toString().equals(null)) {
-                mouse_description.setText(""); } else {
-                mouseDescription = mouse_description.getText().toString(); }
+                mouse_description.setText("");
+            } else {
+                mouseDescription = mouse_description.getText().toString();
+            }
             mouseRate = Float.parseFloat(mouse_rate.getText().toString());
             mouseTax = Float.parseFloat(mouse_tax.getText().toString());
 
@@ -577,8 +600,10 @@ public class Activity_bill_to_PDF extends AppCompatActivity {
             cabinetText = cabinet_name.getText().toString();
             cabinetPrice = Integer.parseInt(cabinet_price.getText().toString());
             if (cabinet_description.getText().toString().equals(null)) {
-                cabinet_description.setText(""); } else {
-                cabinetDescription = cabinet_description.getText().toString(); }
+                cabinet_description.setText("");
+            } else {
+                cabinetDescription = cabinet_description.getText().toString();
+            }
             cabinetRate = Float.parseFloat(cabinet_rate.getText().toString());
             cabinetTax = Float.parseFloat(cabinet_tax.getText().toString());
 
@@ -588,7 +613,7 @@ public class Activity_bill_to_PDF extends AppCompatActivity {
             canvas.drawText(cabinetDescription, currentPageWidth + currentPositionWidth + differentialWidthDescription, currentPageHeight + currentPositionHeight, paint);
             canvas.drawText("RS. " + String.valueOf(cabinetPrice), currentPageWidth + currentPositionWidth + differentialWidthPrice, currentPageHeight + currentPositionHeight, paint);
             //canvas.drawRect(currentPageWidth + 25, currentPageHeight + 175, totalPageWidth - 25, currentPageHeight +176, paint);
-            canvas.drawText( String.valueOf(cabinetRate), currentPageWidth + currentPositionWidth + differentialWidthRate, currentPageHeight + currentPositionHeight, paint);
+            canvas.drawText(String.valueOf(cabinetRate), currentPageWidth + currentPositionWidth + differentialWidthRate, currentPageHeight + currentPositionHeight, paint);
             canvas.drawText(String.valueOf(cabinetTax), currentPageWidth + currentPositionWidth + differentialWidthTax, currentPageHeight + currentPositionHeight, paint);
             updateSerialNo(serialReturn);
         }
@@ -597,8 +622,10 @@ public class Activity_bill_to_PDF extends AppCompatActivity {
             monitorText = monitor_name.getText().toString();
             monitorPrice = Integer.parseInt(monitor_price.getText().toString());
             if (monitor_description.getText().toString().equals(null)) {
-                monitor_description.setText(""); } else {
-                monitorDescription = monitor_description.getText().toString(); }
+                monitor_description.setText("");
+            } else {
+                monitorDescription = monitor_description.getText().toString();
+            }
             monitorRate = Float.parseFloat(monitor_rate.getText().toString());
             monitorTax = Float.parseFloat(monitor_tax.getText().toString());
 
@@ -608,7 +635,7 @@ public class Activity_bill_to_PDF extends AppCompatActivity {
             canvas.drawText(monitorDescription, currentPageWidth + currentPositionWidth + differentialWidthDescription, currentPageHeight + currentPositionHeight, paint);
             canvas.drawText("RS. " + String.valueOf(monitorPrice), currentPageWidth + currentPositionWidth + differentialWidthPrice, currentPageHeight + currentPositionHeight, paint);
             //canvas.drawRect(currentPageWidth + 25, currentPageHeight + 175, totalPageWidth - 25, currentPageHeight +176, paint);
-            canvas.drawText( String.valueOf(monitorRate), currentPageWidth + currentPositionWidth + differentialWidthRate, currentPageHeight + currentPositionHeight, paint);
+            canvas.drawText(String.valueOf(monitorRate), currentPageWidth + currentPositionWidth + differentialWidthRate, currentPageHeight + currentPositionHeight, paint);
             canvas.drawText(String.valueOf(monitorTax), currentPageWidth + currentPositionWidth + differentialWidthTax, currentPageHeight + currentPositionHeight, paint);
             updateSerialNo(serialReturn);
         }
@@ -617,8 +644,10 @@ public class Activity_bill_to_PDF extends AppCompatActivity {
             caseFansText = case_fans_name.getText().toString();
             caseFansPrice = Integer.parseInt(case_fans_price.getText().toString());
             if (case_fans_description.getText().toString().equals(null)) {
-                case_fans_description.setText(""); } else {
-                case_fansDescription = case_fans_description.getText().toString(); }
+                case_fans_description.setText("");
+            } else {
+                case_fansDescription = case_fans_description.getText().toString();
+            }
             caseFansRate = Float.parseFloat(case_fans_rate.getText().toString());
             case_fansTax = Float.parseFloat(case_fans_tax.getText().toString());
 
@@ -628,7 +657,7 @@ public class Activity_bill_to_PDF extends AppCompatActivity {
             canvas.drawText(case_fansDescription, currentPageWidth + currentPositionWidth + differentialWidthDescription, currentPageHeight + currentPositionHeight, paint);
             canvas.drawText("RS. " + String.valueOf(caseFansPrice), currentPageWidth + currentPositionWidth + differentialWidthPrice, currentPageHeight + currentPositionHeight, paint);
             //canvas.drawRect(currentPageWidth + 25, currentPageHeight + 175, totalPageWidth - 25, currentPageHeight +176, paint);
-            canvas.drawText( String.valueOf(caseFansRate), currentPageWidth + currentPositionWidth + differentialWidthRate, currentPageHeight + currentPositionHeight, paint);
+            canvas.drawText(String.valueOf(caseFansRate), currentPageWidth + currentPositionWidth + differentialWidthRate, currentPageHeight + currentPositionHeight, paint);
             canvas.drawText(String.valueOf(case_fansTax), currentPageWidth + currentPositionWidth + differentialWidthTax, currentPageHeight + currentPositionHeight, paint);
             updateSerialNo(serialReturn);
         }
@@ -637,8 +666,10 @@ public class Activity_bill_to_PDF extends AppCompatActivity {
             cableText = cable_name.getText().toString();
             cablePrice = Integer.parseInt(cable_price.getText().toString());
             if (cable_description.getText().toString().equals(null)) {
-                cable_description.setText(""); } else {
-                cableDescription = cable_description.getText().toString(); }
+                cable_description.setText("");
+            } else {
+                cableDescription = cable_description.getText().toString();
+            }
             cableRate = Float.parseFloat(cable_rate.getText().toString());
             cableTax = Float.parseFloat(cable_tax.getText().toString());
 
@@ -658,8 +689,10 @@ public class Activity_bill_to_PDF extends AppCompatActivity {
             serviceText = service_name.getText().toString();
             servicePrice = Integer.parseInt(service_price.getText().toString());
             if (service_description.getText().toString().equals(null)) {
-                service_description.setText(""); } else {
-                serviceDescription = service_description.getText().toString(); }
+                service_description.setText("");
+            } else {
+                serviceDescription = service_description.getText().toString();
+            }
             serviceRate = Float.parseFloat(service_rate.getText().toString());
             serviceTax = Float.parseFloat(service_tax.getText().toString());
 
@@ -678,8 +711,10 @@ public class Activity_bill_to_PDF extends AppCompatActivity {
             coolerText = cooler_name.getText().toString();
             coolerPrice = Integer.parseInt(cooler_price.getText().toString());
             if (cooler_description.getText().toString().equals(null)) {
-                cooler_description.setText(""); } else {
-                coolerDescription = cooler_description.getText().toString(); }
+                cooler_description.setText("");
+            } else {
+                coolerDescription = cooler_description.getText().toString();
+            }
             coolerRate = Float.parseFloat(cooler_rate.getText().toString());
             coolerTax = Float.parseFloat(cooler_tax.getText().toString());
 
@@ -722,7 +757,6 @@ public class Activity_bill_to_PDF extends AppCompatActivity {
         canvas.drawRect(currentPageWidth + 460, currentPageHeight + 295, currentPageWidth + 462, currentPageHeight + currentPositionHeight, paint);
         canvas.drawRect(currentPageWidth + 510, currentPageHeight + 295, currentPageWidth + 512, currentPageHeight + currentPositionHeight, paint);
         canvas.drawRect(currentPageWidth + 568, currentPageHeight + 295, currentPageWidth + 570, currentPageHeight + currentPositionHeight, paint);
-
 
 
         // end of table
@@ -896,4 +930,9 @@ public class Activity_bill_to_PDF extends AppCompatActivity {
 
         Toast.makeText(this, "tax " + taxAmount, Toast.LENGTH_LONG).show();
     }
+
+    /*public void calculateTax(View view){
+        ProgressDialog progressDialog = new ProgressDialog(this);
+        progressDialog.show();
+    } */
 }
