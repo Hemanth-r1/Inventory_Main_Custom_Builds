@@ -26,7 +26,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
-        android:backgroundTint="#41F1B8"
         android:onClick="printSelectedInvoice"
         android:text="Print"
         app:layout_constraintStart_toStartOf="parent"
@@ -45,7 +44,6 @@
         app:layout_constraintTop_toBottomOf="@+id/oldPrintBtn" />
 
     <Button
-        android:id="@+id/viewBill"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
@@ -68,7 +66,6 @@
         >
 
 <LinearLayout
-    android:id="@+id/constraintLayout"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:orientation="horizontal">

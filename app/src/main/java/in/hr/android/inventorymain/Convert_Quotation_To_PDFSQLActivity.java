@@ -2,6 +2,7 @@ package in.hr.android.inventorymain;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -9,6 +10,7 @@ import android.graphics.Paint;
 import android.graphics.Typeface;
 import android.graphics.pdf.PdfDocument;
 import android.os.Bundle;
+import android.os.Environment;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -655,7 +657,7 @@ public class Convert_Quotation_To_PDFSQLActivity extends AppCompatActivity {
         canvas.drawText(policy6, currentPageWidth + 40, totalPageHeight - 70, paint);
         pdfDocument.finishPage(page);
 
-        File file = new File(this.getExternalFilesDir("/"), billName + "/" + "CustomBuilds.pdf");
+        File file = new File(this.getExternalFilesDir("/Quotes"),  "CustomBuilds.pdf");
         try {
             pdfDocument.writeTo(new FileOutputStream(file));
         } catch (IOException e) {

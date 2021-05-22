@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/linerLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -72,7 +71,6 @@
             android:layout_height="30dp" />
 
         <TextView
-            android:id="@+id/processor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="7"
@@ -147,7 +145,6 @@
             android:layout_height="30dp" />
 
         <TextView
-            android:id="@+id/motherboard"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="7"
@@ -223,7 +220,6 @@
             android:layout_height="30dp" />
 
         <TextView
-            android:id="@+id/ram"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="7"
@@ -298,7 +294,6 @@
             android:layout_height="30dp" />
 
         <TextView
-            android:id="@+id/graphicsCard"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="7"
@@ -373,7 +368,6 @@
             android:layout_height="30dp" />
 
         <TextView
-            android:id="@+id/powerSupply"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="7"
@@ -399,7 +393,6 @@
             android:padding="5dp" />
 
         <EditText
-            android:id="@+id/powerSupplyDescription2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="7"
@@ -449,7 +442,6 @@
             android:layout_height="30dp" />
 
         <TextView
-            android:id="@+id/SSD"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="7"
@@ -524,7 +516,6 @@
             android:layout_height="30dp" />
 
         <TextView
-            android:id="@+id/HDD"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="7"
@@ -601,7 +592,6 @@
             android:layout_height="30dp" />
 
         <TextView
-            android:id="@+id/cooler"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="7"
@@ -627,7 +617,6 @@
             android:padding="5dp" />
 
         <EditText
-            android:id="@+id/coolerDescription2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="7"
@@ -676,7 +665,6 @@
             android:layout_height="30dp" />
 
         <TextView
-            android:id="@+id/cabinet"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="7"
@@ -702,7 +690,6 @@
             android:padding="5dp" />
 
         <EditText
-            android:id="@+id/cabinetDescription2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="7"
@@ -752,7 +739,6 @@
             android:layout_height="30dp" />
 
         <TextView
-            android:id="@+id/headset"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="7"
@@ -778,7 +764,6 @@
             android:padding="5dp" />
 
         <EditText
-            android:id="@+id/headsetDescription2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="7"
@@ -827,7 +812,6 @@
             android:layout_height="30dp" />
 
         <TextView
-            android:id="@+id/caseFans"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="7"
@@ -853,7 +837,6 @@
             android:padding="5dp" />
 
         <EditText
-            android:id="@+id/caseFansDescription2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="7"
@@ -902,7 +885,6 @@
             android:layout_height="30dp" />
 
         <TextView
-            android:id="@+id/keyboard"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="7"
@@ -928,7 +910,6 @@
             android:padding="5dp" />
 
         <EditText
-            android:id="@+id/keyboardDescription2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="7"
@@ -977,7 +958,6 @@
             android:layout_height="30dp" />
 
         <TextView
-            android:id="@+id/mouse"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="7"
@@ -1003,7 +983,6 @@
             android:padding="5dp" />
 
         <EditText
-            android:id="@+id/mouseDescription2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="7"
@@ -1052,7 +1031,6 @@
             android:layout_height="30dp" />
 
         <TextView
-            android:id="@+id/monitor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="7"
@@ -1078,7 +1056,6 @@
             android:padding="5dp" />
 
         <EditText
-            android:id="@+id/monitorDescription2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="7"
@@ -1127,7 +1104,6 @@
             android:layout_height="30dp" />
 
         <TextView
-            android:id="@+id/service"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="7"
@@ -1153,7 +1129,6 @@
             android:padding="5dp" />
 
         <EditText
-            android:id="@+id/serviceDescription2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="7"
@@ -1202,7 +1177,6 @@
             android:layout_height="30dp" />
 
         <TextView
-            android:id="@+id/extras"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="7"
@@ -1228,7 +1202,6 @@
             android:padding="5dp" />
 
         <EditText
-            android:id="@+id/extrasDescription2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="7"
@@ -1271,7 +1244,6 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/verifyButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"

@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">Inventory Main</string>
-    <string name="quote_customer_name">Customer Name</string>
     <string name="quote_mobile_number">Mobile Number</string>
     <string name="quote_text_message">Select the item which you want to add below</string>
     <string name="processor_name">Processor</string>
@@ -23,16 +22,8 @@
     <string name="headset_name">Headset</string>
     <string name="description">Description 1</string>
     <string name="enter_bill_name">Enter Bill Name</string>
-    <string name="title_activity_billing_pdf">Activity_Billing_PDF</string>
     <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">First Fragment</string>
-    <string name="second_fragment_label">Second Fragment</string>
-    <string name="next">Next</string>
-    <string name="previous">Previous</string>
 
-    <string name="hello_first_fragment">Hello first fragment</string>
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
-    <string name="customer_address">Address</string>
     <string name="customer_gst">GST no</string>
     <string name="enter_customer_name">Customer Name</string>
     <string name="tax">Tax</string>
