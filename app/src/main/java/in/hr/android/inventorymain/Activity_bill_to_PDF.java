@@ -120,7 +120,7 @@ public class Activity_bill_to_PDF extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bill_to_pdf);
         callFindViewByID();
-        billHelper = new Bill_to_pdf_helper(this);
+        billHelper = new Bill_to_pdf_helper(Activity_bill_to_PDF.this);
         sqLiteDatabase = billHelper.getWritableDatabase();
     }
 /*
@@ -495,7 +495,7 @@ public class Activity_bill_to_PDF extends AppCompatActivity {
             canvas.drawText(motherboardText, currentPageWidth + currentPositionWidth + differentialWidthText, currentPageHeight + currentPositionHeight, paint);
             canvas.drawText(motherboardDescription, currentPageWidth + currentPositionWidth + differentialWidthDescription, currentPageHeight + currentPositionHeight, paint);
             canvas.drawText(motherboardDescription2, currentPageWidth + currentPositionWidth + differentialWidthDescription, currentPageHeight + currentPositionHeight+10, paint);
-            canvas.drawText("RS. " + String.valueOf(motherboardPrice), currentPageWidth + currentPositionWidth + differentialWidthPrice, currentPageHeight + currentPositionHeight, paint);
+            canvas.drawText("RS. " + motherboardPrice, currentPageWidth + currentPositionWidth + differentialWidthPrice, currentPageHeight + currentPositionHeight, paint);
             canvas.drawText(String.valueOf(motherboardRate), currentPageWidth + currentPositionWidth + differentialWidthRate, currentPageHeight + currentPositionHeight, paint);
             canvas.drawText(String.valueOf(motherboardTax), currentPageWidth + currentPositionWidth + differentialWidthTax, currentPageHeight + currentPositionHeight, paint);
             updateSerialNo(serialReturn);
@@ -585,7 +585,7 @@ public class Activity_bill_to_PDF extends AppCompatActivity {
             canvas.drawText(hddText, currentPageWidth + currentPositionWidth + differentialWidthText, currentPageHeight + currentPositionHeight, paint);
             canvas.drawText(hddDescription, currentPageWidth + currentPositionWidth + differentialWidthDescription, currentPageHeight + currentPositionHeight, paint);
             canvas.drawText(hddDescription2, currentPageWidth + currentPositionWidth + differentialWidthDescription, currentPageHeight + currentPositionHeight+10, paint);
-            canvas.drawText("RS. " + String.valueOf(hddPrice), currentPageWidth + currentPositionWidth + differentialWidthPrice, currentPageHeight + currentPositionHeight, paint);
+            canvas.drawText("RS. " + hddPrice, currentPageWidth + currentPositionWidth + differentialWidthPrice, currentPageHeight + currentPositionHeight, paint);
             //canvas.drawRect(currentPageWidth + 25, currentPageHeight + 175, totalPageWidth - 25, currentPageHeight +176, paint);
             canvas.drawText(String.valueOf(hddRate), currentPageWidth + currentPositionWidth + differentialWidthRate, currentPageHeight + currentPositionHeight, paint);
             canvas.drawText(String.valueOf(hddTax), currentPageWidth + currentPositionWidth + differentialWidthTax, currentPageHeight + currentPositionHeight, paint);
@@ -768,7 +768,7 @@ public class Activity_bill_to_PDF extends AppCompatActivity {
             canvas.drawText(caseFansText, currentPageWidth + currentPositionWidth + differentialWidthText, currentPageHeight + currentPositionHeight, paint);
             canvas.drawText(case_fansDescription, currentPageWidth + currentPositionWidth + differentialWidthDescription, currentPageHeight + currentPositionHeight, paint);
             canvas.drawText(case_fansDescription2, currentPageWidth + currentPositionWidth + differentialWidthDescription, currentPageHeight + currentPositionHeight+10, paint);
-            canvas.drawText("RS. " + String.valueOf(caseFansPrice), currentPageWidth + currentPositionWidth + differentialWidthPrice, currentPageHeight + currentPositionHeight, paint);
+            canvas.drawText("RS. " + caseFansPrice, currentPageWidth + currentPositionWidth + differentialWidthPrice, currentPageHeight + currentPositionHeight, paint);
             //canvas.drawRect(currentPageWidth + 25, currentPageHeight + 175, totalPageWidth - 25, currentPageHeight +176, paint);
             canvas.drawText(String.valueOf(caseFansRate), currentPageWidth + currentPositionWidth + differentialWidthRate, currentPageHeight + currentPositionHeight, paint);
             canvas.drawText(String.valueOf(case_fansTax), currentPageWidth + currentPositionWidth + differentialWidthTax, currentPageHeight + currentPositionHeight, paint);
@@ -891,7 +891,8 @@ public class Activity_bill_to_PDF extends AppCompatActivity {
         //CUSTOMER SIGN AND COMPANY SEAL
         canvas.drawText("CUSTOMER SIGN", currentPageWidth + 40, totalPageHeight - 40, paint);
         canvas.drawText("AUTHORIZED SIGN AND SEAL", totalPageWidth - 180, totalPageHeight - 40, paint);
-
+        
+        billHelper.insertBill(customerBillName, dateFormat.format(date.getTime()), customerMobileNumber, String.valueOf(totalAmount));
 
         pdfDocument.finishPage(page);
       /*  }else {
@@ -920,7 +921,7 @@ public class Activity_bill_to_PDF extends AppCompatActivity {
 
         }
 */
-        billHelper.insertBill(customerBillName, dateFormat.format(date.getTime()), customerMobileNumber, String.valueOf(totalAmount));
+
         //display total value on screen
         //Toast.makeText(Activity_bill_to_PDF.this, "Total Value is : RS.  " + totalAmount, Toast.LENGTH_SHORT).show();
 

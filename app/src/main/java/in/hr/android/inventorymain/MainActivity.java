@@ -45,7 +45,6 @@ public class MainActivity extends AppCompatActivity {
     String timePattern = "hh:mm a";
     SimpleDateFormat timeFormat = new SimpleDateFormat(timePattern);
     ArrayList<DataTableRow> rows = new ArrayList<>();
-    int loop= 100;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,10 +55,9 @@ public class MainActivity extends AppCompatActivity {
         editText = findViewById(R.id.oldPrintEditText);
         dataTable = findViewById(R.id.data_table);
         floatingAddButton = findViewById(R.id.floatingAddQuoteButton);
-        //floatingEditButton = findViewById(R.id.floatingEditButton);
         floatingNewButton = findViewById(R.id.floatingAddBillButton);
 
-        DataTableHeader header = new DataTableHeader.Builder().item("Invoice No", 5)
+        DataTableHeader header = new DataTableHeader.Builder().item("Bill No", 5)
                 .item("Bill Name", 5)
                 .item("Date", 5)
                 .item("Mobile No", 5)
@@ -69,23 +67,9 @@ public class MainActivity extends AppCompatActivity {
         dataTable.setHeader(header);
         dataTable.setRows(rows);
         dataTable.inflate(this);
-
-        for (int i = 0; i < loop; i++) {
-
-            DataTableRow row = new DataTableRow.Builder()
-                  //  .value(String.valueOf(cursor.getInt(0)))
-                  //  .value(cursor.getString(1))
-                  //  .value(dateFormat.format(cursor.getLong(2)))
-                  //  .value(String.valueOf(cursor.getInt(3)))
-                   // .value(String.valueOf(cursor.getInt(4)))
-                    .build();
-            rows.add(row);
-        }
-
 /*
-        String[] column = {"invoiceNo", "billName", "date", "Mobile", "amount"};
-        Cursor cursor = database.query("BillDatabase", column, null, null, null, null, null);
-
+        String[] column = {"billNo", "billName", "date", "mobileNo", "amount"};
+        Cursor cursor = database.query("BillTable", column, null, null, null, null, null);
 
         for (int i = 0; i < cursor.getCount(); i++) {
 
@@ -97,27 +81,28 @@ public class MainActivity extends AppCompatActivity {
                     .value(String.valueOf(cursor.getInt(3)))
                     .value(String.valueOf(cursor.getInt(4)))
                     .build();
-            rows.add(row);
-        }
-*/
-            floatingAddButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Toast.makeText(MainActivity.this, "Price is MANDATORY for selected Item!!!", Toast.LENGTH_LONG).show();
-                    Intent intent = new Intent(MainActivity.this, Convert_Quotation_To_PDFSQLActivity.class);
-                    startActivity(intent);
-                }
-            });
 
-            floatingNewButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Toast.makeText(MainActivity.this, "Price is MANDATORY for selected Item!!!", Toast.LENGTH_LONG).show();
-                    Intent intent = new Intent(MainActivity.this, Activity_bill_to_PDF.class);
-                    startActivity(intent);
-                }
-            });
-        }
+            rows.add(row);
+           // cursor.close();
+        } */
+        floatingAddButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this, "Price is MANDATORY for selected Item!!!", Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(MainActivity.this, Convert_Quotation_To_PDFSQLActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        floatingNewButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this, "Price is MANDATORY for selected Item!!!", Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(MainActivity.this, Activity_bill_to_PDF.class);
+                startActivity(intent);
+            }
+        });
+    }
 
     public void printSelectedInvoice(View view) {
         printButton.setOnClickListener(new View.OnClickListener() {
@@ -235,8 +220,8 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    public void firebase(View view) {
+ /*   public void firebase(View view) {
         Intent intent = new Intent(this, FirebaseDatabaseActivity.class);
         startActivity(intent);
-    }
+    }*/
 }

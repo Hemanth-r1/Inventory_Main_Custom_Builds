@@ -13,8 +13,8 @@
         android:layout_height="wrap_content"
         android:ems="8"
         android:hint="@string/enter_bill_name"
-        android:inputType="textPersonName"
-        android:importantForAutofill="no" />
+        android:importantForAutofill="no"
+        android:inputType="textPersonName" />
 
     <EditText
         android:id="@+id/editTextCustomerNumber"
@@ -30,9 +30,9 @@
         android:id="@+id/textHeading"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/editTextBillName"
         android:layout_marginTop="15dp"
         android:layout_marginBottom="1dp"
-        android:layout_below="@+id/editTextBillName"
         android:text="@string/quote_text_message" />
 
     <ScrollView
@@ -50,7 +50,6 @@
             android:scrollbars="horizontal">
 
             <LinearLayout
-                android:id="@+id/linerLayout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
@@ -58,7 +57,6 @@
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
                     android:orientation="horizontal">
 
                     <CheckBox
@@ -70,39 +68,37 @@
                         android:id="@+id/processor"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:padding="12dp"
-                        android:ems="8"
+                        android:ems="7"
+                        android:padding="5dp"
                         android:text="@string/processor_name" />
 
                     <EditText
                         android:id="@+id/editTextProcessorName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:ems="8"
+                        android:ems="7"
                         android:hint="@string/processor_name"
-                        android:importantForAutofill="no"
                         android:inputType="textMultiLine"
-                        android:padding="12dp" />
-
-                    <EditText
-                        android:id="@+id/editTextProcessorPrice"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:ems="8"
-                        android:hint="@string/price"
-                        android:importantForAutofill="no"
-                        android:inputType="number"
-                        android:padding="12dp" />
+                        android:padding="5dp" />
 
                     <EditText
                         android:id="@+id/processorDescription"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:ems="8"
+                        android:ems="7"
                         android:hint="@string/description"
-                        android:importantForAutofill="no"
                         android:inputType="textMultiLine"
-                        android:padding="12dp" />
+                        android:padding="5dp" />
+
+                    <EditText
+                        android:id="@+id/editTextProcessorPrice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ems="7"
+                        android:hint="@string/price"
+                        android:inputType="number"
+                        android:padding="5dp" />
+
                 </LinearLayout>
 
                 <LinearLayout
@@ -120,8 +116,8 @@
                         android:id="@+id/motherboard"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:padding="10dp"
-                        android:ems="8"
+                        android:ems="7"
+                        android:padding="5dp"
                         android:text="@string/motherboard_name" />
 
 
@@ -129,30 +125,28 @@
                         android:id="@+id/editTextMotherboardName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:ems="8"
+                        android:ems="7"
                         android:hint="@string/motherboard_name"
                         android:inputType="textMultiLine"
-                        android:padding="10dp" />
-
-                    <EditText
-                        android:id="@+id/editTextMotherboardPrice"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:ems="8"
-                        android:hint="@string/price"
-                        android:importantForAccessibility="yes"
-                        android:inputType="number"
-                        android:padding="10dp" />
+                        android:padding="5dp" />
 
                     <EditText
                         android:id="@+id/motherboardDescription"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:ems="8"
+                        android:ems="7"
                         android:hint="@string/description"
-                        android:importantForAutofill="no"
                         android:inputType="textMultiLine"
-                        android:padding="12dp" />
+                        android:padding="5dp" />
+
+                    <EditText
+                        android:id="@+id/editTextMotherboardPrice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ems="7"
+                        android:hint="@string/price"
+                        android:inputType="number"
+                        android:padding="5dp" />
 
                 </LinearLayout>
 
@@ -171,36 +165,37 @@
                         android:id="@+id/ram"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:padding="10dp"
-                        android:ems="8"
+                        android:ems="7"
+                        android:padding="5dp"
                         android:text="@string/ram_name" />
 
                     <EditText
                         android:id="@+id/editTextRamName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:ems="8"
+                        android:ems="7"
                         android:hint="@string/ram_name"
                         android:inputType="textMultiLine"
-                        android:padding="10dp" />
+                        android:padding="5dp" />
+
+                    <EditText
+                        android:id="@+id/ramDescription"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ems="7"
+                        android:hint="@string/description"
+                        android:inputType="textMultiLine"
+                        android:padding="5dp" />
 
                     <EditText
                         android:id="@+id/editTextRamPrice"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:ems="8"
+                        android:ems="7"
                         android:hint="@string/price"
                         android:inputType="number"
-                        android:padding="10dp" />
-                    <EditText
-                        android:id="@+id/ramDescription"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:ems="8"
-                        android:hint="@string/description"
-                        android:importantForAutofill="no"
-                        android:inputType="textMultiLine"
-                        android:padding="12dp" />
+                        android:padding="5dp" />
+
                 </LinearLayout>
 
                 <LinearLayout
@@ -218,36 +213,37 @@
                         android:id="@+id/graphicsCard"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:padding="10dp"
-                        android:ems="8"
+                        android:ems="7"
+                        android:padding="5dp"
                         android:text="@string/graphics_card_name" />
 
                     <EditText
                         android:id="@+id/editTextGraphicsCardName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:ems="8"
+                        android:ems="7"
                         android:hint="@string/graphics_card_name"
                         android:inputType="textMultiLine"
-                        android:padding="10dp" />
+                        android:padding="5dp" />
+
+                    <EditText
+                        android:id="@+id/graphicsCardDescription"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ems="7"
+                        android:hint="@string/description"
+                        android:inputType="textMultiLine"
+                        android:padding="5dp" />
 
                     <EditText
                         android:id="@+id/editTextGraphicsCardPrice"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:ems="8"
+                        android:ems="7"
                         android:hint="@string/price"
                         android:inputType="number"
-                        android:padding="10dp" />
-                    <EditText
-                        android:id="@+id/graphicsCardDescription"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:ems="8"
-                        android:hint="@string/description"
-                        android:importantForAutofill="no"
-                        android:inputType="textMultiLine"
-                        android:padding="12dp" />
+                        android:padding="5dp" />
+
                 </LinearLayout>
 
                 <LinearLayout
@@ -265,38 +261,38 @@
                         android:id="@+id/powerSupply"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:padding="10dp"
-                        android:ems="8"
+                        android:ems="7"
+                        android:padding="5dp"
                         android:text="@string/power_supply_name" />
 
                     <EditText
                         android:id="@+id/editTextPowerSupplyName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:ems="8"
+                        android:ems="7"
                         android:hint="@string/power_supply_name"
                         android:inputType="textMultiLine"
-                        android:padding="10dp" />
+                        android:padding="5dp" />
+
+                    <EditText
+                        android:id="@+id/powerSupplyDescription"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ems="7"
+                        android:hint="@string/description"
+                        android:inputType="textMultiLine"
+                        android:padding="5dp" />
 
                     <EditText
                         android:id="@+id/editTextPowerSupplyPrice"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:ems="8"
+                        android:ems="7"
                         android:hint="@string/price"
                         android:inputType="number"
-                        android:padding="10dp" />
-                    <EditText
-                        android:id="@+id/powerSupplyDescription"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:ems="8"
-                        android:hint="@string/description"
-                        android:importantForAutofill="no"
-                        android:inputType="textMultiLine"
-                        android:padding="12dp" />
-                </LinearLayout>
+                        android:padding="5dp" />
 
+                </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -313,37 +309,36 @@
                         android:id="@+id/SSD"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:padding="10dp"
-                        android:ems="8"
+                        android:ems="7"
+                        android:padding="5dp"
                         android:text="@string/ssd_name" />
 
                     <EditText
                         android:id="@+id/editTextSSDName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:ems="8"
+                        android:ems="7"
                         android:hint="@string/ssd_name"
                         android:inputType="textMultiLine"
-                        android:padding="10dp" />
-
-                    <EditText
-                        android:id="@+id/editTextSSDPrice"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:ems="8"
-                        android:hint="@string/price"
-                        android:inputType="number"
-                        android:padding="10dp" />
+                        android:padding="5dp" />
 
                     <EditText
                         android:id="@+id/SSDDescription"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:ems="8"
+                        android:ems="7"
                         android:hint="@string/description"
-                        android:importantForAutofill="no"
                         android:inputType="textMultiLine"
-                        android:padding="12dp" />
+                        android:padding="5dp" />
+
+                    <EditText
+                        android:id="@+id/editTextSSDPrice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ems="7"
+                        android:hint="@string/price"
+                        android:inputType="number"
+                        android:padding="5dp" />
 
                 </LinearLayout>
 
@@ -362,39 +357,39 @@
                         android:id="@+id/HDD"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:padding="10dp"
-                        android:ems="8"
+                        android:ems="7"
+                        android:padding="5dp"
                         android:text="@string/hdd_name" />
 
                     <EditText
                         android:id="@+id/editTextHDDName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:ems="8"
+                        android:ems="7"
                         android:hint="@string/hdd_name"
                         android:inputType="textMultiLine"
-                        android:padding="10dp" />
+                        android:padding="5dp" />
+
+                    <EditText
+                        android:id="@+id/HDDDescription"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ems="7"
+                        android:hint="@string/description"
+                        android:inputType="textMultiLine"
+                        android:padding="5dp" />
 
                     <EditText
                         android:id="@+id/editTextHDDPrice"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:ems="8"
+                        android:ems="7"
                         android:hint="@string/price"
                         android:inputType="number"
-                        android:padding="10dp" />
-                    <EditText
-                        android:id="@+id/HDDDescription"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:ems="8"
-                        android:hint="@string/description"
-                        android:importantForAutofill="no"
-                        android:inputType="textMultiLine"
-                        android:padding="12dp" />
+                        android:padding="5dp" />
+
 
                 </LinearLayout>
-
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -411,43 +406,43 @@
                         android:id="@+id/cooler"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:padding="10dp"
-                        android:ems="8"
+                        android:ems="7"
+                        android:padding="5dp"
                         android:text="@string/cooler_name" />
 
                     <EditText
                         android:id="@+id/editTextCoolerName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:ems="8"
+                        android:ems="7"
                         android:hint="@string/cooler_name"
                         android:inputType="textMultiLine"
-                        android:padding="10dp" />
-
-                    <EditText
-                        android:id="@+id/editTextCoolerPrice"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:ems="8"
-                        android:hint="@string/price"
-                        android:inputType="number"
-                        android:padding="10dp" />
+                        android:padding="5dp" />
 
                     <EditText
                         android:id="@+id/coolerDescription"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:ems="8"
+                        android:ems="7"
                         android:hint="@string/description"
-                        android:importantForAutofill="no"
                         android:inputType="textMultiLine"
-                        android:padding="12dp" />
+                        android:padding="5dp" />
+
+                    <EditText
+                        android:id="@+id/editTextCoolerPrice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ems="7"
+                        android:hint="@string/price"
+                        android:inputType="number"
+                        android:padding="5dp" />
+
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
+                    android:layout_marginTop="10dp"
                     android:orientation="horizontal">
 
                     <CheckBox
@@ -459,44 +454,44 @@
                         android:id="@+id/cabinet"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:padding="12dp"
-                        android:ems="8"
+                        android:ems="7"
+                        android:padding="5dp"
                         android:text="@string/cabinet_name" />
 
                     <EditText
                         android:id="@+id/editTextCabinetName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:ems="8"
+                        android:ems="7"
                         android:hint="@string/cabinet_name"
                         android:inputType="textMultiLine"
-                        android:padding="10dp" />
+                        android:padding="5dp" />
+
+                    <EditText
+                        android:id="@+id/cabinetDescription"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ems="7"
+                        android:hint="@string/description"
+                        android:inputType="textMultiLine"
+                        android:padding="5dp" />
 
                     <EditText
                         android:id="@+id/editTextCabinetPrice"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:ems="8"
+                        android:ems="7"
                         android:hint="@string/price"
                         android:inputType="number"
-                        android:padding="10dp" />
-                    <EditText
-                        android:id="@+id/cabinetDescription"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:ems="8"
-                        android:hint="@string/description"
-                        android:importantForAutofill="no"
-                        android:inputType="textMultiLine"
-                        android:padding="12dp" />
+                        android:padding="5dp" />
 
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
-                    android:layout_marginBottom="5dp"
+                    android:layout_marginTop="10dp"
+
                     android:orientation="horizontal">
 
                     <CheckBox
@@ -508,43 +503,43 @@
                         android:id="@+id/headset"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:padding="12dp"
-                        android:ems="8"
+                        android:ems="7"
+                        android:padding="5dp"
                         android:text="@string/headset_name" />
 
                     <EditText
                         android:id="@+id/editTextHeadsetName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:ems="8"
+                        android:ems="7"
                         android:hint="@string/headset_name"
                         android:inputType="textMultiLine"
-                        android:padding="10dp" />
+                        android:padding="5dp" />
+
+                    <EditText
+                        android:id="@+id/headsetDescription"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ems="7"
+                        android:hint="@string/description"
+                        android:inputType="textMultiLine"
+                        android:padding="5dp" />
 
                     <EditText
                         android:id="@+id/editTextHeadsetPrice"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:ems="8"
+                        android:ems="7"
                         android:hint="@string/price"
                         android:inputType="number"
-                        android:padding="10dp" />
-                    <EditText
-                        android:id="@+id/headsetDescription"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:ems="8"
-                        android:hint="@string/description"
-                        android:importantForAutofill="no"
-                        android:inputType="textMultiLine"
-                        android:padding="12dp" />
+                        android:padding="5dp" />
 
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
+                    android:layout_marginTop="10dp"
                     android:orientation="horizontal">
 
                     <CheckBox
@@ -556,43 +551,43 @@
                         android:id="@+id/caseFans"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:padding="12dp"
-                        android:ems="8"
+                        android:ems="7"
+                        android:padding="5dp"
                         android:text="@string/case_fans_name" />
 
                     <EditText
                         android:id="@+id/editTextCaseFansName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:ems="8"
+                        android:ems="7"
                         android:hint="@string/case_fans_name"
                         android:inputType="textMultiLine"
-                        android:padding="10dp" />
+                        android:padding="5dp" />
+
+                    <EditText
+                        android:id="@+id/caseFansDescription"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ems="7"
+                        android:hint="@string/description"
+                        android:inputType="textMultiLine"
+                        android:padding="5dp" />
 
                     <EditText
                         android:id="@+id/editTextCaseFansPrice"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:ems="8"
+                        android:ems="7"
                         android:hint="@string/price"
                         android:inputType="number"
-                        android:padding="10dp" />
-                    <EditText
-                        android:id="@+id/caseFansDescription"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:ems="8"
-                        android:hint="@string/description"
-                        android:importantForAutofill="no"
-                        android:inputType="textMultiLine"
-                        android:padding="12dp" />
+                        android:padding="5dp" />
 
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
+                    android:layout_marginTop="10dp"
                     android:orientation="horizontal">
 
                     <CheckBox
@@ -604,43 +599,43 @@
                         android:id="@+id/keyboard"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:padding="12dp"
-                        android:ems="8"
+                        android:ems="7"
+                        android:padding="5dp"
                         android:text="@string/keyboard_name" />
 
                     <EditText
                         android:id="@+id/editTextKeyboardName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:ems="8"
+                        android:ems="7"
                         android:hint="@string/keyboard_name"
                         android:inputType="textMultiLine"
-                        android:padding="10dp" />
+                        android:padding="5dp" />
+
+                    <EditText
+                        android:id="@+id/keyboardDescription"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ems="7"
+                        android:hint="@string/description"
+                        android:inputType="textMultiLine"
+                        android:padding="5dp" />
 
                     <EditText
                         android:id="@+id/editTextKeyboardPrice"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:ems="8"
+                        android:ems="7"
                         android:hint="@string/price"
                         android:inputType="number"
-                        android:padding="10dp" />
-                    <EditText
-                        android:id="@+id/keyboardDescription"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:ems="8"
-                        android:hint="@string/description"
-                        android:importantForAutofill="no"
-                        android:inputType="textMultiLine"
-                        android:padding="12dp" />
+                        android:padding="5dp" />
 
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
+                    android:layout_marginTop="10dp"
                     android:orientation="horizontal">
 
                     <CheckBox
@@ -652,43 +647,43 @@
                         android:id="@+id/mouse"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:padding="12dp"
-                        android:ems="8"
+                        android:ems="7"
+                        android:padding="5dp"
                         android:text="@string/mouse_name" />
 
                     <EditText
                         android:id="@+id/editTextMouseName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:ems="8"
+                        android:ems="7"
                         android:hint="@string/mouse_name"
                         android:inputType="textMultiLine"
-                        android:padding="10dp" />
+                        android:padding="5dp" />
+
+                    <EditText
+                        android:id="@+id/mouseDescription"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ems="7"
+                        android:hint="@string/description"
+                        android:inputType="textMultiLine"
+                        android:padding="5dp" />
 
                     <EditText
                         android:id="@+id/editTextMousePrice"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:ems="8"
+                        android:ems="7"
                         android:hint="@string/price"
                         android:inputType="number"
-                        android:padding="10dp" />
-                    <EditText
-                        android:id="@+id/mouseDescription"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:ems="8"
-                        android:hint="@string/description"
-                        android:importantForAutofill="no"
-                        android:inputType="textMultiLine"
-                        android:padding="12dp" />
+                        android:padding="5dp" />
 
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
+                    android:layout_marginTop="10dp"
                     android:orientation="horizontal">
 
                     <CheckBox
@@ -700,42 +695,44 @@
                         android:id="@+id/monitor"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:padding="12dp"
-                        android:ems="8"
+                        android:ems="7"
+                        android:padding="5dp"
                         android:text="@string/monitor_name" />
 
                     <EditText
                         android:id="@+id/editTextMonitorName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:ems="8"
+                        android:ems="7"
                         android:hint="@string/monitor_name"
                         android:inputType="textMultiLine"
-                        android:padding="10dp" />
+                        android:padding="5dp" />
+
+                    <EditText
+                        android:id="@+id/monitorDescription"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ems="7"
+                        android:hint="@string/description"
+                        android:inputType="textMultiLine"
+                        android:padding="5dp" />
+
 
                     <EditText
                         android:id="@+id/editTextMonitorPrice"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:ems="8"
+                        android:ems="7"
                         android:hint="@string/price"
                         android:inputType="number"
-                        android:padding="10dp" />
-                    <EditText
-                        android:id="@+id/monitorDescription"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:ems="8"
-                        android:hint="@string/description"
-                        android:inputType="textMultiLine"
-                        android:padding="12dp" />
+                        android:padding="5dp" />
 
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
+                    android:layout_marginTop="10dp"
                     android:orientation="horizontal">
 
                     <CheckBox
@@ -745,47 +742,45 @@
 
                     <TextView
                         android:id="@+id/service"
-                        android:layout_width="100sp"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:padding="12dp"
-                        android:ems="8"
+                        android:ems="7"
+                        android:padding="5dp"
                         android:text="@string/service_name" />
 
                     <EditText
                         android:id="@+id/editTextServiceName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:ems="8"
-                        android:layout_marginStart="32dp"
+                        android:ems="7"
+                        android:hint="@string/service_name_text"
                         android:inputType="textMultiLine"
-                        android:padding="10dp"
-                        android:hint="@string/service_name" />
+                        android:padding="5dp" />
+
+                    <EditText
+                        android:id="@+id/serviceDescription"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ems="7"
+                        android:hint="@string/description"
+                        android:inputType="textMultiLine"
+                        android:padding="5dp" />
 
                     <EditText
                         android:id="@+id/editTextServicePrice"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:ems="8"
+                        android:ems="7"
                         android:hint="@string/price"
                         android:inputType="number"
-                        android:padding="10dp" />
-                    <EditText
-                        android:id="@+id/serviceDescription"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:ems="8"
-                        android:hint="@string/description"
-                        android:importantForAutofill="no"
-                        android:inputType="textMultiLine"
-                        android:padding="12dp" />
+                        android:padding="5dp" />
 
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
-                    android:layout_marginBottom="5dp"
+                    android:layout_marginTop="10dp"
                     android:orientation="horizontal">
 
                     <CheckBox
@@ -797,37 +792,36 @@
                         android:id="@+id/extras"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:padding="12dp"
-                        android:ems="8"
+                        android:ems="7"
+                        android:padding="5dp"
                         android:text="@string/extras_name" />
 
                     <EditText
                         android:id="@+id/editTextExtrasName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:ems="8"
+                        android:ems="7"
                         android:hint="@string/extras_name"
                         android:inputType="textMultiLine"
-                        android:padding="10dp" />
-
-                    <EditText
-                        android:id="@+id/editTextExtrasPrice"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:ems="8"
-                        android:hint="@string/price"
-                        android:inputType="number"
-                        android:padding="10dp" />
+                        android:padding="5dp" />
 
                     <EditText
                         android:id="@+id/extrasDescription"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:ems="8"
+                        android:ems="7"
                         android:hint="@string/description"
-                        android:importantForAutofill="no"
                         android:inputType="textMultiLine"
-                        android:padding="12dp" />
+                        android:padding="5dp" />
+
+                    <EditText
+                        android:id="@+id/editTextExtrasPrice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ems="7"
+                        android:hint="@string/price"
+                        android:inputType="number"
+                        android:padding="5dp" />
 
                 </LinearLayout>
 
@@ -840,23 +834,12 @@
                         android:id="@+id/btnSaveAndPrint"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
                         android:layout_marginTop="10dp"
                         android:onClick="saveAndPrint"
                         android:text="Save and Print" />
 
-                    <!--
-                    <Button
-                        android:id="@+id/btnPrint"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:onClick="printOld"
-                        android:layout_marginStart="20dp"
-                        android:text="Print old" />
-
--->
                 </LinearLayout>
-
             </LinearLayout>
 
         </HorizontalScrollView>

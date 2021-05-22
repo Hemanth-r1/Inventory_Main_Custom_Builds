@@ -104,10 +104,12 @@ public class Convert_Quotation_To_PDFSQLActivity extends AppCompatActivity {
         setContentView(R.layout.activity_convert_quotation_to_pdfsql);
         callFindViewByID();
 
-       // convertQuotationToPdfHelperSql = new Convert_Quotation_To_PDF_Helper_SQL(this);
-       // sqLiteDatabase = convertQuotationToPdfHelperSql.getWritableDatabase();
+       convertQuotationToPdfHelperSql = new Convert_Quotation_To_PDF_Helper_SQL(this);
+        sqLiteDatabase = convertQuotationToPdfHelperSql.getWritableDatabase();
     }
-
+    private int updateSerialNo(int serialNo) {
+        return serialReturn = serialNo + 1;
+    }
     private void callFindViewByID() {
 
         customerBillName = findViewById(R.id.editTextBillName);
@@ -217,10 +219,10 @@ public class Convert_Quotation_To_PDFSQLActivity extends AppCompatActivity {
         billName = customerBillName.getText().toString();
         numberText = customerMobileNumber.getText().toString();
 
-        // data to be retrieved
-        //String[] column = {"quoteNo","date", "numberText" , "processorText","processorPrice", "processorDescription",  "motherboardText", "motherboardPrice", "motherboardDescription","ramText", "ramPrice", "ramDescription", "graphicsCardText", "graphicsCardPrice","graphics_cardDescription" , "ssdText", "ssdPrice", "ssdDescription", "amount" };
+        //data to be retrieved
+        //String[] column = {"quoteNo","date", "numberText" , "amount" };
 
-       // Cursor cursor = sqLiteDatabase.query("QuoteTABLEMain", column, null, null, null, null, null);
+       // Cursor cursor = sqLiteDatabase.query("QuoteTable", column, null, null, null, null, null);
         //cursor.move(cursor.getCount());
 
             /*
@@ -358,7 +360,6 @@ public class Convert_Quotation_To_PDFSQLActivity extends AppCompatActivity {
             //canvas.drawRect(currentPageWidth + 25, currentPageHeight + 175, totalPageWidth - 25, currentPageHeight +176, paint);
             updateSerialNo(serialReturn);
         }
-
         if (ram.isChecked()) {
             currentPositionHeight = currentPositionHeight + 20;
             ramText = ram_name.getText().toString();
@@ -602,6 +603,9 @@ public class Convert_Quotation_To_PDFSQLActivity extends AppCompatActivity {
                 + hddPrice + powerSupplyPrice + coolerPrice + cabinetPrice + coolerPrice
                 + servicePrice + caseFansPrice + keyboardPrice + mousePrice + headsetPrice;
 
+        //TODO: INSERT TO DATABASE
+        convertQuotationToPdfHelperSql.insertQuote(String.valueOf(dateFormat.format(date.getTime())), Integer.parseInt(numberText),totalAmount);
+
         paint.setColor(Color.rgb(150, 150, 150));
         currentPositionHeight = currentPositionHeight + 20;
         canvas.drawRect(currentPageWidth + 25, currentPageHeight + currentPositionHeight - 2, totalPageWidth - 25, currentPageHeight + currentPositionHeight, paint);
@@ -627,12 +631,6 @@ public class Convert_Quotation_To_PDFSQLActivity extends AppCompatActivity {
 
         // end of table
         canvas.drawRect(currentPageWidth + 25, currentPageHeight + currentPositionHeight, totalPageWidth - 25, currentPageHeight + currentPositionHeight + 2, paint);
-/*
-        //TODO: INSERT TO DATABASE
-        convertQuotationToPdfHelperSql.insertMain(dateFormat.format(date.getTime()), numberText, processorText, processorPrice, processorDescription,
-                motherboardText, motherboardPrice, motherboardDescription, ramText, ramPrice, ramDescription, graphicsCardText, graphicsCardPrice, graphics_cardDescription,
-                ssdText, ssdPrice,ssdDescription,totalAmount);
-*/
 
         paint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.NORMAL));
         paint.setColor(Color.BLACK);
@@ -669,11 +667,4 @@ public class Convert_Quotation_To_PDFSQLActivity extends AppCompatActivity {
         Toast.makeText(Convert_Quotation_To_PDFSQLActivity.this, "Successfully converted to PDF", Toast.LENGTH_LONG).show();
 
     }
-
-    private int updateSerialNo(int serialNo) {
-        return serialReturn = serialNo + 1;
-    }
-
-   // public void printOld(View view) {}
-
 }
