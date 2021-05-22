@@ -4,19 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.Paint;
-import android.graphics.Typeface;
-import android.graphics.pdf.PdfDocument;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -33,17 +25,21 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 public class MainActivity extends AppCompatActivity {
 
     FloatingActionButton floatingAddButton, floatingNewButton;
-    Convert_Quotation_To_PDF_Helper_SQL helperSQL;
+    Convert_Quotation_To_PDF_Helper_SQL helperQuote;
+    Bill_to_pdf_helper helperBill;
     Button printButton;
     EditText editText;
-    DataTable dataTable;
-    SQLiteDatabase database;
+    DataTable dataTableQuote, dataTableBill;
+    SQLiteDatabase databaseQuote, databaseBill;
+
     Date date = new Date();
     String datePattern = "dd-MM-YYYY";
     SimpleDateFormat dateFormat = new SimpleDateFormat(datePattern);
     String timePattern = "hh:mm a";
     SimpleDateFormat timeFormat = new SimpleDateFormat(timePattern);
 
+    ArrayList<DataTableRow> rowsQuote = new ArrayList<>();
+    ArrayList<DataTableRow> rowsBill = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,22 +48,37 @@ public class MainActivity extends AppCompatActivity {
 
         printButton = findViewById(R.id.oldPrintBtn);
         editText = findViewById(R.id.oldPrintEditText);
-        dataTable = findViewById(R.id.data_table);
+
+        dataTableQuote = findViewById(R.id.data_table);
+        dataTableBill = findViewById(R.id.data_table2);
+
         floatingAddButton = findViewById(R.id.floatingAddQuoteButton);
         floatingNewButton = findViewById(R.id.floatingAddBillButton);
 
-        helperSQL = new Convert_Quotation_To_PDF_Helper_SQL(this);
-        database = helperSQL.getWritableDatabase();
+        helperQuote = new Convert_Quotation_To_PDF_Helper_SQL(this);
+        databaseQuote = helperQuote.getReadableDatabase();
 
-        DataTableHeader header = new DataTableHeader.Builder().item("Invoice No", 5)
-                .item("Customer Name", 5)
+        helperBill = new Bill_to_pdf_helper(this);
+        databaseBill = helperBill.getReadableDatabase();
+
+        DataTableHeader header = new DataTableHeader.Builder()
+                .item("Invoice No", 5)
                 .item("Date", 5)
-                .item("mobileNo", 5)
-                .item("amount", 5)
+                .item("Time", 5)
+                .item("Mobile No", 5)
+                .item("Amount", 5)
                 .build();
 
-        ArrayList<DataTableRow> rows = new ArrayList<>();
-        String[] column = {"quoteNo", "date", "mobileNo", "amount"};
+        DataTableHeader header2 = new DataTableHeader.Builder()
+                .item("Invoice No", 5)
+                .item("Bill Name", 5)
+                .item("Date", 5)
+                .item("Time", 5)
+                .item("Mobile No", 5)
+                .item("Amount", 5)
+                .build();
+/*
+        String[] column = {"quoteNo", "date", "time", "mobileNo", "amount"};
         Cursor cursor = database.query("QuoteTable", column, null, null, null, null, null);
 
         for (int i = 0; i < cursor.getCount(); i++) {
@@ -75,17 +86,21 @@ public class MainActivity extends AppCompatActivity {
             cursor.moveToNext();
             DataTableRow row = new DataTableRow.Builder()
                     .value(String.valueOf(cursor.getInt(0)))
-                   // .value(cursor.getString(1))
+                    // .value(cursor.getString(1))
                     .value(dateFormat.format(cursor.getLong(1)))
+                    .value(timeFormat.format(cursor.getLong(2)))
                     .value(String.valueOf(cursor.getInt(3)))
                     .value(String.valueOf(cursor.getInt(4)))
                     .build();
             rows.add(row);
         }
 
-        dataTable.setHeader(header);
+
         dataTable.setRows(rows);
         dataTable.inflate(this);
+*/
+        dataTableQuote.setHeader(header);
+        dataTableBill.setHeader(header2);
 
         floatingAddButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -108,8 +123,10 @@ public class MainActivity extends AppCompatActivity {
 
     public void printSelectedInvoice(View view) {
 
-        PdfDocument pdfDocument = null;
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.KITKAT) {
+        Toast.makeText(this, "Currently NOT Available", Toast.LENGTH_SHORT).show();
+
+        if (dataTableQuote.getVisibility() == View.VISIBLE) {
+           /* PdfDocument pdfDocument = null;
             pdfDocument = new PdfDocument();
 
             Paint paint = new Paint();
@@ -129,7 +146,7 @@ public class MainActivity extends AppCompatActivity {
 
             //second text
             paint.setTextSize(30);
-            canvas.drawText("#21, Rajeev Gandji Nagar, Nandini Layout, bengaluru 96", 30, 120, paint);
+            canvas.drawText("#21, Rajeev Gandhi Nagar, Nandini Layout, bengaluru 96", 30, 120, paint);
 
             //
             paint.setTextAlign(Paint.Align.RIGHT);
@@ -215,6 +232,59 @@ public class MainActivity extends AppCompatActivity {
                 e.printStackTrace();
             }
             pdfDocument.close();
+
+            */
+        } else {
         }
+    }
+
+    public void changeToBill(View view) {
+        dataTableBill.setVisibility(View.VISIBLE);
+        dataTableQuote.setVisibility(View.INVISIBLE);
+
+        String[] column2 = {"billNo", "billName", "date", "time", "mobileNo", "amount"};
+        Cursor cursor2 = databaseBill.query("BillTable", column2, null, null, null, null, null);
+
+        for (int i = 0; i < cursor2.getCount(); i++) {
+            cursor2.moveToNext();
+            DataTableRow row2 = new DataTableRow.Builder()
+                    .value(String.valueOf(cursor2.getInt(0)))
+                    .value(cursor2.getString(1))
+                    .value(cursor2.getString(2))
+                    .value(String.valueOf(cursor2.getInt(3)))
+                    .value(String.valueOf(cursor2.getInt(4)))
+                    .build();
+            rowsBill.add(row2);
+
+            dataTableBill.setRows(rowsBill);
+            dataTableBill.inflate(this);
+        }
+        cursor2.close();
+    }
+
+    public void changeToQuote(View view) {
+        dataTableQuote.setVisibility(View.VISIBLE);
+        dataTableBill.setVisibility(View.INVISIBLE);
+
+        String[] column = {"quoteNo", "date", "time", "mobileNo", "amount"};
+        Cursor cursor = databaseQuote.query("QuoteTable", column, null, null, null, null, null);
+
+        for (int i = 0; i < cursor.getCount(); i++) {
+
+            cursor.moveToNext();
+            DataTableRow row = new DataTableRow.Builder()
+                    .value(String.valueOf(cursor.getInt(0)))
+                    .value(cursor.getString(1))
+                    .value(cursor.getString(2))
+                    .value(String.valueOf(cursor.getInt(3)))
+                    .value(String.valueOf(cursor.getInt(4)))
+                    .build();
+            rowsQuote.add(row);
+
+            dataTableQuote.setRows(rowsQuote);
+            dataTableQuote.inflate(this);
+        }
+        cursor.close();
+
     }
 }

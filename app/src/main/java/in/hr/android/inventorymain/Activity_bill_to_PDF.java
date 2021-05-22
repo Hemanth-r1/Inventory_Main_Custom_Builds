@@ -892,7 +892,7 @@ public class Activity_bill_to_PDF extends AppCompatActivity {
         canvas.drawText("CUSTOMER SIGN", currentPageWidth + 40, totalPageHeight - 40, paint);
         canvas.drawText("AUTHORIZED SIGN AND SEAL", totalPageWidth - 180, totalPageHeight - 40, paint);
         
-        billHelper.insertBill(customerBillName, dateFormat.format(date.getTime()), customerMobileNumber, String.valueOf(totalAmount));
+        billHelper.insertBill(customerBillName, dateFormat.format(date.getTime()),timeFormat.format(date.getTime()) ,customerMobileNumber, String.valueOf(totalAmount));
 
         pdfDocument.finishPage(page);
       /*  }else {

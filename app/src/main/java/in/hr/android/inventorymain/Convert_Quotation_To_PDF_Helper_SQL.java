@@ -20,22 +20,10 @@ public class Convert_Quotation_To_PDF_Helper_SQL extends SQLiteOpenHelper {
             case_fansDescription, keyboardDescription,
             mouseDescription, monitorDescription, serviceDescription, cableDescription, headsetDescription;
 
-    int processorPrice = 0;
-    int motherboardPrice = 0;
-    int ramPrice = 0;
-    int graphicsCardPrice = 0;
-    int ssdPrice = 0;
-    int hddPrice = 0;
-    int powerSupplyPrice = 0;
-    int headsetPrice = 0;
-    int keyboardPrice = 0;
-    int mousePrice = 0;
-    int cabinetPrice = 0;
-    int monitorPrice = 0;
-    int caseFansPrice = 0;
-    int cablePrice = 0;
-    int servicePrice = 0;
-    int coolerPrice = 0;
+    int processorPrice = 0, motherboardPrice = 0, ramPrice = 0, graphicsCardPrice = 0,
+            ssdPrice = 0,hddPrice = 0, powerSupplyPrice = 0, headsetPrice = 0,
+            keyboardPrice = 0,mousePrice = 0, cabinetPrice = 0,monitorPrice = 0, caseFansPrice = 0,
+            cablePrice = 0,servicePrice = 0,coolerPrice = 0;
 
     public Convert_Quotation_To_PDF_Helper_SQL( Context context) {
         super(context, "QuoteDatabase", null, 1);
@@ -44,7 +32,7 @@ public class Convert_Quotation_To_PDF_Helper_SQL extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
 
-        String createQuote = "CREATE TABLE QuoteTable(quoteNo INTEGER PRIMARY KEY AUTOINCREMENT,date TEXT, mobileNo INTEGER, amount INTEGER);";
+        String createQuote = "CREATE TABLE QuoteTable(quoteNo INTEGER PRIMARY KEY AUTOINCREMENT,date TEXT,time TEXT, mobileNo INTEGER, amount INTEGER);";
         db.execSQL(createQuote);
 /*
         // with open helper step 2
@@ -60,11 +48,12 @@ public class Convert_Quotation_To_PDF_Helper_SQL extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
     }
 
-    public void insertQuote(String date, int mobileNo, int amount){
+    public void insertQuote(String date,String time, int mobileNo, int amount){
 
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put("date", date);
+        contentValues.put("time", time);
         contentValues.put("mobileNo",mobileNo);
         contentValues.put("amount",amount);
 

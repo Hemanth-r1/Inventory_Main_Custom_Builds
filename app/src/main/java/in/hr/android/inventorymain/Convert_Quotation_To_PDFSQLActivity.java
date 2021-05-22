@@ -46,30 +46,30 @@ public class Convert_Quotation_To_PDFSQLActivity extends AppCompatActivity {
 
     EditText processor_name, motherboard_name, ram_name, graphics_card_name, power_supply_name,
             ssd_name, hdd_name, cooler_name, cabinet_name, case_fans_name, keyboard_name,
-            mouse_name, monitor_name, service_name, cable_name, headset_name;
+            mouse_name, monitor_name, service_name, extras_name, headset_name;
 
     EditText processor_price, motherboard_price, ram_price, graphics_card_price, power_supply_price,
             ssd_price, hdd_price, cooler_price, cabinet_price, case_fans_price, keyboard_price,
-            mouse_price, monitor_price, service_price, cable_price, headset_price;
+            mouse_price, monitor_price, service_price, extras_price, headset_price;
 
     CheckBox processor, motherboard, ram, graphics_card, power_supply, ssd, hdd, cooler, cabinet,
-            case_fans, keyboard, mouse, monitor, service, cable, headset;
+            case_fans, keyboard, mouse, monitor, service, extras, headset;
 
     EditText processor_description, motherboard_description, ram_description, graphics_card_description,
             power_supply_description, ssd_description, hdd_description, cooler_description, cabinet_description,
             case_fans_description, keyboard_description,
-            mouse_description, monitor_description, service_description, cable_description, headset_description;
+            mouse_description, monitor_description, service_description, extras_description, headset_description;
 
     Button saveAndPrint, printOld;
 
     String processorText, motherboardText, ramText, graphicsCardText,
             ssdText, hddText, powerSupplyText, headsetText, keyboardText,
-            mouseText, cabinetText, monitorText, caseFansText, cableText, serviceText, coolerText;
+            mouseText, cabinetText, monitorText, caseFansText, extrasText, serviceText, coolerText;
 
     String processorDescription, motherboardDescription, ramDescription, graphics_cardDescription,
             power_supplyDescription, ssdDescription, hddDescription, coolerDescription, cabinetDescription,
             case_fansDescription, keyboardDescription,
-            mouseDescription, monitorDescription, serviceDescription, cableDescription, headsetDescription;
+            mouseDescription, monitorDescription, serviceDescription, extrasDescription, headsetDescription;
 
     int processorPrice = 0;
     int motherboardPrice = 0;
@@ -84,7 +84,7 @@ public class Convert_Quotation_To_PDFSQLActivity extends AppCompatActivity {
     int cabinetPrice = 0;
     int monitorPrice = 0;
     int caseFansPrice = 0;
-    int cablePrice = 0;
+    int extrasPrice = 0;
     int servicePrice = 0;
     int coolerPrice = 0;
 
@@ -104,12 +104,14 @@ public class Convert_Quotation_To_PDFSQLActivity extends AppCompatActivity {
         setContentView(R.layout.activity_convert_quotation_to_pdfsql);
         callFindViewByID();
 
-       convertQuotationToPdfHelperSql = new Convert_Quotation_To_PDF_Helper_SQL(this);
+        convertQuotationToPdfHelperSql = new Convert_Quotation_To_PDF_Helper_SQL(this);
         sqLiteDatabase = convertQuotationToPdfHelperSql.getWritableDatabase();
     }
+
     private int updateSerialNo(int serialNo) {
         return serialReturn = serialNo + 1;
     }
+
     private void callFindViewByID() {
 
         customerBillName = findViewById(R.id.editTextBillName);
@@ -183,10 +185,10 @@ public class Convert_Quotation_To_PDFSQLActivity extends AppCompatActivity {
         monitor_price = findViewById(R.id.editTextMonitorPrice);
         monitor_description = findViewById(R.id.monitorDescription);
 
-        cable = findViewById(R.id.checkBoxExtras);
-        cable_name = findViewById(R.id.editTextExtrasName);
-        cable_price = findViewById(R.id.editTextExtrasPrice);
-        cable_description = findViewById(R.id.extrasDescription);
+        extras = findViewById(R.id.checkBoxExtras);
+        extras_name = findViewById(R.id.editTextExtrasName);
+        extras_price = findViewById(R.id.editTextExtrasPrice);
+        extras_description = findViewById(R.id.extrasDescription);
 
         headset = findViewById(R.id.checkBoxHeadSet);
         headset_name = findViewById(R.id.editTextHeadsetName);
@@ -210,9 +212,6 @@ public class Convert_Quotation_To_PDFSQLActivity extends AppCompatActivity {
         int currentPageWidth = 0;
         int currentPageHeight = 0;
 
-        int currentPositionWidth = 45;// for serial number width is +45
-        int currentPositionHeight = 185;
-
         PdfDocument pdfDocument = new PdfDocument();
         Paint paint = new Paint();
 
@@ -222,7 +221,7 @@ public class Convert_Quotation_To_PDFSQLActivity extends AppCompatActivity {
         //data to be retrieved
         //String[] column = {"quoteNo","date", "numberText" , "amount" };
 
-       // Cursor cursor = sqLiteDatabase.query("QuoteTable", column, null, null, null, null, null);
+        // Cursor cursor = sqLiteDatabase.query("QuoteTable", column, null, null, null, null, null);
         //cursor.move(cursor.getCount());
 
             /*
@@ -316,75 +315,73 @@ public class Convert_Quotation_To_PDFSQLActivity extends AppCompatActivity {
         int differentialWidthTextView = 40;
         int differentialWidthText = 130;
         int differentialWidthDescription = 220;
-        int differentialWidthPrice = 470;
+        int differentialWidthPrice = totalPageWidth - 90;
+        int currentPositionWidth = 45;// for serial number width is +45
+        int currentPositionHeight = 185;
+        int tableRowHeight = 22;
 
         if (processor.isChecked()) {
-            if (processor_name.getText().toString().equals(null)) {
-                processor_name.setText("");
-            }
-            processorText = processor_name.getText().toString();
-            processorPrice = Integer.parseInt(processor_price.getText().toString());
-
-            if (processor_description.getText().toString().equals(null)) {
+           /* if (processor_name.getText().toString().equals(null)) {
+                processor_name.setText("");}
+                   if (processor_description.getText().toString().equals(null)) {
                 processor_description.setText("");
             }
+            */
+            processorText = processor_name.getText().toString();
             processorDescription = processor_description.getText().toString();
 
+            if (processor_price.getText().toString().isEmpty()) {
+
+            } else {
+                processorPrice = Integer.parseInt(processor_price.getText().toString());
+            }
             canvas.drawText(String.valueOf(serialNo), currentPageWidth + currentPositionWidth, currentPageHeight + currentPositionHeight, paint);
             canvas.drawText("Processor", currentPageWidth + currentPositionWidth + differentialWidthTextView, currentPageHeight + currentPositionHeight, paint);
             canvas.drawText(processorText, currentPageWidth + currentPositionWidth + differentialWidthText, currentPageHeight + currentPositionHeight, paint);
             canvas.drawText(processorDescription, currentPageWidth + currentPositionWidth + differentialWidthDescription, currentPageHeight + currentPositionHeight, paint);
-            canvas.drawText("RS.  " + String.valueOf(processorPrice), currentPageWidth + currentPositionWidth + differentialWidthPrice, currentPageHeight + currentPositionHeight, paint);
-            // canvas.drawRect(currentPageWidth + 25, currentPageHeight + 155, totalPageWidth - 25, currentPageHeight +156, paint);
+            canvas.drawText("RS.  " + processorPrice, currentPageWidth + currentPositionWidth + differentialWidthPrice, currentPageHeight + currentPositionHeight, paint);
             updateSerialNo(serialNo);
         }
         if (motherboard.isChecked()) {
-            //TODO: check
-            currentPositionHeight = currentPositionHeight + 20;
-            if (motherboard_name.getText().toString().equals(null)) {
-                motherboard_name.setText("");
+            currentPositionHeight = currentPositionHeight + tableRowHeight;
+            motherboardText = motherboard_name.getText().toString();
+            motherboardDescription = motherboard_description.getText().toString();
+            if (motherboard_price.getText().toString().isEmpty()) {
+
             } else {
-                motherboardText = motherboard_name.getText().toString();
-            }
-            motherboardPrice = Integer.parseInt(motherboard_price.getText().toString());
-            if (motherboard_description.getText().toString().equals(null)) {
-                motherboard_description.setText("");
-            } else {
-                motherboardDescription = motherboard_description.getText().toString();
+                motherboardPrice = Integer.parseInt(motherboard_price.getText().toString());
             }
             canvas.drawText(String.valueOf(serialReturn), currentPageWidth + currentPositionWidth, currentPageHeight + currentPositionHeight, paint);//165
             canvas.drawText("Motherboard", currentPageWidth + currentPositionWidth + differentialWidthTextView, currentPageHeight + currentPositionHeight, paint);
             canvas.drawText(motherboardText, currentPageWidth + currentPositionWidth + differentialWidthText, currentPageHeight + currentPositionHeight, paint);
             canvas.drawText(motherboardDescription, currentPageWidth + currentPositionWidth + differentialWidthDescription, currentPageHeight + currentPositionHeight, paint);
-            canvas.drawText("RS. " + String.valueOf(motherboardPrice), currentPageWidth + currentPositionWidth + differentialWidthPrice, currentPageHeight + currentPositionHeight, paint);
-            //canvas.drawRect(currentPageWidth + 25, currentPageHeight + 175, totalPageWidth - 25, currentPageHeight +176, paint);
+            canvas.drawText("RS. " + motherboardPrice, currentPageWidth + currentPositionWidth + differentialWidthPrice, currentPageHeight + currentPositionHeight, paint);
             updateSerialNo(serialReturn);
         }
         if (ram.isChecked()) {
-            currentPositionHeight = currentPositionHeight + 20;
+            currentPositionHeight = currentPositionHeight + tableRowHeight;
             ramText = ram_name.getText().toString();
-            ramPrice = Integer.parseInt(ram_price.getText().toString());
-            if (ram_description.getText().toString().equals(null)) {
-                ram_description.setText("");
+            ramDescription = ram_description.getText().toString();
+            if (ram_price.getText().toString().isEmpty()) {
+
             } else {
-                ramDescription = ram_description.getText().toString();
+                ramPrice = Integer.parseInt(ram_price.getText().toString());
             }
             canvas.drawText(String.valueOf(serialReturn), currentPageWidth + currentPositionWidth, currentPageHeight + currentPositionHeight, paint); //185
             canvas.drawText("Ram", currentPageWidth + currentPositionWidth + differentialWidthTextView, currentPageHeight + currentPositionHeight, paint);
             canvas.drawText(ramText, currentPageWidth + currentPositionWidth + differentialWidthText, currentPageHeight + currentPositionHeight, paint);
             canvas.drawText(ramDescription, currentPageWidth + currentPositionWidth + differentialWidthDescription, currentPageHeight + currentPositionHeight, paint);
             canvas.drawText("RS. " + String.valueOf(ramPrice), currentPageWidth + currentPositionWidth + differentialWidthPrice, currentPageHeight + currentPositionHeight, paint);
-            //canvas.drawRect(currentPageWidth + 25, currentPageHeight + 175, totalPageWidth - 25, currentPageHeight +176, paint); +185
             updateSerialNo(serialReturn);
         }
         if (graphics_card.isChecked()) {
-            currentPositionHeight = currentPositionHeight + 20;
+            currentPositionHeight = currentPositionHeight + tableRowHeight;
             graphicsCardText = graphics_card_name.getText().toString();
-            graphicsCardPrice = Integer.parseInt(graphics_card_price.getText().toString());
-            if (graphics_card_description.getText().toString().equals(null)) {
-                graphics_card_description.setText("");
+            graphics_cardDescription = graphics_card_description.getText().toString();
+            if (graphics_card_price.getText().toString().isEmpty()) {
+
             } else {
-                graphics_cardDescription = graphics_card_description.getText().toString();
+                graphicsCardPrice = Integer.parseInt(graphics_card_price.getText().toString());
             }
             canvas.drawText(String.valueOf(serialReturn), currentPageWidth + currentPositionWidth, currentPageHeight + currentPositionHeight, paint);//205
             canvas.drawText("Graphics Card", currentPageWidth + currentPositionWidth + differentialWidthTextView, currentPageHeight + currentPositionHeight, paint);
@@ -395,13 +392,13 @@ public class Convert_Quotation_To_PDFSQLActivity extends AppCompatActivity {
             updateSerialNo(serialReturn);
         }
         if (ssd.isChecked()) {
-            currentPositionHeight = currentPositionHeight + 20;
+            currentPositionHeight = currentPositionHeight + tableRowHeight;
             ssdText = ssd_name.getText().toString();
-            ssdPrice = Integer.parseInt(ssd_price.getText().toString());
-            if (ssd_description.getText().toString().equals(null)) {
-                ssd_description.setText("");
+            ssdDescription = ssd_description.getText().toString();
+            if (ssd_price.getText().toString().isEmpty()) {
+
             } else {
-                ssdDescription = ssd_description.getText().toString();
+                ssdPrice = Integer.parseInt(ssd_price.getText().toString());
             }
             canvas.drawText(String.valueOf(serialReturn), currentPageWidth + currentPositionWidth, currentPageHeight + currentPositionHeight, paint);//225
             canvas.drawText("SSD", currentPageWidth + currentPositionWidth + differentialWidthTextView, currentPageHeight + currentPositionHeight, paint);
@@ -412,30 +409,30 @@ public class Convert_Quotation_To_PDFSQLActivity extends AppCompatActivity {
             updateSerialNo(serialReturn);
         }
         if (hdd.isChecked()) {
-            currentPositionHeight = currentPositionHeight + 20;
+            currentPositionHeight = currentPositionHeight + tableRowHeight;
             hddText = hdd_name.getText().toString();
-            hddPrice = Integer.parseInt(hdd_price.getText().toString());
-            if (hdd_description.getText().toString().equals(null)) {
-                hdd_description.setText("");
+            hddDescription = hdd_description.getText().toString();
+            if (hdd_price.getText().toString().isEmpty()) {
+
             } else {
-                hddDescription = hdd_description.getText().toString();
+                hddPrice = Integer.parseInt(hdd_price.getText().toString());
             }
             canvas.drawText(String.valueOf(serialReturn), currentPageWidth + currentPositionWidth, currentPageHeight + currentPositionHeight, paint);//245
             canvas.drawText("HDD", currentPageWidth + currentPositionWidth + differentialWidthTextView, currentPageHeight + currentPositionHeight, paint);
             canvas.drawText(hddText, currentPageWidth + currentPositionWidth + differentialWidthText, currentPageHeight + currentPositionHeight, paint);
             canvas.drawText(hddDescription, currentPageWidth + currentPositionWidth + differentialWidthDescription, currentPageHeight + currentPositionHeight, paint);
-            canvas.drawText("RS. " + String.valueOf(hddPrice), currentPageWidth + currentPositionWidth + differentialWidthPrice, currentPageHeight + currentPositionHeight, paint);
+            canvas.drawText("RS. " + hddPrice, currentPageWidth + currentPositionWidth + differentialWidthPrice, currentPageHeight + currentPositionHeight, paint);
             //canvas.drawRect(currentPageWidth + 25, currentPageHeight + 175, totalPageWidth - 25, currentPageHeight +176, paint);
             updateSerialNo(serialReturn);
         }
         if (power_supply.isChecked()) {
-            currentPositionHeight = currentPositionHeight + 20;
+            currentPositionHeight = currentPositionHeight + tableRowHeight;
             powerSupplyText = power_supply_name.getText().toString();
-            powerSupplyPrice = Integer.parseInt(power_supply_price.getText().toString());
-            if (power_supply_description.getText().toString().equals(null)) {
-                power_supply_description.setText("");
+            power_supplyDescription = power_supply_description.getText().toString();
+            if (power_supply_price.getText().toString().isEmpty()) {
+
             } else {
-                power_supplyDescription = power_supply_description.getText().toString();
+                powerSupplyPrice = Integer.parseInt(power_supply_price.getText().toString());
             }
             canvas.drawText(String.valueOf(serialReturn), currentPageWidth + currentPositionWidth, currentPageHeight + currentPositionHeight, paint);//265
             canvas.drawText("Power Supply", currentPageWidth + currentPositionWidth + differentialWidthTextView, currentPageHeight + currentPositionHeight, paint);
@@ -446,13 +443,13 @@ public class Convert_Quotation_To_PDFSQLActivity extends AppCompatActivity {
             updateSerialNo(serialReturn);
         }
         if (headset.isChecked()) {
-            currentPositionHeight = currentPositionHeight + 20;
+            currentPositionHeight = currentPositionHeight + tableRowHeight;
             headsetText = headset_name.getText().toString();
-            headsetPrice = Integer.parseInt(headset_price.getText().toString());
-            if (headset_description.getText().toString().equals(null)) {
-                headset_description.setText("");
+            headsetDescription = headset_description.getText().toString();
+            if (headset_price.getText().toString().isEmpty()) {
+
             } else {
-                headsetDescription = headset_description.getText().toString();
+                headsetPrice = Integer.parseInt(headset_price.getText().toString());
             }
             canvas.drawText(String.valueOf(serialReturn), currentPageWidth + currentPositionWidth, currentPageHeight + currentPositionHeight, paint);//285
             canvas.drawText("Headset", currentPageWidth + currentPositionWidth + differentialWidthTextView, currentPageHeight + currentPositionHeight, paint);
@@ -463,13 +460,13 @@ public class Convert_Quotation_To_PDFSQLActivity extends AppCompatActivity {
             updateSerialNo(serialReturn);
         }
         if (keyboard.isChecked()) {
-            currentPositionHeight = currentPositionHeight + 20;
+            currentPositionHeight = currentPositionHeight + tableRowHeight;
             keyboardText = keyboard_name.getText().toString();
-            keyboardPrice = Integer.parseInt(keyboard_price.getText().toString());
-            if (keyboard_description.getText().toString().equals(null)) {
-                keyboard_description.setText("");
+            keyboardDescription = keyboard_description.getText().toString();
+            if (keyboard_price.getText().toString().isEmpty()) {
+
             } else {
-                keyboardDescription = keyboard_description.getText().toString();
+                keyboardPrice = Integer.parseInt(keyboard_price.getText().toString());
             }
             canvas.drawText(String.valueOf(serialReturn), currentPageWidth + currentPositionWidth, currentPageHeight + currentPositionHeight, paint);//305
             canvas.drawText("Keyboard", currentPageWidth + currentPositionWidth + differentialWidthTextView, currentPageHeight + currentPositionHeight, paint);
@@ -480,13 +477,13 @@ public class Convert_Quotation_To_PDFSQLActivity extends AppCompatActivity {
             updateSerialNo(serialReturn);
         }
         if (mouse.isChecked()) {
-            currentPositionHeight = currentPositionHeight + 20;
+            currentPositionHeight = currentPositionHeight + tableRowHeight;
             mouseText = mouse_name.getText().toString();
-            mousePrice = Integer.parseInt(mouse_price.getText().toString());
-            if (mouse_description.getText().toString().equals(null)) {
-                mouse_description.setText("");
+            mouseDescription = mouse_description.getText().toString();
+            if (mouse_price.getText().toString().isEmpty()) {
+
             } else {
-                mouseDescription = mouse_description.getText().toString();
+                mousePrice = Integer.parseInt(mouse_price.getText().toString());
             }
             canvas.drawText(String.valueOf(serialReturn), currentPageWidth + currentPositionWidth, currentPageHeight + currentPositionHeight, paint);//325
             canvas.drawText("Mouse", currentPageWidth + currentPositionWidth + differentialWidthTextView, currentPageHeight + currentPositionHeight, paint);
@@ -497,13 +494,13 @@ public class Convert_Quotation_To_PDFSQLActivity extends AppCompatActivity {
             updateSerialNo(serialReturn);
         }
         if (cabinet.isChecked()) {
-            currentPositionHeight = currentPositionHeight + 20;
+            currentPositionHeight = currentPositionHeight + tableRowHeight;
             cabinetText = cabinet_name.getText().toString();
-            cabinetPrice = Integer.parseInt(cabinet_price.getText().toString());
-            if (cabinet_description.getText().toString().equals(null)) {
-                cabinet_description.setText("");
+            cabinetDescription = cabinet_description.getText().toString();
+            if (cabinet_price.getText().toString().isEmpty()) {
+
             } else {
-                cabinetDescription = cabinet_description.getText().toString();
+                cabinetPrice = Integer.parseInt(cabinet_price.getText().toString());
             }
             canvas.drawText(String.valueOf(serialReturn), currentPageWidth + currentPositionWidth, currentPageHeight + currentPositionHeight, paint);//345
             canvas.drawText("Cabinet", currentPageWidth + currentPositionWidth + differentialWidthTextView, currentPageHeight + currentPositionHeight, paint);
@@ -513,14 +510,30 @@ public class Convert_Quotation_To_PDFSQLActivity extends AppCompatActivity {
             //canvas.drawRect(currentPageWidth + 25, currentPageHeight + 175, totalPageWidth - 25, currentPageHeight +176, paint);
             updateSerialNo(serialReturn);
         }
-        if (monitor.isChecked()) {
-            currentPositionHeight = currentPositionHeight + 20;
-            monitorText = monitor_name.getText().toString();
-            monitorPrice = Integer.parseInt(monitor_price.getText().toString());
-            if (monitor_description.getText().toString().equals(null)) {
-                monitor_description.setText("");
+        if (cooler.isChecked()) {
+            currentPositionHeight = currentPositionHeight + tableRowHeight;
+            coolerText = cooler_name.getText().toString();
+            coolerDescription = cooler_description.getText().toString();
+            if (cooler_price.getText().toString().isEmpty()) {
+
             } else {
-                monitorDescription = monitor_description.getText().toString();
+                coolerPrice = Integer.parseInt(cooler_price.getText().toString());
+            }
+            canvas.drawText(String.valueOf(serialReturn), currentPageWidth + currentPositionWidth, currentPageHeight + currentPositionHeight, paint); // 445
+            canvas.drawText("Cooler", currentPageWidth + currentPositionWidth + differentialWidthTextView, currentPageHeight + currentPositionHeight, paint);
+            canvas.drawText(coolerText, currentPageWidth + currentPositionWidth + differentialWidthText, currentPageHeight + currentPositionHeight, paint);
+            canvas.drawText(coolerDescription, currentPageWidth + currentPositionWidth + differentialWidthDescription, currentPageHeight + currentPositionHeight, paint);
+            canvas.drawText("RS. " + String.valueOf(coolerPrice), currentPageWidth + currentPositionWidth + differentialWidthPrice, currentPageHeight + currentPositionHeight, paint);
+            updateSerialNo(serialReturn);
+        }
+        if (monitor.isChecked()) {
+            currentPositionHeight = currentPositionHeight + tableRowHeight;
+            monitorText = monitor_name.getText().toString();
+            monitorDescription = monitor_description.getText().toString();
+            if (monitor_price.getText().toString().isEmpty()) {
+
+            } else {
+                monitorPrice = Integer.parseInt(monitor_price.getText().toString());
             }
             canvas.drawText(String.valueOf(serialReturn), currentPageWidth + currentPositionWidth, currentPageHeight + currentPositionHeight, paint);//365
             canvas.drawText("Monitor", currentPageWidth + currentPositionWidth + differentialWidthTextView, currentPageHeight + currentPositionHeight, paint);
@@ -531,48 +544,33 @@ public class Convert_Quotation_To_PDFSQLActivity extends AppCompatActivity {
             updateSerialNo(serialReturn);
         }
         if (case_fans.isChecked()) {
-            currentPositionHeight = currentPositionHeight + 20;
+            currentPositionHeight = currentPositionHeight + tableRowHeight;
             caseFansText = case_fans_name.getText().toString();
-            caseFansPrice = Integer.parseInt(case_fans_price.getText().toString());
-            if (case_fans_description.getText().toString().equals(null)) {
-                case_fans_description.setText("");
+            case_fansDescription = case_fans_description.getText().toString();
+
+            if (case_fans_price.getText().toString().isEmpty()) {
+
             } else {
-                case_fansDescription = case_fans_description.getText().toString();
+                caseFansPrice = Integer.parseInt(case_fans_price.getText().toString());
             }
             canvas.drawText(String.valueOf(serialReturn), currentPageWidth + currentPositionWidth, currentPageHeight + currentPositionHeight, paint);//385
             canvas.drawText("Case Fans", currentPageWidth + currentPositionWidth + differentialWidthTextView, currentPageHeight + currentPositionHeight, paint);
             canvas.drawText(caseFansText, currentPageWidth + currentPositionWidth + differentialWidthText, currentPageHeight + currentPositionHeight, paint);
             canvas.drawText(case_fansDescription, currentPageWidth + currentPositionWidth + differentialWidthDescription, currentPageHeight + currentPositionHeight, paint);
-            canvas.drawText("RS. " + String.valueOf(caseFansPrice), currentPageWidth + currentPositionWidth + differentialWidthPrice, currentPageHeight + currentPositionHeight, paint);
+            canvas.drawText("RS. " + caseFansPrice, currentPageWidth + currentPositionWidth + differentialWidthPrice, currentPageHeight + currentPositionHeight, paint);
             //canvas.drawRect(currentPageWidth + 25, currentPageHeight + 175, totalPageWidth - 25, currentPageHeight +176, paint);
             updateSerialNo(serialReturn);
         }
-        if (cable.isChecked()) {
-            currentPositionHeight = currentPositionHeight + 20;
-            cableText = cable_name.getText().toString();
-            cablePrice = Integer.parseInt(cable_price.getText().toString());
-            if (cable_description.getText().toString().equals(null)) {
-                cable_description.setText("");
-            } else {
-                cableDescription = cable_description.getText().toString();
-            }
-            canvas.drawText(String.valueOf(serialReturn), currentPageWidth + currentPositionWidth, currentPageHeight + currentPositionHeight, paint);//405
-            canvas.drawText("Cable", currentPageWidth + currentPositionWidth + differentialWidthTextView, currentPageHeight + currentPositionHeight, paint);
-            canvas.drawText(cableText, currentPageWidth + currentPositionWidth + differentialWidthText, currentPageHeight + currentPositionHeight, paint);
-            canvas.drawText(cableDescription, currentPageWidth + currentPositionWidth + differentialWidthDescription, currentPageHeight + currentPositionHeight, paint);
-            canvas.drawText("RS. " + String.valueOf(cablePrice), currentPageWidth + currentPositionWidth + differentialWidthPrice, currentPageHeight + currentPositionHeight, paint);
-            //canvas.drawRect(currentPageWidth + 25, currentPageHeight + 175, totalPageWidth - 25, currentPageHeight +176, paint);
-            updateSerialNo(serialReturn);
-        }
+
         if (service.isChecked()) {
-            int temp = currentPositionHeight + 20;
-            currentPositionHeight = temp;
+            currentPositionHeight = currentPositionHeight + tableRowHeight;
             serviceText = service_name.getText().toString();
-            servicePrice = Integer.parseInt(service_price.getText().toString());
-            if (service_description.getText().toString().equals(null)) {
-                service_description.setText("");
+            serviceDescription = service_description.getText().toString();
+
+            if (service_price.getText().toString().isEmpty()) {
+
             } else {
-                serviceDescription = service_description.getText().toString();
+                servicePrice = Integer.parseInt(service_price.getText().toString());
             }
             canvas.drawText(String.valueOf(serialReturn), currentPageWidth + currentPositionWidth, currentPageHeight + currentPositionHeight, paint);//425
             canvas.drawText("Service", currentPageWidth + currentPositionWidth + differentialWidthTextView, currentPageHeight + currentPositionHeight, paint);
@@ -582,81 +580,82 @@ public class Convert_Quotation_To_PDFSQLActivity extends AppCompatActivity {
             //canvas.drawRect(currentPageWidth + 25, currentPageHeight + 175, totalPageWidth - 25, currentPageHeight +176, paint);
             updateSerialNo(serialReturn);
         }
-        if (cooler.isChecked()) {
-            currentPositionHeight = currentPositionHeight + 20;
-            coolerText = cooler_name.getText().toString();
-            coolerPrice = Integer.parseInt(cooler_price.getText().toString());
-            if (cooler_description.getText().toString().equals(null)) {
-                cooler_description.setText("");
+        if (extras.isChecked()) {
+            currentPositionHeight = currentPositionHeight + tableRowHeight;
+            extrasText = extras_name.getText().toString();
+            extrasDescription = extras_description.getText().toString();
+
+            if (extras_price.getText().toString().isEmpty()) {
             } else {
-                coolerDescription = cooler_description.getText().toString();
+                extrasPrice = Integer.parseInt(extras_price.getText().toString());
             }
-            canvas.drawText(String.valueOf(serialReturn), currentPageWidth + currentPositionWidth, currentPageHeight + currentPositionHeight, paint); // 445
-            canvas.drawText("Cooler", currentPageWidth + currentPositionWidth + differentialWidthTextView, currentPageHeight + currentPositionHeight, paint);
-            canvas.drawText(coolerText, currentPageWidth + currentPositionWidth + differentialWidthText, currentPageHeight + currentPositionHeight, paint);
-            canvas.drawText(coolerDescription, currentPageWidth + currentPositionWidth + differentialWidthDescription, currentPageHeight + currentPositionHeight, paint);
-            canvas.drawText("RS. " + String.valueOf(coolerPrice), currentPageWidth + currentPositionWidth + differentialWidthPrice, currentPageHeight + currentPositionHeight, paint);
+            canvas.drawText(String.valueOf(serialReturn), currentPageWidth + currentPositionWidth, currentPageHeight + currentPositionHeight, paint);//405
+            canvas.drawText("Extras", currentPageWidth + currentPositionWidth + differentialWidthTextView, currentPageHeight + currentPositionHeight, paint);
+            canvas.drawText(extrasText, currentPageWidth + currentPositionWidth + differentialWidthText, currentPageHeight + currentPositionHeight, paint);
+            canvas.drawText(extrasDescription, currentPageWidth + currentPositionWidth + differentialWidthDescription, currentPageHeight + currentPositionHeight, paint);
+            canvas.drawText("RS. " + String.valueOf(extrasPrice), currentPageWidth + currentPositionWidth + differentialWidthPrice, currentPageHeight + currentPositionHeight, paint);
+            //canvas.drawRect(currentPageWidth + 25, currentPageHeight + 175, totalPageWidth - 25, currentPageHeight +176, paint);
             updateSerialNo(serialReturn);
         }
 
         totalAmount = processorPrice + motherboardPrice + graphicsCardPrice + ramPrice + ssdPrice
-                + hddPrice + powerSupplyPrice + coolerPrice + cabinetPrice + coolerPrice
-                + servicePrice + caseFansPrice + keyboardPrice + mousePrice + headsetPrice;
+                + hddPrice + powerSupplyPrice + coolerPrice + cabinetPrice + extrasPrice +
+                +servicePrice + caseFansPrice + keyboardPrice + mousePrice + monitorPrice + headsetPrice;
 
-        //TODO: INSERT TO DATABASE
-        convertQuotationToPdfHelperSql.insertQuote(String.valueOf(dateFormat.format(date.getTime())), Integer.parseInt(numberText),totalAmount);
-
+        convertQuotationToPdfHelperSql.insertQuote(dateFormat.format(date.getTime()), timeFormat.format(date.getTime()), Integer.parseInt(numberText), totalAmount );
         paint.setColor(Color.rgb(150, 150, 150));
         currentPositionHeight = currentPositionHeight + 20;
-        canvas.drawRect(currentPageWidth + 25, currentPageHeight + currentPositionHeight - 2, totalPageWidth - 25, currentPageHeight + currentPositionHeight, paint);
+        canvas.drawRect(currentPageWidth + 15, currentPageHeight + currentPositionHeight - 2, totalPageWidth - 15, currentPageHeight + currentPositionHeight, paint);
 
         paint.setColor(Color.BLACK);
         paint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.BOLD));
 
-        currentPositionHeight = currentPositionHeight + 20;
+        currentPositionHeight = currentPositionHeight + 10;
         canvas.drawText("", currentPageWidth + currentPositionWidth, currentPageHeight + currentPositionHeight, paint);
-        canvas.drawText("TOTAL AMOUNT", currentPageWidth + currentPositionWidth + differentialWidthText, currentPageHeight + currentPositionHeight, paint);
+        canvas.drawText("TOTAL", currentPageWidth + currentPositionWidth + differentialWidthText, currentPageHeight + currentPositionHeight, paint);
         canvas.drawText("", currentPageWidth + currentPositionWidth + differentialWidthDescription, currentPageHeight + currentPositionHeight, paint);
-        canvas.drawText("RS. " + String.valueOf(totalAmount), currentPageWidth + currentPositionWidth + differentialWidthPrice, currentPageHeight + currentPositionHeight, paint);
+        canvas.drawText("RS. " + totalAmount, currentPageWidth + currentPositionWidth + differentialWidthPrice, currentPageHeight + currentPositionHeight, paint);
 
         // draw vertical line TODO: need to change the value of height according to list
-        currentPositionHeight = currentPositionHeight + 10; // get current position
+
+        currentPositionHeight = currentPositionHeight + 5; // get current position
         paint.setColor(Color.rgb(150, 150, 150));
-        canvas.drawRect(currentPageWidth + 25, currentPageHeight + 170, currentPageWidth + 27, currentPageHeight + currentPositionHeight, paint);
-        canvas.drawRect(currentPageWidth + 70, currentPageHeight + 170, currentPageWidth + 72, currentPageHeight + currentPositionHeight, paint);
-        canvas.drawRect(currentPageWidth + 145, currentPageHeight + 170, currentPageWidth + 147, currentPageHeight + currentPositionHeight, paint);
-        canvas.drawRect(currentPageWidth + 250, currentPageHeight + 170, currentPageWidth + 252, currentPageHeight + currentPositionHeight, paint);
-        canvas.drawRect(currentPageWidth + 510, currentPageHeight + 170, currentPageWidth + 512, currentPageHeight + currentPositionHeight, paint);
-        canvas.drawRect(currentPageWidth + 568, currentPageHeight + 170, currentPageWidth + 570, currentPageHeight + currentPositionHeight, paint);
+        canvas.drawRect(currentPageWidth + 15, currentPageHeight + 250, currentPageWidth + 17, currentPageHeight + currentPositionHeight, paint);
+        canvas.drawRect(currentPageWidth + 40, currentPageHeight + 250, currentPageWidth + 42, currentPageHeight + currentPositionHeight, paint);
+        canvas.drawRect(currentPageWidth + 102, currentPageHeight + 250, currentPageWidth + 104, currentPageHeight + currentPositionHeight, paint);
+        canvas.drawRect(currentPageWidth + 190, currentPageHeight + 250, currentPageWidth + 192, currentPageHeight + currentPositionHeight, paint);
+        canvas.drawRect(currentPageWidth + 410, currentPageHeight + 250, currentPageWidth + 412, currentPageHeight + currentPositionHeight, paint);
+        canvas.drawRect(currentPageWidth + 470, currentPageHeight + 250, currentPageWidth + 472, currentPageHeight + currentPositionHeight, paint);
+        canvas.drawRect(currentPageWidth + 520, currentPageHeight + 250, currentPageWidth + 522, currentPageHeight + currentPositionHeight, paint);
+        canvas.drawRect(currentPageWidth + 578, currentPageHeight + 250, currentPageWidth + 580, currentPageHeight + currentPositionHeight, paint);
 
         // end of table
-        canvas.drawRect(currentPageWidth + 25, currentPageHeight + currentPositionHeight, totalPageWidth - 25, currentPageHeight + currentPositionHeight + 2, paint);
-
+        canvas.drawRect(currentPageWidth + 15, currentPageHeight + currentPositionHeight, totalPageWidth - 15, currentPageHeight + currentPositionHeight + 2, paint);
+/*
+        //TODO: INSERT TO DATABASE
+        convertQuotationToPdfHelperSql.insertMain(dateFormat.format(date.getTime()), numberText, processorText, processorPrice, processorDescription,
+                motherboardText, motherboardPrice, motherboardDescription, ramText, ramPrice, ramDescription, graphicsCardText, graphicsCardPrice, graphics_cardDescription,
+                ssdText, ssdPrice,ssdDescription,totalAmount);
+*/
         paint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.NORMAL));
         paint.setColor(Color.BLACK);
-        paint.setTextSize(10);
+        paint.setTextSize(8);
         canvas.drawText(warrantyHeading, currentPageWidth + 20, totalPageHeight - 200, paint);
         canvas.drawText(warranty1, currentPageWidth + 40, totalPageHeight - 185, paint);
-        canvas.drawText(warranty2, currentPageWidth + 45, totalPageHeight - 170, paint);
-        canvas.drawText(warranty3, currentPageWidth + 40, totalPageHeight - 155, paint);
-        canvas.drawText(warranty4, currentPageWidth + 40, totalPageHeight - 140, paint);
+        canvas.drawText(warranty2, currentPageWidth + 45, totalPageHeight - 175, paint);
+        canvas.drawText(warranty3, currentPageWidth + 40, totalPageHeight - 165, paint);
+        canvas.drawText(warranty4, currentPageWidth + 40, totalPageHeight - 155, paint);
 
-        canvas.drawText(policyHeading, currentPageWidth + 20, totalPageHeight - 120, paint);
-        canvas.drawText(policy1, currentPageWidth + 40, totalPageHeight - 105, paint);
-        canvas.drawText(policy2, currentPageWidth + 40, totalPageHeight - 90, paint);
-        canvas.drawText(policy3, currentPageWidth + 40, totalPageHeight - 75, paint);
-        canvas.drawText(policy4, currentPageWidth + 40, totalPageHeight - 60, paint);
-        canvas.drawText(policy5, currentPageWidth + 45, totalPageHeight - 45, paint);
-        canvas.drawText(policy6, currentPageWidth + 40, totalPageHeight - 30, paint);
+        canvas.drawText(policyHeading, currentPageWidth + 20, totalPageHeight - 135, paint);
+        canvas.drawText(policy1, currentPageWidth + 40, totalPageHeight - 120, paint);
+        canvas.drawText(policy2, currentPageWidth + 40, totalPageHeight - 110, paint);
+        canvas.drawText(policy3, currentPageWidth + 40, totalPageHeight - 100, paint);
+        canvas.drawText(policy4, currentPageWidth + 40, totalPageHeight - 90, paint);
+        canvas.drawText(policy5, currentPageWidth + 45, totalPageHeight - 80, paint);
+        canvas.drawText(policy6, currentPageWidth + 40, totalPageHeight - 70, paint);
         pdfDocument.finishPage(page);
 
-        //display total value on screen
-        //Toast.makeText(Convert_Quotation_To_PDFSQLActivity.this, "Total Value is : RS.  " +totalAmount, Toast.LENGTH_LONG).show();
-
-        //File file = new File(this.getExternalFilesDir("/"), cursor.getInt(0) + "_CustomBuilds.pdf");
-        //File file = new File(this.getExternalFilesDir("/"), billName+"/"+ customerMobileNumber + "/" + dateFormat.format(date.getTime()) + "CustomBuilds.pdf");
-        File file = new File(this.getExternalFilesDir("/"), billName+"/"+ "CustomBuilds.pdf");
-
+        File file = new File(this.getExternalFilesDir("/"), billName + "/" + "CustomBuilds.pdf");
         try {
 
             pdfDocument.writeTo(new FileOutputStream(file));

@@ -16,7 +16,7 @@ public class Bill_to_pdf_helper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         // with open helper step 2
-        String createBill = "CREATE TABLE BillTable(billNo INTEGER PRIMARY KEY AUTOINCREMENT,billName TEXT ,date TEXT, mobileNo INTEGER,amount INTEGER);";
+        String createBill = "CREATE TABLE BillTable(billNo INTEGER PRIMARY KEY AUTOINCREMENT,billName TEXT ,date TEXT,time TEXT, mobileNo INTEGER,amount INTEGER);";
         db.execSQL(createBill);
     }
 
@@ -25,14 +25,15 @@ public class Bill_to_pdf_helper extends SQLiteOpenHelper {
     }
 
     // step 3
-    public void insertBill(String billName, String date, String customerMobileNumber, String amount){
+    public void insertBill(String billName, String date, String time,String mobileNo, String amount){
 
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
 
         contentValues.put("billName", billName);
         contentValues.put("date", date);
-        contentValues.put("customerMobileNumber",customerMobileNumber);
+        contentValues.put("time", time);
+        contentValues.put("mobileNo",mobileNo);
         contentValues.put("amount",amount);
         sqLiteDatabase.insert("BillTable", null, contentValues);
     }
