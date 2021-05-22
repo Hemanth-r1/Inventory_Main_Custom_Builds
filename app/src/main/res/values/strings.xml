@@ -18,9 +18,10 @@
     <string name="mouse_name">Mouse</string>
     <string name="monitor_name">Monitor</string>
     <string name="service_name">Service and Assembly</string>
-    <string name="cable_name">Cable</string>
+    <string name="service_name_text">Service</string>
+    <string name="extras_name">Extras</string>
     <string name="headset_name">Headset</string>
-    <string name="description">Description</string>
+    <string name="description">Description 1</string>
     <string name="enter_bill_name">Enter Bill Name</string>
     <string name="title_activity_billing_pdf">Activity_Billing_PDF</string>
     <!-- Strings used for fragments for navigation -->
@@ -40,4 +41,5 @@
     <string name="customer_address_line2">Address Line 2</string>
     <string name="customer_address_line3">Address Line 3</string>
     <string name="rate">Rate</string>
+    <string name="description2">Description 2</string>
 </resources>

@@ -1,10 +1,7 @@
 package in.hr.android.inventorymain;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.SharedPreferences;
-import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -23,8 +20,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Map;
-import java.util.Set;
 
 public class Convert_Quotation_To_PDFSQLActivity extends AppCompatActivity {
 
@@ -186,10 +181,10 @@ public class Convert_Quotation_To_PDFSQLActivity extends AppCompatActivity {
         monitor_price = findViewById(R.id.editTextMonitorPrice);
         monitor_description = findViewById(R.id.monitorDescription);
 
-        cable = findViewById(R.id.checkBoxCable);
-        cable_name = findViewById(R.id.editTextCableName);
-        cable_price = findViewById(R.id.editTextCablePrice);
-        cable_description = findViewById(R.id.cableDescription);
+        cable = findViewById(R.id.checkBoxExtras);
+        cable_name = findViewById(R.id.editTextExtrasName);
+        cable_price = findViewById(R.id.editTextExtrasPrice);
+        cable_description = findViewById(R.id.extrasDescription);
 
         headset = findViewById(R.id.checkBoxHeadSet);
         headset_name = findViewById(R.id.editTextHeadsetName);

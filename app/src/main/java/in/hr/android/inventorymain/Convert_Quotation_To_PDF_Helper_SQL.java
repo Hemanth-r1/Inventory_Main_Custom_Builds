@@ -44,11 +44,14 @@ public class Convert_Quotation_To_PDF_Helper_SQL extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
 
+        String createBill = "CREATE TABLE QuoteTABLEMain(quoteNo INTEGER PRIMARY KEY AUTOINCREMENT,date INTEGER, mobileNo INTEGER,  processorName TEXT, processorPrice INTEGER, processorDescription TEXT, motherboardName TEXT, motherboardPrice INTEGER, motherboardDescription TEXT, ramName TEXT, ramPrice INTEGER, ramDescription TEXT, graphicsCardName TEXT, graphicsCardPrice INTEGER, graphicsCardDescription TEXT, ssdName TEXT, ssdPrice INTEGER, ssdDescription TEXT, amount INTEGER);";
+        db.execSQL(createBill);
+   /*
         // with open helper step 2
         String createMainTable = "CREATE TABLE QuoteTABLEMain(quoteNo INTEGER PRIMARY KEY AUTOINCREMENT,date INTEGER, mobileNo INTEGER,  processorName TEXT, processorPrice INTEGER, processorDescription TEXT, motherboardName TEXT, motherboardPrice INTEGER, motherboardDescription TEXT, ramName TEXT, ramPrice INTEGER, ramDescription TEXT, graphicsCardName TEXT, graphicsCardPrice INTEGER, graphicsCardDescription TEXT, ssdName TEXT, ssdPrice INTEGER, ssdDescription TEXT, amount INTEGER);";
         db.execSQL(createMainTable);
 
-        /*
+
         String createPeripheralTable = "CREATE TABLE QuoteTABLEPeripheral(quoteNo INTEGER PRIMARY KEY AUTOINCREMENT, customerName TEXT, mobileNo TEXT, date INTEGER, processorName TEXT, processorPrice INTEGER, processorDescription TEXT, motherboardName TEXT, motherboardPrice INTEGER, motherboardDescription TEXT, motherboardName TEXT, motherboardPrice INTEGER, motherboardDescription TEXT,motherboardName TEXT, motherboardPrice INTEGER, motherboardDescription TEXT, motherboardName TEXT, motherboardPrice INTEGER, motherboardDescription TEXT, amount INTEGER);";
         db.execSQL(createPeripheralTable);
 

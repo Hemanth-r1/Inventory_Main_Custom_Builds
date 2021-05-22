@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
-    <LinearLayout
+    <!--  <LinearLayout
         android:id="@+id/linerLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -24,7 +23,7 @@
                 android:id="@+id/processor"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="8"
+                android:ems="7"
                 android:padding="12dp"
                 android:text="@string/processor_name" />
 
@@ -32,9 +31,9 @@
                 android:id="@+id/editTextProcessorName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="8"
+                android:ems="7"
                 android:hint="@string/processor_name"
-                android:importantForAutofill="no"
+
                 android:inputType="textMultiLine"
                 android:padding="12dp" />
 
@@ -42,37 +41,29 @@
                 android:id="@+id/processorDescription"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="8"
+                android:ems="7"
                 android:hint="@string/description"
-                android:importantForAutofill="no"
+
                 android:inputType="textMultiLine"
                 android:padding="12dp" />
-            <EditText
-                android:id="@+id/editTextProcessorRate"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="8"
-                android:hint="@string/rate"
-                android:importantForAutofill="no"
-                android:inputType="number"
-                android:padding="12dp" />
-            <EditText
-                android:id="@+id/editTextProcessorPriceTax"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="8"
-                android:hint="@string/tax"
-                android:inputType="numberDecimal"
-                android:importantForAutofill="no"
-                android:padding="12dp" />
+
             <EditText
                 android:id="@+id/editTextProcessorPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="8"
+                android:ems="7"
                 android:hint="@string/price"
-                android:importantForAutofill="no"
+
                 android:inputType="number"
+                android:padding="12dp" />
+
+            <TextView
+                android:id="@+id/editTextProcessorPriceTax"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="7"
+                android:hint="@string/tax"
+
                 android:padding="12dp" />
 
         </LinearLayout>
@@ -92,7 +83,7 @@
                 android:id="@+id/motherboard"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="8"
+                android:ems="7"
                 android:padding="10dp"
                 android:text="@string/motherboard_name" />
 
@@ -101,7 +92,7 @@
                 android:id="@+id/editTextMotherboardName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="8"
+                android:ems="7"
                 android:hint="@string/motherboard_name"
                 android:inputType="textMultiLine"
                 android:padding="10dp" />
@@ -111,36 +102,26 @@
                 android:id="@+id/motherboardDescription"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="8"
+                android:ems="7"
                 android:hint="@string/description"
                 android:inputType="textMultiLine"
-                android:padding="12dp" />
-            <EditText
-                android:id="@+id/editTextMotherboardRate"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="8"
-                android:hint="@string/rate"
-                android:importantForAutofill="no"
-                android:inputType="number"
-                android:padding="12dp" />
-            <EditText
-                android:id="@+id/editTextMotherboardPriceTax"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="8"
-                android:hint="@string/tax"
-                android:inputType="numberDecimal"
-                android:importantForAutofill="no"
                 android:padding="12dp" />
 
             <EditText
                 android:id="@+id/editTextMotherboardPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="8"
+                android:ems="7"
                 android:hint="@string/price"
                 android:inputType="number"
+                android:padding="10dp" />
+
+            <TextView
+                android:id="@+id/editTextMotherboardPriceTax"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="7"
+                android:hint="@string/tax"
                 android:padding="10dp" />
 
         </LinearLayout>
@@ -160,7 +141,7 @@
                 android:id="@+id/ram"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="8"
+                android:ems="7"
                 android:padding="10dp"
                 android:text="@string/ram_name" />
 
@@ -168,7 +149,7 @@
                 android:id="@+id/editTextRamName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="8"
+                android:ems="7"
                 android:hint="@string/ram_name"
                 android:inputType="textMultiLine"
                 android:padding="10dp" />
@@ -177,38 +158,27 @@
                 android:id="@+id/ramDescription"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="8"
+                android:ems="7"
                 android:hint="@string/description"
-                android:importantForAutofill="no"
-                android:inputType="textMultiLine"
-                android:padding="12dp" />
 
-            <EditText
-                android:id="@+id/editTextRamRate"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="8"
-                android:hint="@string/rate"
-                android:importantForAutofill="no"
-                android:inputType="number"
-                android:padding="12dp" />
-            <EditText
-                android:id="@+id/editTextRamPriceTax"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="8"
-                android:hint="@string/tax"
-                android:inputType="numberDecimal"
-                android:importantForAutofill="no"
+                android:inputType="textMultiLine"
                 android:padding="12dp" />
 
             <EditText
                 android:id="@+id/editTextRamPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="8"
+                android:ems="7"
                 android:hint="@string/price"
                 android:inputType="number"
+                android:padding="10dp" />
+
+            <TextView
+                android:id="@+id/editTextRamPriceTax"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="7"
+                android:hint="@string/tax"
                 android:padding="10dp" />
 
         </LinearLayout>
@@ -228,7 +198,7 @@
                 android:id="@+id/graphicsCard"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="8"
+                android:ems="7"
                 android:padding="10dp"
                 android:text="@string/graphics_card_name" />
 
@@ -236,7 +206,7 @@
                 android:id="@+id/editTextGraphicsCardName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="8"
+                android:ems="7"
                 android:hint="@string/graphics_card_name"
                 android:inputType="textMultiLine"
                 android:padding="10dp" />
@@ -245,37 +215,27 @@
                 android:id="@+id/graphicsCardDescription"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="8"
+                android:ems="7"
                 android:hint="@string/description"
-                android:importantForAutofill="no"
+
                 android:inputType="textMultiLine"
                 android:padding="12dp" />
 
             <EditText
-                android:id="@+id/editTextGraphicsCardRate"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="8"
-                android:hint="@string/rate"
-                android:importantForAutofill="no"
-                android:inputType="number"
-                android:padding="12dp" />
-            <EditText
-                android:id="@+id/editTextGraphicsCardPriceTax"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="8"
-                android:hint="@string/tax"
-                android:inputType="numberDecimal"
-                android:importantForAutofill="no"
-                android:padding="12dp" />
-            <EditText
                 android:id="@+id/editTextGraphicsCardPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="8"
+                android:ems="7"
                 android:hint="@string/price"
                 android:inputType="number"
+                android:padding="10dp" />
+
+            <TextView
+                android:id="@+id/editTextGraphicsCardPriceTax"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="7"
+                android:hint="@string/tax"
                 android:padding="10dp" />
 
         </LinearLayout>
@@ -295,7 +255,7 @@
                 android:id="@+id/powerSupply"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="8"
+                android:ems="7"
                 android:padding="10dp"
                 android:text="@string/power_supply_name" />
 
@@ -303,7 +263,7 @@
                 android:id="@+id/editTextPowerSupplyName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="8"
+                android:ems="7"
                 android:hint="@string/power_supply_name"
                 android:inputType="textMultiLine"
                 android:padding="10dp" />
@@ -312,37 +272,27 @@
                 android:id="@+id/powerSupplyDescription"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="8"
+                android:ems="7"
                 android:hint="@string/description"
-                android:importantForAutofill="no"
+
                 android:inputType="textMultiLine"
                 android:padding="12dp" />
 
             <EditText
-                android:id="@+id/editTextPowerSupplyRate"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="8"
-                android:hint="@string/rate"
-                android:importantForAutofill="no"
-                android:inputType="number"
-                android:padding="12dp" />
-            <EditText
-                android:id="@+id/editTextPowerSupplyPriceTax"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="8"
-                android:hint="@string/tax"
-                android:inputType="numberDecimal"
-                android:importantForAutofill="no"
-                android:padding="12dp" />
-            <EditText
                 android:id="@+id/editTextPowerSupplyPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="8"
+                android:ems="7"
                 android:hint="@string/price"
                 android:inputType="number"
+                android:padding="10dp" />
+
+            <TextView
+                android:id="@+id/editTextPowerSupplyPriceTax"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="7"
+                android:hint="@string/tax"
                 android:padding="10dp" />
 
         </LinearLayout>
@@ -363,7 +313,7 @@
                 android:id="@+id/SSD"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="8"
+                android:ems="7"
                 android:padding="10dp"
                 android:text="@string/ssd_name" />
 
@@ -371,7 +321,7 @@
                 android:id="@+id/editTextSSDName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="8"
+                android:ems="7"
                 android:hint="@string/ssd_name"
                 android:inputType="textMultiLine"
                 android:padding="10dp" />
@@ -380,36 +330,27 @@
                 android:id="@+id/SSDDescription"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="8"
+                android:ems="7"
                 android:hint="@string/description"
-                android:importantForAutofill="no"
+
                 android:inputType="textMultiLine"
                 android:padding="12dp" />
-            <EditText
-                android:id="@+id/editTextSSDRate"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="8"
-                android:hint="@string/rate"
-                android:importantForAutofill="no"
-                android:inputType="number"
-                android:padding="12dp" />
-            <EditText
-                android:id="@+id/editTextSSDPriceTax"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="8"
-                android:hint="@string/tax"
-                android:inputType="numberDecimal"
-                android:importantForAutofill="no"
-                android:padding="12dp" />
+
             <EditText
                 android:id="@+id/editTextSSDPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="8"
+                android:ems="7"
                 android:hint="@string/price"
                 android:inputType="number"
+                android:padding="10dp" />
+
+            <TextView
+                android:id="@+id/editTextSSDPriceTax"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="7"
+                android:hint="@string/tax"
                 android:padding="10dp" />
 
         </LinearLayout>
@@ -429,7 +370,7 @@
                 android:id="@+id/HDD"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="8"
+                android:ems="7"
                 android:padding="10dp"
                 android:text="@string/hdd_name" />
 
@@ -437,7 +378,7 @@
                 android:id="@+id/editTextHDDName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="8"
+                android:ems="7"
                 android:hint="@string/hdd_name"
                 android:inputType="textMultiLine"
                 android:padding="10dp" />
@@ -446,35 +387,27 @@
                 android:id="@+id/HDDDescription"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="8"
+                android:ems="7"
                 android:hint="@string/description"
-                android:importantForAutofill="no"
+
                 android:inputType="textMultiLine"
                 android:padding="12dp" />
-            <EditText
-                android:id="@+id/editTextHDDRate"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="8"
-                android:hint="@string/rate"
-                android:importantForAutofill="no"
-                android:inputType="number"
-                android:padding="12dp" />
-            <EditText
-                android:id="@+id/editTextHDDPriceTax"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="8"
-                android:hint="@string/tax"
-                android:inputType="numberDecimal"
-                android:importantForAutofill="no"
-                android:padding="12dp" />
+
             <EditText
                 android:id="@+id/editTextHDDPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="8"
+                android:ems="7"
                 android:hint="@string/price"
+                android:inputType="number"
+                android:padding="10dp" />
+
+            <EditText
+                android:id="@+id/editTextHDDPriceTax"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="7"
+                android:hint="@string/tax"
                 android:inputType="number"
                 android:padding="10dp" />
 
@@ -497,7 +430,7 @@
                 android:id="@+id/cooler"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="8"
+                android:ems="7"
                 android:padding="10dp"
                 android:text="@string/cooler_name" />
 
@@ -505,7 +438,7 @@
                 android:id="@+id/editTextCoolerName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="8"
+                android:ems="7"
                 android:hint="@string/cooler_name"
                 android:inputType="textMultiLine"
                 android:padding="10dp" />
@@ -514,37 +447,30 @@
                 android:id="@+id/coolerDescription"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="8"
+                android:ems="7"
                 android:hint="@string/description"
-                android:importantForAutofill="no"
+
                 android:inputType="textMultiLine"
                 android:padding="12dp" />
-            <EditText
-                android:id="@+id/editTextCoolerRate"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="8"
-                android:hint="@string/rate"
-                android:importantForAutofill="no"
-                android:inputType="number"
-                android:padding="12dp" />
-            <EditText
-                android:id="@+id/editTextCoolerPriceTax"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="8"
-                android:hint="@string/tax"
-                android:inputType="numberDecimal"
-                android:importantForAutofill="no"
-                android:padding="12dp" />
+
             <EditText
                 android:id="@+id/editTextCoolerPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="8"
+                android:ems="7"
                 android:hint="@string/price"
                 android:inputType="number"
                 android:padding="10dp" />
+
+            <EditText
+                android:id="@+id/editTextCoolerPriceTax"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="7"
+                android:hint="@string/tax"
+                android:inputType="number"
+                android:padding="10dp" />
+
 
         </LinearLayout>
 
@@ -563,7 +489,7 @@
                 android:id="@+id/cabinet"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="8"
+                android:ems="7"
                 android:padding="12dp"
                 android:text="@string/cabinet_name" />
 
@@ -571,7 +497,7 @@
                 android:id="@+id/editTextCabinetName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="8"
+                android:ems="7"
                 android:hint="@string/cabinet_name"
                 android:inputType="textMultiLine"
                 android:padding="10dp" />
@@ -580,35 +506,27 @@
                 android:id="@+id/cabinetDescription"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="8"
+                android:ems="7"
                 android:hint="@string/description"
-                android:importantForAutofill="no"
+
                 android:inputType="textMultiLine"
                 android:padding="12dp" />
-            <EditText
-                android:id="@+id/editTextCabinetRate"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="8"
-                android:hint="@string/rate"
-                android:importantForAutofill="no"
-                android:inputType="number"
-                android:padding="12dp" />
-            <EditText
-                android:id="@+id/editTextCabinetPriceTax"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="8"
-                android:hint="@string/tax"
-                android:inputType="numberDecimal"
-                android:importantForAutofill="no"
-                android:padding="12dp" />
+
             <EditText
                 android:id="@+id/editTextCabinetPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="8"
+                android:ems="7"
                 android:hint="@string/price"
+                android:inputType="number"
+                android:padding="10dp" />
+
+            <EditText
+                android:id="@+id/editTextCabinetPriceTax"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="7"
+                android:hint="@string/tax"
                 android:inputType="number"
                 android:padding="10dp" />
 
@@ -630,7 +548,7 @@
                 android:id="@+id/headset"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="8"
+                android:ems="7"
                 android:padding="12dp"
                 android:text="@string/headset_name" />
 
@@ -638,7 +556,7 @@
                 android:id="@+id/editTextHeadsetName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="8"
+                android:ems="7"
                 android:hint="@string/headset_name"
                 android:inputType="textMultiLine"
                 android:padding="10dp" />
@@ -647,35 +565,27 @@
                 android:id="@+id/headsetDescription"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="8"
+                android:ems="7"
                 android:hint="@string/description"
-                android:importantForAutofill="no"
+
                 android:inputType="textMultiLine"
                 android:padding="12dp" />
-            <EditText
-                android:id="@+id/editTextHeadsetRate"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="8"
-                android:hint="@string/rate"
-                android:importantForAutofill="no"
-                android:inputType="number"
-                android:padding="12dp" />
-            <EditText
-                android:id="@+id/editTextHeadsetPriceTax"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="8"
-                android:hint="@string/tax"
-                android:inputType="numberDecimal"
-                android:importantForAutofill="no"
-                android:padding="12dp" />
+
             <EditText
                 android:id="@+id/editTextHeadsetPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="8"
+                android:ems="7"
                 android:hint="@string/price"
+                android:inputType="number"
+                android:padding="10dp" />
+
+            <EditText
+                android:id="@+id/editTextHeadsetPriceTax"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="7"
+                android:hint="@string/tax"
                 android:inputType="number"
                 android:padding="10dp" />
 
@@ -696,7 +606,7 @@
                 android:id="@+id/caseFans"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="8"
+                android:ems="7"
                 android:padding="12dp"
                 android:text="@string/case_fans_name" />
 
@@ -704,7 +614,7 @@
                 android:id="@+id/editTextCaseFansName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="8"
+                android:ems="7"
                 android:hint="@string/case_fans_name"
                 android:inputType="textMultiLine"
                 android:padding="10dp" />
@@ -713,36 +623,27 @@
                 android:id="@+id/caseFansDescription"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="8"
+                android:ems="7"
                 android:hint="@string/description"
-                android:importantForAutofill="no"
+
                 android:inputType="textMultiLine"
-                android:padding="12dp" />
-            <EditText
-                android:id="@+id/editTextCaseFansRate"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="8"
-                android:hint="@string/rate"
-                android:importantForAutofill="no"
-                android:inputType="number"
-                android:padding="12dp" />
-            <EditText
-                android:id="@+id/editTextCaseFansPriceTax"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="8"
-                android:hint="@string/tax"
-                android:inputType="numberDecimal"
-                android:importantForAutofill="no"
                 android:padding="12dp" />
 
             <EditText
                 android:id="@+id/editTextCaseFansPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="8"
+                android:ems="7"
                 android:hint="@string/price"
+                android:inputType="number"
+                android:padding="10dp" />
+
+            <EditText
+                android:id="@+id/editTextCaseFansPriceTax"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="7"
+                android:hint="@string/tax"
                 android:inputType="number"
                 android:padding="10dp" />
 
@@ -763,7 +664,7 @@
                 android:id="@+id/keyboard"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="8"
+                android:ems="7"
                 android:padding="12dp"
                 android:text="@string/keyboard_name" />
 
@@ -771,7 +672,7 @@
                 android:id="@+id/editTextKeyboardName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="8"
+                android:ems="7"
                 android:hint="@string/keyboard_name"
                 android:inputType="textMultiLine"
                 android:padding="10dp" />
@@ -780,35 +681,27 @@
                 android:id="@+id/keyboardDescription"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="8"
+                android:ems="7"
                 android:hint="@string/description"
-                android:importantForAutofill="no"
+
                 android:inputType="textMultiLine"
                 android:padding="12dp" />
-            <EditText
-                android:id="@+id/editTextKeyboardRate"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="8"
-                android:hint="@string/rate"
-                android:importantForAutofill="no"
-                android:inputType="number"
-                android:padding="12dp" />
-            <EditText
-                android:id="@+id/editTextKeyboardPriceTax"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="8"
-                android:hint="@string/tax"
-                android:inputType="numberDecimal"
-                android:importantForAutofill="no"
-                android:padding="12dp" />
+
             <EditText
                 android:id="@+id/editTextKeyboardPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="8"
+                android:ems="7"
                 android:hint="@string/price"
+                android:inputType="number"
+                android:padding="10dp" />
+
+            <EditText
+                android:id="@+id/editTextKeyboardPriceTax"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="7"
+                android:hint="@string/tax"
                 android:inputType="number"
                 android:padding="10dp" />
 
@@ -829,7 +722,7 @@
                 android:id="@+id/mouse"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="8"
+                android:ems="7"
                 android:padding="12dp"
                 android:text="@string/mouse_name" />
 
@@ -837,7 +730,7 @@
                 android:id="@+id/editTextMouseName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="8"
+                android:ems="7"
                 android:hint="@string/mouse_name"
                 android:inputType="textMultiLine"
                 android:padding="10dp" />
@@ -846,35 +739,27 @@
                 android:id="@+id/mouseDescription"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="8"
+                android:ems="7"
                 android:hint="@string/description"
-                android:importantForAutofill="no"
+
                 android:inputType="textMultiLine"
                 android:padding="12dp" />
-            <EditText
-                android:id="@+id/editTextMouseRate"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="8"
-                android:hint="@string/rate"
-                android:importantForAutofill="no"
-                android:inputType="number"
-                android:padding="12dp" />
-            <EditText
-                android:id="@+id/editTextMousePriceTax"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="8"
-                android:hint="@string/tax"
-                android:inputType="numberDecimal"
-                android:importantForAutofill="no"
-                android:padding="12dp" />
+
             <EditText
                 android:id="@+id/editTextMousePrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="8"
+                android:ems="7"
                 android:hint="@string/price"
+                android:inputType="number"
+                android:padding="10dp" />
+
+            <EditText
+                android:id="@+id/editTextMousePriceTax"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="7"
+                android:hint="@string/tax"
                 android:inputType="number"
                 android:padding="10dp" />
 
@@ -895,7 +780,7 @@
                 android:id="@+id/monitor"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="8"
+                android:ems="7"
                 android:padding="12dp"
                 android:text="@string/monitor_name" />
 
@@ -903,7 +788,7 @@
                 android:id="@+id/editTextMonitorName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="8"
+                android:ems="7"
                 android:hint="@string/monitor_name"
                 android:inputType="textMultiLine"
                 android:padding="10dp" />
@@ -912,36 +797,29 @@
                 android:id="@+id/monitorDescription"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="8"
+                android:ems="7"
                 android:hint="@string/description"
                 android:inputType="textMultiLine"
                 android:padding="12dp" />
-            <EditText
-                android:id="@+id/editTextMonitorRate"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="8"
-                android:hint="@string/rate"
-                android:importantForAutofill="no"
-                android:inputType="number"
-                android:padding="12dp" />
-            <EditText
-                android:id="@+id/editTextMonitorPriceTax"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="8"
-                android:hint="@string/tax"
-                android:inputType="numberDecimal"
-                android:importantForAutofill="no"
-                android:padding="12dp" />
+
             <EditText
                 android:id="@+id/editTextMonitorPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="8"
+                android:ems="7"
                 android:hint="@string/price"
                 android:inputType="number"
                 android:padding="10dp" />
+
+            <EditText
+                android:id="@+id/editTextMonitorPriceTax"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="7"
+                android:hint="@string/tax"
+                android:inputType="number"
+                android:padding="10dp" />
+
 
         </LinearLayout>
 
@@ -960,7 +838,7 @@
                 android:id="@+id/service"
                 android:layout_width="100sp"
                 android:layout_height="wrap_content"
-                android:ems="8"
+                android:ems="7"
                 android:padding="12dp"
                 android:text="@string/service_name" />
 
@@ -969,7 +847,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
-                android:ems="8"
+                android:ems="7"
                 android:hint="@string/service_name"
                 android:inputType="textMultiLine"
                 android:padding="10dp" />
@@ -978,35 +856,27 @@
                 android:id="@+id/serviceDescription"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="8"
+                android:ems="7"
                 android:hint="@string/description"
-                android:importantForAutofill="no"
+
                 android:inputType="textMultiLine"
                 android:padding="12dp" />
-            <EditText
-                android:id="@+id/editTextServiceRate"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="8"
-                android:hint="@string/rate"
-                android:importantForAutofill="no"
-                android:inputType="number"
-                android:padding="12dp" />
-            <EditText
-                android:id="@+id/editTextServicePriceTax"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="8"
-                android:hint="@string/tax"
-                android:inputType="numberDecimal"
-                android:importantForAutofill="no"
-                android:padding="12dp" />
+
             <EditText
                 android:id="@+id/editTextServicePrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="8"
+                android:ems="7"
                 android:hint="@string/price"
+                android:inputType="number"
+                android:padding="10dp" />
+
+            <EditText
+                android:id="@+id/editTextServicePriceTax"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="7"
+                android:hint="@string/tax"
                 android:inputType="number"
                 android:padding="10dp" />
 
@@ -1028,7 +898,7 @@
                 android:id="@+id/cable"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="8"
+                android:ems="7"
                 android:padding="12dp"
                 android:text="@string/cable_name" />
 
@@ -1036,7 +906,7 @@
                 android:id="@+id/editTextCableName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="8"
+                android:ems="7"
                 android:hint="@string/cable_name"
                 android:inputType="textMultiLine"
                 android:padding="10dp" />
@@ -1045,35 +915,27 @@
                 android:id="@+id/cableDescription"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="8"
+                android:ems="7"
                 android:hint="@string/description"
-                android:importantForAutofill="no"
+
                 android:inputType="textMultiLine"
                 android:padding="12dp" />
-            <EditText
-                android:id="@+id/editTextCableRate"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="8"
-                android:hint="@string/rate"
-                android:importantForAutofill="no"
-                android:inputType="number"
-                android:padding="12dp" />
-            <EditText
-                android:id="@+id/editTextCablePriceTax"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="8"
-                android:hint="@string/tax"
-                android:inputType="numberDecimal"
-                android:importantForAutofill="no"
-                android:padding="12dp" />
+
             <EditText
                 android:id="@+id/editTextCablePrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="8"
+                android:ems="7"
                 android:hint="@string/price"
+                android:inputType="number"
+                android:padding="10dp" />
+
+            <EditText
+                android:id="@+id/editTextCablePriceTax"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="7"
+                android:hint="@string/tax"
                 android:inputType="number"
                 android:padding="10dp" />
 
@@ -1101,7 +963,7 @@
                 android:onClick="calculateAll"
                 android:text="Calculate Tax" />
 
-            <!--
+            <!-
             <Button
                 android:id="@+id/btnPrint"
                 android:layout_width="wrap_content"
@@ -1111,6 +973,6 @@
                 android:layout_marginStart="20dp"
                 android:text="Print old" />
 -->
-        </LinearLayout>
-    </LinearLayout>
-</LinearLayout>
+    <!--</LinearLayout>
+    </LinearLayout> -->
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -789,29 +789,29 @@
                     android:orientation="horizontal">
 
                     <CheckBox
-                        android:id="@+id/checkBoxCable"
+                        android:id="@+id/checkBoxExtras"
                         android:layout_width="30dp"
                         android:layout_height="30dp" />
 
                     <TextView
-                        android:id="@+id/cable"
+                        android:id="@+id/extras"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:padding="12dp"
                         android:ems="8"
-                        android:text="@string/cable_name" />
+                        android:text="@string/extras_name" />
 
                     <EditText
-                        android:id="@+id/editTextCableName"
+                        android:id="@+id/editTextExtrasName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:ems="8"
-                        android:hint="@string/cable_name"
+                        android:hint="@string/extras_name"
                         android:inputType="textMultiLine"
                         android:padding="10dp" />
 
                     <EditText
-                        android:id="@+id/editTextCablePrice"
+                        android:id="@+id/editTextExtrasPrice"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:ems="8"
@@ -820,7 +820,7 @@
                         android:padding="10dp" />
 
                     <EditText
-                        android:id="@+id/cableDescription"
+                        android:id="@+id/extrasDescription"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:ems="8"

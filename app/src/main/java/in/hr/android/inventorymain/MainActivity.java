@@ -14,9 +14,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -30,25 +33,24 @@ import ir.androidexception.datatable.model.DataTableHeader;
 import ir.androidexception.datatable.model.DataTableRow;
 
 public class MainActivity extends AppCompatActivity {
-    FloatingActionButton floatingAddButton, floatingEditButton, floatingNewButton;
 
+    FloatingActionButton floatingAddButton, floatingNewButton;
     Button printButton;
     EditText editText;
     DataTable dataTable;
     SQLiteDatabase database;
-
     Date date = new Date();
     String datePattern = "dd-MM-YYYY";
     SimpleDateFormat dateFormat = new SimpleDateFormat(datePattern);
-
     String timePattern = "hh:mm a";
     SimpleDateFormat timeFormat = new SimpleDateFormat(timePattern);
+    ArrayList<DataTableRow> rows = new ArrayList<>();
+    int loop= 100;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
 
         printButton = findViewById(R.id.oldPrintBtn);
         editText = findViewById(R.id.oldPrintEditText);
@@ -60,40 +62,63 @@ public class MainActivity extends AppCompatActivity {
         DataTableHeader header = new DataTableHeader.Builder().item("Invoice No", 5)
                 .item("Bill Name", 5)
                 .item("Date", 5)
-                .item("Time", 5)
+                .item("Mobile No", 5)
                 .item("Amount", 5)
                 .build();
 
-        ArrayList<DataTableRow> rows = new ArrayList<>();DataTableRow row = new DataTableRow.Builder()
-                .value("Name")
-                .value(dateFormat.format(date.getTime()))
-                .value(timeFormat.format(date.getTime()))
-                .value("Amount")
-                .build();
-
-        rows.add(row);
         dataTable.setHeader(header);
         dataTable.setRows(rows);
         dataTable.inflate(this);
 
-        floatingAddButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "Price is MANDATORY for selected Item!!!", Toast.LENGTH_LONG).show();
-                Intent intent = new Intent(MainActivity.this, Convert_Quotation_To_PDFSQLActivity.class);
-                startActivity(intent);
-            }
-        });
+        for (int i = 0; i < loop; i++) {
 
-        floatingNewButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "Price is MANDATORY for selected Item!!!", Toast.LENGTH_LONG).show();
-                Intent intent = new Intent(MainActivity.this, Activity_bill_to_PDF.class);
-                startActivity(intent);
-            }
-        });
-    }
+            DataTableRow row = new DataTableRow.Builder()
+                  //  .value(String.valueOf(cursor.getInt(0)))
+                  //  .value(cursor.getString(1))
+                  //  .value(dateFormat.format(cursor.getLong(2)))
+                  //  .value(String.valueOf(cursor.getInt(3)))
+                   // .value(String.valueOf(cursor.getInt(4)))
+                    .build();
+            rows.add(row);
+        }
+
+/*
+        String[] column = {"invoiceNo", "billName", "date", "Mobile", "amount"};
+        Cursor cursor = database.query("BillDatabase", column, null, null, null, null, null);
+
+
+        for (int i = 0; i < cursor.getCount(); i++) {
+
+            cursor.moveToNext();
+            DataTableRow row = new DataTableRow.Builder()
+                    .value(String.valueOf(cursor.getInt(0)))
+                    .value(cursor.getString(1))
+                    .value(dateFormat.format(cursor.getLong(2)))
+                    .value(String.valueOf(cursor.getInt(3)))
+                    .value(String.valueOf(cursor.getInt(4)))
+                    .build();
+            rows.add(row);
+        }
+*/
+            floatingAddButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(MainActivity.this, "Price is MANDATORY for selected Item!!!", Toast.LENGTH_LONG).show();
+                    Intent intent = new Intent(MainActivity.this, Convert_Quotation_To_PDFSQLActivity.class);
+                    startActivity(intent);
+                }
+            });
+
+            floatingNewButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(MainActivity.this, "Price is MANDATORY for selected Item!!!", Toast.LENGTH_LONG).show();
+                    Intent intent = new Intent(MainActivity.this, Activity_bill_to_PDF.class);
+                    startActivity(intent);
+                }
+            });
+        }
+
     public void printSelectedInvoice(View view) {
         printButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -108,7 +133,6 @@ public class MainActivity extends AppCompatActivity {
 
                     Cursor cursor = database.rawQuery("SELECT * FROM PdfTable where invoiceNo = " + invoiceForPDF, null);
                     cursor.moveToNext();
-
 
                     PdfDocument.PageInfo pageInfo = new PdfDocument.PageInfo.Builder(1000, 900, 1).create();
                     PdfDocument.Page page = pdfDocument.startPage(pageInfo);
@@ -209,5 +233,10 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    public void firebase(View view) {
+        Intent intent = new Intent(this, FirebaseDatabaseActivity.class);
+        startActivity(intent);
     }
 }
