@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
     SimpleDateFormat dateFormat = new SimpleDateFormat(datePattern);
     String timePattern = "hh:mm a";
     SimpleDateFormat timeFormat = new SimpleDateFormat(timePattern);
-    ArrayList<DataTableRow> rows = new ArrayList<>();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,6 +66,7 @@ public class MainActivity extends AppCompatActivity {
                 .item("amount", 5)
                 .build();
 
+        ArrayList<DataTableRow> rows = new ArrayList<>();
         String[] column = {"quoteNo", "date", "mobileNo", "amount"};
         Cursor cursor = database.query("QuoteTable", column, null, null, null, null, null);
 
@@ -74,8 +75,8 @@ public class MainActivity extends AppCompatActivity {
             cursor.moveToNext();
             DataTableRow row = new DataTableRow.Builder()
                     .value(String.valueOf(cursor.getInt(0)))
-                    .value(cursor.getString(1))
-                    .value(dateFormat.format(cursor.getLong(2)))
+                   // .value(cursor.getString(1))
+                    .value(dateFormat.format(cursor.getLong(1)))
                     .value(String.valueOf(cursor.getInt(3)))
                     .value(String.valueOf(cursor.getInt(4)))
                     .build();
@@ -89,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
         floatingAddButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "Price is MANDATORY for selected Item!!!", Toast.LENGTH_LONG).show();
+                //Toast.makeText(MainActivity.this, "Price is MANDATORY for selected Item!!!", Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(MainActivity.this, Convert_Quotation_To_PDFSQLActivity.class);
                 startActivity(intent);
             }
@@ -98,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
         floatingNewButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "Price is MANDATORY for selected Item!!!", Toast.LENGTH_LONG).show();
+                //Toast.makeText(MainActivity.this, "Price is MANDATORY for selected Item!!!", Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(MainActivity.this, Activity_bill_to_PDF.class);
                 startActivity(intent);
             }

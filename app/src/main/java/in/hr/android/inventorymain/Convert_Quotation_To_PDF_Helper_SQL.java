@@ -60,12 +60,12 @@ public class Convert_Quotation_To_PDF_Helper_SQL extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
     }
 
-    public void insertQuote(String date, int customerMobileNumber, int amount){
+    public void insertQuote(String date, int mobileNo, int amount){
 
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put("date", date);
-        contentValues.put("customerMobileNumber",customerMobileNumber);
+        contentValues.put("mobileNo",mobileNo);
         contentValues.put("amount",amount);
 
         sqLiteDatabase.insert("QuoteTable", null, contentValues);
