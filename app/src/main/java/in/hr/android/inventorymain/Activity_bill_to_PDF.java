@@ -25,7 +25,7 @@ import java.util.Date;
 public class Activity_bill_to_PDF extends AppCompatActivity {
 
     String warrantyHeading = "Warranty and Support: ";
-    String warranty1 = " 1. All PC built by us will receive ON-SITE warranty for TWO YEARS and FREE technical support.";
+    String warranty1 = "1. All PC built by us will receive ON-SITE warranty for TWO YEARS and FREE technical support.";
     String warranty2 = "  After two years, depending on the COMPONENTS used, warranty will be provided. ";
     String warranty3 = "2. Warranty and Replacement of Individual part depends on the MANUFACTURER.";
     String warranty4 = "3. Technical support and future upgrade are available.";
@@ -445,8 +445,8 @@ public class Activity_bill_to_PDF extends AppCompatActivity {
         int differentialWidthTextView = 25;
         int differentialWidthText = 85;
         int differentialWidthDescription = 175;
-        int differentialWidthRate = totalPageWidth - 192;
-        int differentialWidthTax = totalPageWidth - 130;
+        int differentialWidthRate = totalPageWidth - 200;
+        int differentialWidthTax = totalPageWidth - 140;
         int differentialWidthPrice = totalPageWidth - 90;
 
         if (processor.isChecked()) {
@@ -473,7 +473,7 @@ public class Activity_bill_to_PDF extends AppCompatActivity {
             canvas.drawText(processorText, currentPageWidth + currentPositionWidth + differentialWidthText, currentPageHeight + currentPositionHeight, paint);
             canvas.drawText(processorDescription, currentPageWidth + currentPositionWidth + differentialWidthDescription, currentPageHeight + currentPositionHeight, paint);
             canvas.drawText(processorDescription2, currentPageWidth + currentPositionWidth + differentialWidthDescription, currentPageHeight + currentPositionHeight +10, paint);
-            canvas.drawText("RS.  " + String.valueOf(processorPrice), currentPageWidth + currentPositionWidth + differentialWidthPrice, currentPageHeight + currentPositionHeight, paint);
+            canvas.drawText("RS.  " + processorPrice, currentPageWidth + currentPositionWidth + differentialWidthPrice, currentPageHeight + currentPositionHeight, paint);
             canvas.drawText(String.valueOf(processorRate), currentPageWidth + currentPositionWidth + differentialWidthRate, currentPageHeight + currentPositionHeight, paint);
             canvas.drawText(String.valueOf(processorTax), currentPageWidth + currentPositionWidth + differentialWidthTax, currentPageHeight + currentPositionHeight, paint);
             updateSerialNo(serialNo);
@@ -845,10 +845,10 @@ public class Activity_bill_to_PDF extends AppCompatActivity {
         canvas.drawText("", currentPageWidth + currentPositionWidth, currentPageHeight + currentPositionHeight, paint);
         canvas.drawText("TOTAL", currentPageWidth + currentPositionWidth + differentialWidthText, currentPageHeight + currentPositionHeight, paint);
         canvas.drawText("", currentPageWidth + currentPositionWidth + differentialWidthDescription, currentPageHeight + currentPositionHeight, paint);
-        canvas.drawText("RS. " + totalAmount, currentPageWidth + currentPositionWidth + differentialWidthPrice, currentPageHeight + currentPositionHeight, paint);
+        canvas.drawText("RS. " + priceAmount, currentPageWidth + currentPositionWidth + differentialWidthPrice, currentPageHeight + currentPositionHeight, paint);
 
         canvas.drawText("RS. " + rateAmount, currentPageWidth + currentPositionWidth + differentialWidthRate, currentPageHeight + currentPositionHeight, paint);
-        canvas.drawText("RS. " + totalAmount, currentPageWidth + currentPositionWidth + differentialWidthTax, currentPageHeight + currentPositionHeight, paint);
+        canvas.drawText("RS. " + taxAmount, currentPageWidth + currentPositionWidth + differentialWidthTax, currentPageHeight + currentPositionHeight, paint);
 
         // draw vertical line TODO: need to change the value of height according to list
 
@@ -858,8 +858,8 @@ public class Activity_bill_to_PDF extends AppCompatActivity {
         canvas.drawRect(currentPageWidth + 40, currentPageHeight + 250, currentPageWidth + 42, currentPageHeight + currentPositionHeight, paint);
         canvas.drawRect(currentPageWidth + 102, currentPageHeight + 250, currentPageWidth + 104, currentPageHeight + currentPositionHeight, paint);
         canvas.drawRect(currentPageWidth + 190, currentPageHeight + 250, currentPageWidth + 192, currentPageHeight + currentPositionHeight, paint);
-        canvas.drawRect(currentPageWidth + 420, currentPageHeight + 250, currentPageWidth + 422, currentPageHeight + currentPositionHeight, paint);
-        canvas.drawRect(currentPageWidth + 475, currentPageHeight + 250, currentPageWidth + 477, currentPageHeight + currentPositionHeight, paint);
+        canvas.drawRect(currentPageWidth + 410, currentPageHeight + 250, currentPageWidth + 412, currentPageHeight + currentPositionHeight, paint);
+        canvas.drawRect(currentPageWidth + 470, currentPageHeight + 250, currentPageWidth + 472, currentPageHeight + currentPositionHeight, paint);
         canvas.drawRect(currentPageWidth + 520, currentPageHeight + 250, currentPageWidth + 522, currentPageHeight + currentPositionHeight, paint);
         canvas.drawRect(currentPageWidth + 578, currentPageHeight + 250, currentPageWidth + 580, currentPageHeight + currentPositionHeight, paint);
 
@@ -946,7 +946,7 @@ public class Activity_bill_to_PDF extends AppCompatActivity {
                 toast("processorPrice" + "is empty");
             } else {
                 processorPrice = Float.parseFloat(processor_price.getText().toString());
-                processorTax = (float) (processorPrice * 0.18);
+                processorTax = (processorPrice * 0.18F);
                 processor_tax.setText(String.valueOf(processorTax));
                 processorRate = processorPrice - processorTax;
                 processor_rate.setText(String.valueOf(processorRate));
@@ -957,7 +957,7 @@ public class Activity_bill_to_PDF extends AppCompatActivity {
                 toast("motherboardPrice" + "is empty");
             } else {
                 motherboardPrice = Float.parseFloat(motherboard_price.getText().toString());
-                motherboardTax = (float) (motherboardPrice * 0.18);
+                motherboardTax = (motherboardPrice * 0.18F);
                 motherboard_tax.setText(String.valueOf(motherboardTax));
                 motherboardRate = motherboardPrice - motherboardTax;
                 motherboard_rate.setText(String.valueOf(motherboardRate));
@@ -968,7 +968,7 @@ public class Activity_bill_to_PDF extends AppCompatActivity {
                 toast("ramPrice" + "is empty");
             } else {
                 ramPrice = Float.parseFloat(ram_price.getText().toString());
-                ramTax = (float) (ramPrice * 0.18);
+                ramTax =  (ramPrice * 0.18F);
                 ram_tax.setText(String.valueOf(ramTax));
                 ramRate = ramPrice - ramTax;
                 ram_rate.setText(String.valueOf(ramRate));
@@ -979,7 +979,7 @@ public class Activity_bill_to_PDF extends AppCompatActivity {
                 toast("graphicsCardPrice" + "is empty");
             } else {
                 graphicsCardPrice = Float.parseFloat(graphics_card_price.getText().toString());
-                graphics_cardTax = (float) (graphicsCardPrice * 0.18);
+                graphics_cardTax = (graphicsCardPrice * 0.18F);
                 graphics_card_tax.setText(String.valueOf(graphics_cardTax));
                 graphicsCardRate = graphicsCardPrice - graphics_cardTax;
                 graphics_card_rate.setText(String.valueOf(graphicsCardRate));
@@ -990,7 +990,7 @@ public class Activity_bill_to_PDF extends AppCompatActivity {
                 toast("ssdPrice" + "is empty");
             } else {
                 ssdPrice = Float.parseFloat(ssd_price.getText().toString());
-                ssdTax = (float) (ssdPrice * 0.18);
+                ssdTax = (ssdPrice * 0.18F);
                 ssd_tax.setText(String.valueOf(ssdTax));
                 ssdRate = ssdPrice - ssdTax;
                 ssd_rate.setText(String.valueOf(ssdRate));
@@ -1001,7 +1001,7 @@ public class Activity_bill_to_PDF extends AppCompatActivity {
                 toast("hddPrice " + "is empty");
             } else {
                 hddPrice = Float.parseFloat(hdd_price.getText().toString());
-                hddTax = (float) (hddPrice * 0.18);
+                hddTax = (hddPrice * 0.18F);
                 hdd_tax.setText(String.valueOf(hddTax));
                 hddRate = hddPrice - hddTax;
                 hdd_rate.setText(String.valueOf(hddRate));
@@ -1012,7 +1012,7 @@ public class Activity_bill_to_PDF extends AppCompatActivity {
                 toast("powerSupplyPrice" + "is empty");
             } else {
                 powerSupplyPrice = Float.parseFloat(power_supply_price.getText().toString());
-                power_supplyTax = (float) (powerSupplyPrice * 0.18);
+                power_supplyTax = (powerSupplyPrice * 0.18F);
                 power_supply_tax.setText(String.valueOf(power_supplyTax));
                 powerSupplyRate = powerSupplyPrice - power_supplyTax;
                 power_supply_rate.setText(String.valueOf(powerSupplyRate));
@@ -1023,7 +1023,7 @@ public class Activity_bill_to_PDF extends AppCompatActivity {
                 toast("headsetPrice " + "is empty");
             } else {
                 headsetPrice = Float.parseFloat(headset_price.getText().toString());
-                headsetTax = (float) (headsetPrice * 0.18);
+                headsetTax = (headsetPrice * 0.18F);
                 headset_tax.setText(String.valueOf(headsetTax));
                 headsetRate = headsetPrice - headsetTax;
                 headset_rate.setText(String.valueOf(headsetRate));
@@ -1034,7 +1034,7 @@ public class Activity_bill_to_PDF extends AppCompatActivity {
                 toast("keyboardPrice " + "is empty");
             } else {
                 keyboardPrice = Float.parseFloat(keyboard_price.getText().toString());
-                keyboardTax = (float) (keyboardPrice * 0.18);
+                keyboardTax = (keyboardPrice * 0.18F);
                 keyboard_tax.setText(String.valueOf(keyboardTax));
                 keyboardRate = keyboardPrice - keyboardTax;
                 keyboard_rate.setText(String.valueOf(keyboardRate));
@@ -1045,7 +1045,7 @@ public class Activity_bill_to_PDF extends AppCompatActivity {
                 toast("mousePrice" + "is empty");
             } else {
                 mousePrice = Float.parseFloat(mouse_price.getText().toString());
-                mouseTax = (float) (mousePrice * 0.18);
+                mouseTax = (mousePrice * 0.18F);
                 mouse_tax.setText(String.valueOf(mouseTax));
                 mouseRate = mousePrice - mouseTax;
                 mouse_rate.setText(String.valueOf(mouseRate));
@@ -1056,7 +1056,7 @@ public class Activity_bill_to_PDF extends AppCompatActivity {
                 toast("cabinetPrice" + "is empty");
             } else {
                 cabinetPrice = Float.parseFloat(cabinet_price.getText().toString());
-                cabinetTax = (float) (cabinetPrice * 0.18);
+                cabinetTax = (cabinetPrice * 0.18F);
                 cabinet_tax.setText(String.valueOf(cabinetTax));
                 cabinetRate = cabinetPrice - cabinetTax;
                 cabinet_rate.setText(String.valueOf(cabinetRate));
@@ -1067,7 +1067,7 @@ public class Activity_bill_to_PDF extends AppCompatActivity {
                 toast("monitorPrice" + "is empty");
             } else {
                 monitorPrice = Float.parseFloat(monitor_price.getText().toString());
-                monitorTax = (float) (monitorPrice * 0.18);
+                monitorTax = (monitorPrice * 0.18F);
                 monitor_tax.setText(String.valueOf(monitorTax));
                 monitorRate = monitorPrice - monitorTax;
                 monitor_rate.setText(String.valueOf(monitorRate));
@@ -1078,7 +1078,7 @@ public class Activity_bill_to_PDF extends AppCompatActivity {
                 toast("caseFansPrice" + "is empty");
             } else {
                 caseFansPrice = Float.parseFloat(case_fans_price.getText().toString());
-                case_fansTax = (float) (caseFansPrice * 0.18);
+                case_fansTax = (caseFansPrice * 0.18F);
                 case_fans_tax.setText(String.valueOf(case_fansTax));
                 caseFansRate = caseFansPrice - case_fansTax;
                 case_fans_rate.setText(String.valueOf(caseFansRate));
@@ -1089,7 +1089,7 @@ public class Activity_bill_to_PDF extends AppCompatActivity {
                 toast("cablePrice" + "is empty");
             } else {
                 extrasPrice = Float.parseFloat(extras_price.getText().toString());
-                extrasTax = (float) (extrasPrice * 0.18);
+                extrasTax = (extrasPrice * 0.18F);
                 extras_tax.setText(String.valueOf(extrasTax));
                 extrasRate = extrasPrice - extrasTax;
                 extras_rate.setText(String.valueOf(extrasRate));
@@ -1100,7 +1100,7 @@ public class Activity_bill_to_PDF extends AppCompatActivity {
                 toast("servicePrice" + "is empty");
             } else {
                 servicePrice = Float.parseFloat(service_price.getText().toString());
-                serviceTax = (float) (servicePrice * 0.18);
+                serviceTax = (servicePrice * 0.18F);
                 service_tax.setText(String.valueOf(serviceTax));
                 serviceRate = servicePrice - serviceTax;
                 service_rate.setText(String.valueOf(serviceRate));
@@ -1111,13 +1111,12 @@ public class Activity_bill_to_PDF extends AppCompatActivity {
                 toast("coolerPrice " + "is empty");
             } else {
                 coolerPrice = Float.parseFloat(cooler_price.getText().toString());
-                coolerTax = (float) (coolerPrice * 0.18);
+                coolerTax = (coolerPrice * 0.18F);
                 cooler_tax.setText(String.valueOf(coolerTax));
                 coolerRate = coolerPrice - coolerTax;
                 cooler_rate.setText(String.valueOf(coolerRate));
             }
         }
-
         rateAmount = processorRate + motherboardRate + ramRate + graphicsCardRate + ssdRate + hddRate +
                 powerSupplyRate + coolerRate + cabinetRate + extrasRate + serviceRate + caseFansRate + keyboardRate + mouseRate +
                 monitorRate + headsetRate;
