@@ -61,6 +61,15 @@ public class MainActivity extends AppCompatActivity {
         helperBill = new Bill_to_pdf_helper(this);
         databaseBill = helperBill.getReadableDatabase();
 
+        DataTableHeader header2 = new DataTableHeader.Builder()
+                .item("Invoice No", 4)
+                .item("Bill Name", 4)
+                .item("Date", 4)
+                .item("Time", 4)
+                .item("Mobile No", 4)
+                .item("Amount", 4)
+                .build();
+
         DataTableHeader header = new DataTableHeader.Builder()
                 .item("Invoice No", 5)
                 .item("Date", 5)
@@ -69,39 +78,47 @@ public class MainActivity extends AppCompatActivity {
                 .item("Amount", 5)
                 .build();
 
-        DataTableHeader header2 = new DataTableHeader.Builder()
-                .item("Invoice No", 5)
-                .item("Bill Name", 5)
-                .item("Date", 5)
-                .item("Time", 5)
-                .item("Mobile No", 5)
-                .item("Amount", 5)
-                .build();
-/*
+        dataTableBill.setHeader(header2);
+        dataTableQuote.setHeader(header);
+
+        String[] column2 = {"billNo", "billName", "date", "time", "mobileNo", "amount"};
+        Cursor cursor2 = databaseBill.query("BillTable", column2, null, null, null, null, null);
+        Toast.makeText(this, String.valueOf(cursor2), Toast.LENGTH_SHORT).show();
+        for (int i = 0; i < cursor2.getCount(); i++) {
+            cursor2.moveToNext();
+            DataTableRow row2 = new DataTableRow.Builder()
+                    .value(String.valueOf(cursor2.getInt(0)))
+                    .value(cursor2.getString(1))
+                    .value(cursor2.getString(2))
+                    .value(String.valueOf(cursor2.getInt(3)))
+                    .value(String.valueOf(cursor2.getInt(4)))
+                    .build();
+            rowsBill.add(row2);
+
+            dataTableBill.setRows(rowsBill);
+            dataTableBill.inflate(this);
+        }
+        cursor2.close();
+
         String[] column = {"quoteNo", "date", "time", "mobileNo", "amount"};
-        Cursor cursor = database.query("QuoteTable", column, null, null, null, null, null);
+        Cursor cursor = databaseQuote.query("QuoteTable", column, null, null, null, null, null);
 
         for (int i = 0; i < cursor.getCount(); i++) {
 
             cursor.moveToNext();
             DataTableRow row = new DataTableRow.Builder()
                     .value(String.valueOf(cursor.getInt(0)))
-                    // .value(cursor.getString(1))
-                    .value(dateFormat.format(cursor.getLong(1)))
-                    .value(timeFormat.format(cursor.getLong(2)))
+                    .value(cursor.getString(1))
+                    .value(cursor.getString(2))
                     .value(String.valueOf(cursor.getInt(3)))
                     .value(String.valueOf(cursor.getInt(4)))
                     .build();
-            rows.add(row);
+            rowsQuote.add(row);
+
+            dataTableQuote.setRows(rowsQuote);
+            dataTableQuote.inflate(this);
         }
-
-
-        dataTable.setRows(rows);
-        dataTable.inflate(this);
-*/
-        dataTableQuote.setHeader(header);
-        dataTableBill.setHeader(header2);
-
+        cursor.close();
         floatingAddButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -241,50 +258,10 @@ public class MainActivity extends AppCompatActivity {
     public void changeToBill(View view) {
         dataTableBill.setVisibility(View.VISIBLE);
         dataTableQuote.setVisibility(View.INVISIBLE);
-
-        String[] column2 = {"billNo", "billName", "date", "time", "mobileNo", "amount"};
-        Cursor cursor2 = databaseBill.query("BillTable", column2, null, null, null, null, null);
-
-        for (int i = 0; i < cursor2.getCount(); i++) {
-            cursor2.moveToNext();
-            DataTableRow row2 = new DataTableRow.Builder()
-                    .value(String.valueOf(cursor2.getInt(0)))
-                    .value(cursor2.getString(1))
-                    .value(cursor2.getString(2))
-                    .value(String.valueOf(cursor2.getInt(3)))
-                    .value(String.valueOf(cursor2.getInt(4)))
-                    .build();
-            rowsBill.add(row2);
-
-            dataTableBill.setRows(rowsBill);
-            dataTableBill.inflate(this);
-        }
-        cursor2.close();
     }
 
     public void changeToQuote(View view) {
         dataTableQuote.setVisibility(View.VISIBLE);
         dataTableBill.setVisibility(View.INVISIBLE);
-
-        String[] column = {"quoteNo", "date", "time", "mobileNo", "amount"};
-        Cursor cursor = databaseQuote.query("QuoteTable", column, null, null, null, null, null);
-
-        for (int i = 0; i < cursor.getCount(); i++) {
-
-            cursor.moveToNext();
-            DataTableRow row = new DataTableRow.Builder()
-                    .value(String.valueOf(cursor.getInt(0)))
-                    .value(cursor.getString(1))
-                    .value(cursor.getString(2))
-                    .value(String.valueOf(cursor.getInt(3)))
-                    .value(String.valueOf(cursor.getInt(4)))
-                    .build();
-            rowsQuote.add(row);
-
-            dataTableQuote.setRows(rowsQuote);
-            dataTableQuote.inflate(this);
-        }
-        cursor.close();
-
     }
 }

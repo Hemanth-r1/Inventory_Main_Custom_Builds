@@ -657,13 +657,11 @@ public class Convert_Quotation_To_PDFSQLActivity extends AppCompatActivity {
 
         File file = new File(this.getExternalFilesDir("/"), billName + "/" + "CustomBuilds.pdf");
         try {
-
             pdfDocument.writeTo(new FileOutputStream(file));
         } catch (IOException e) {
             e.printStackTrace();
         }
         pdfDocument.close();
         Toast.makeText(Convert_Quotation_To_PDFSQLActivity.this, "Successfully converted to PDF", Toast.LENGTH_LONG).show();
-
     }
 }

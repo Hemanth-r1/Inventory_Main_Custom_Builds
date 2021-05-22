@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="10dp"
+    android:orientation="vertical"
     tools:context=".Convert_Quotation_To_PDFSQLActivity">
 
     <EditText
@@ -94,7 +95,7 @@
                         android:id="@+id/editTextProcessorPrice"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:ems="7"
+                        android:ems="5"
                         android:hint="@string/price"
                         android:inputType="number"
                         android:padding="5dp" />
@@ -143,7 +144,7 @@
                         android:id="@+id/editTextMotherboardPrice"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:ems="7"
+                        android:ems="5"
                         android:hint="@string/price"
                         android:inputType="number"
                         android:padding="5dp" />
@@ -191,7 +192,7 @@
                         android:id="@+id/editTextRamPrice"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:ems="7"
+                        android:ems="5"
                         android:hint="@string/price"
                         android:inputType="number"
                         android:padding="5dp" />
@@ -239,7 +240,7 @@
                         android:id="@+id/editTextGraphicsCardPrice"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:ems="7"
+                        android:ems="5"
                         android:hint="@string/price"
                         android:inputType="number"
                         android:padding="5dp" />
@@ -287,7 +288,7 @@
                         android:id="@+id/editTextPowerSupplyPrice"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:ems="7"
+                        android:ems="5"
                         android:hint="@string/price"
                         android:inputType="number"
                         android:padding="5dp" />
@@ -335,7 +336,7 @@
                         android:id="@+id/editTextSSDPrice"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:ems="7"
+                        android:ems="5"
                         android:hint="@string/price"
                         android:inputType="number"
                         android:padding="5dp" />
@@ -383,7 +384,7 @@
                         android:id="@+id/editTextHDDPrice"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:ems="7"
+                        android:ems="5"
                         android:hint="@string/price"
                         android:inputType="number"
                         android:padding="5dp" />
@@ -432,7 +433,7 @@
                         android:id="@+id/editTextCoolerPrice"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:ems="7"
+                        android:ems="5"
                         android:hint="@string/price"
                         android:inputType="number"
                         android:padding="5dp" />
@@ -480,7 +481,7 @@
                         android:id="@+id/editTextCabinetPrice"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:ems="7"
+                        android:ems="5"
                         android:hint="@string/price"
                         android:inputType="number"
                         android:padding="5dp" />
@@ -529,7 +530,7 @@
                         android:id="@+id/editTextHeadsetPrice"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:ems="7"
+                        android:ems="5"
                         android:hint="@string/price"
                         android:inputType="number"
                         android:padding="5dp" />
@@ -577,7 +578,7 @@
                         android:id="@+id/editTextCaseFansPrice"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:ems="7"
+                        android:ems="5"
                         android:hint="@string/price"
                         android:inputType="number"
                         android:padding="5dp" />
@@ -625,7 +626,7 @@
                         android:id="@+id/editTextKeyboardPrice"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:ems="7"
+                        android:ems="5"
                         android:hint="@string/price"
                         android:inputType="number"
                         android:padding="5dp" />
@@ -673,7 +674,7 @@
                         android:id="@+id/editTextMousePrice"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:ems="7"
+                        android:ems="5"
                         android:hint="@string/price"
                         android:inputType="number"
                         android:padding="5dp" />
@@ -722,7 +723,7 @@
                         android:id="@+id/editTextMonitorPrice"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:ems="7"
+                        android:ems="5"
                         android:hint="@string/price"
                         android:inputType="number"
                         android:padding="5dp" />
@@ -770,7 +771,7 @@
                         android:id="@+id/editTextServicePrice"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:ems="7"
+                        android:ems="5"
                         android:hint="@string/price"
                         android:inputType="number"
                         android:padding="5dp" />
@@ -818,7 +819,7 @@
                         android:id="@+id/editTextExtrasPrice"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:ems="7"
+                        android:ems="5"
                         android:hint="@string/price"
                         android:inputType="number"
                         android:padding="5dp" />

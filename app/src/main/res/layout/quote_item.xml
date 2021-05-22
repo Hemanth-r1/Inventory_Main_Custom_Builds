@@ -110,7 +110,7 @@
             android:id="@+id/editTextProcessorRate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:ems="7"
+            android:ems="5"
             android:hint="@string/rate"
             android:inputType="number"
             android:padding="5dp" />
@@ -119,7 +119,7 @@
             android:id="@+id/editTextProcessorPriceTax"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:ems="7"
+            android:ems="5"
             android:hint="@string/tax"
             android:inputType="numberDecimal"
             android:padding="5dp" />
@@ -128,7 +128,7 @@
             android:id="@+id/editTextProcessorPrice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:ems="7"
+            android:ems="5"
             android:hint="@string/price"
             android:inputType="number"
             android:padding="5dp" />
@@ -186,9 +186,8 @@
             android:id="@+id/editTextMotherboardRate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:ems="7"
+            android:ems="5"
             android:hint="@string/rate"
-
             android:inputType="number"
             android:padding="5dp" />
 
@@ -196,17 +195,16 @@
             android:id="@+id/editTextMotherboardPriceTax"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:ems="7"
+            android:ems="5"
             android:hint="@string/tax"
             android:inputType="numberDecimal"
-
             android:padding="5dp" />
 
         <EditText
             android:id="@+id/editTextMotherboardPrice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:ems="7"
+            android:ems="5"
             android:hint="@string/price"
             android:inputType="number"
             android:padding="5dp" />
@@ -263,9 +261,8 @@
             android:id="@+id/editTextRamRate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:ems="7"
+            android:ems="5"
             android:hint="@string/rate"
-
             android:inputType="number"
             android:padding="5dp" />
 
@@ -273,17 +270,16 @@
             android:id="@+id/editTextRamPriceTax"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:ems="7"
+            android:ems="5"
             android:hint="@string/tax"
             android:inputType="numberDecimal"
-
             android:padding="5dp" />
 
         <EditText
             android:id="@+id/editTextRamPrice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:ems="7"
+            android:ems="5"
             android:hint="@string/price"
             android:inputType="number"
             android:padding="5dp" />
@@ -340,9 +336,8 @@
             android:id="@+id/editTextGraphicsCardRate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:ems="7"
+            android:ems="5"
             android:hint="@string/rate"
-
             android:inputType="number"
             android:padding="5dp" />
 
@@ -350,17 +345,16 @@
             android:id="@+id/editTextGraphicsCardPriceTax"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:ems="7"
+            android:ems="5"
             android:hint="@string/tax"
             android:inputType="numberDecimal"
-
             android:padding="5dp" />
 
         <EditText
             android:id="@+id/editTextGraphicsCardPrice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:ems="7"
+            android:ems="5"
             android:hint="@string/price"
             android:inputType="number"
             android:padding="5dp" />
@@ -417,9 +411,8 @@
             android:id="@+id/editTextPowerSupplyRate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:ems="7"
+            android:ems="5"
             android:hint="@string/rate"
-
             android:inputType="number"
             android:padding="5dp" />
 
@@ -427,17 +420,16 @@
             android:id="@+id/editTextPowerSupplyPriceTax"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:ems="7"
+            android:ems="5"
             android:hint="@string/tax"
             android:inputType="numberDecimal"
-
             android:padding="5dp" />
 
         <EditText
             android:id="@+id/editTextPowerSupplyPrice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:ems="7"
+            android:ems="5"
             android:hint="@string/price"
             android:inputType="number"
             android:padding="5dp" />
@@ -495,9 +487,8 @@
             android:id="@+id/editTextSSDRate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:ems="7"
+            android:ems="5"
             android:hint="@string/rate"
-
             android:inputType="number"
             android:padding="5dp" />
 
@@ -505,17 +496,16 @@
             android:id="@+id/editTextSSDPriceTax"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:ems="7"
+            android:ems="5"
             android:hint="@string/tax"
             android:inputType="numberDecimal"
-
             android:padding="5dp" />
 
         <EditText
             android:id="@+id/editTextSSDPrice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:ems="7"
+            android:ems="5"
             android:hint="@string/price"
             android:inputType="number"
             android:padding="5dp" />
@@ -572,9 +562,8 @@
             android:id="@+id/editTextHDDRate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:ems="7"
+            android:ems="5"
             android:hint="@string/rate"
-
             android:inputType="number"
             android:padding="5dp" />
 
@@ -582,17 +571,16 @@
             android:id="@+id/editTextHDDPriceTax"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:ems="7"
+            android:ems="5"
             android:hint="@string/tax"
             android:inputType="numberDecimal"
-
             android:padding="5dp" />
 
         <EditText
             android:id="@+id/editTextHDDPrice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:ems="7"
+            android:ems="5"
             android:hint="@string/price"
             android:inputType="number"
             android:padding="5dp" />
@@ -651,7 +639,7 @@
             android:id="@+id/editTextCoolerRate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:ems="7"
+            android:ems="5"
             android:hint="@string/rate"
             android:inputType="number"
             android:padding="5dp" />
@@ -660,17 +648,16 @@
             android:id="@+id/editTextCoolerPriceTax"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:ems="7"
+            android:ems="5"
             android:hint="@string/tax"
             android:inputType="numberDecimal"
-
             android:padding="5dp" />
 
         <EditText
             android:id="@+id/editTextCoolerPrice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:ems="7"
+            android:ems="5"
             android:hint="@string/price"
             android:inputType="number"
             android:padding="5dp" />
@@ -727,7 +714,7 @@
             android:id="@+id/editTextCabinetRate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:ems="7"
+            android:ems="5"
             android:hint="@string/rate"
             android:inputType="number"
             android:padding="5dp" />
@@ -736,17 +723,16 @@
             android:id="@+id/editTextCabinetPriceTax"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:ems="7"
+            android:ems="5"
             android:hint="@string/tax"
             android:inputType="numberDecimal"
-
             android:padding="5dp" />
 
         <EditText
             android:id="@+id/editTextCabinetPrice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:ems="7"
+            android:ems="5"
             android:hint="@string/price"
             android:inputType="number"
             android:padding="5dp" />
@@ -804,9 +790,8 @@
             android:id="@+id/editTextHeadsetRate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:ems="7"
+            android:ems="5"
             android:hint="@string/rate"
-
             android:inputType="number"
             android:padding="5dp" />
 
@@ -814,17 +799,16 @@
             android:id="@+id/editTextHeadsetPriceTax"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:ems="7"
+            android:ems="5"
             android:hint="@string/tax"
             android:inputType="numberDecimal"
-
             android:padding="5dp" />
 
         <EditText
             android:id="@+id/editTextHeadsetPrice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:ems="7"
+            android:ems="5"
             android:hint="@string/price"
             android:inputType="number"
             android:padding="5dp" />
@@ -881,7 +865,7 @@
             android:id="@+id/editTextCaseFansRate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:ems="7"
+            android:ems="5"
             android:hint="@string/rate"
             android:inputType="number"
             android:padding="5dp" />
@@ -890,17 +874,16 @@
             android:id="@+id/editTextCaseFansPriceTax"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:ems="7"
+            android:ems="5"
             android:hint="@string/tax"
             android:inputType="numberDecimal"
-
             android:padding="5dp" />
 
         <EditText
             android:id="@+id/editTextCaseFansPrice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:ems="7"
+            android:ems="5"
             android:hint="@string/price"
             android:inputType="number"
             android:padding="5dp" />
@@ -957,9 +940,8 @@
             android:id="@+id/editTextKeyboardRate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:ems="7"
+            android:ems="5"
             android:hint="@string/rate"
-
             android:inputType="number"
             android:padding="5dp" />
 
@@ -967,17 +949,16 @@
             android:id="@+id/editTextKeyboardPriceTax"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:ems="7"
+            android:ems="5"
             android:hint="@string/tax"
             android:inputType="numberDecimal"
-
             android:padding="5dp" />
 
         <EditText
             android:id="@+id/editTextKeyboardPrice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:ems="7"
+            android:ems="5"
             android:hint="@string/price"
             android:inputType="number"
             android:padding="5dp" />
@@ -1034,9 +1015,8 @@
             android:id="@+id/editTextMouseRate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:ems="7"
+            android:ems="5"
             android:hint="@string/rate"
-
             android:inputType="number"
             android:padding="5dp" />
 
@@ -1044,7 +1024,7 @@
             android:id="@+id/editTextMousePriceTax"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:ems="7"
+            android:ems="5"
             android:hint="@string/tax"
             android:inputType="numberDecimal"
             android:padding="5dp" />
@@ -1053,7 +1033,7 @@
             android:id="@+id/editTextMousePrice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:ems="7"
+            android:ems="5"
             android:hint="@string/price"
             android:inputType="number"
             android:padding="5dp" />
@@ -1110,9 +1090,8 @@
             android:id="@+id/editTextMonitorRate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:ems="7"
+            android:ems="5"
             android:hint="@string/rate"
-
             android:inputType="number"
             android:padding="5dp" />
 
@@ -1120,17 +1099,16 @@
             android:id="@+id/editTextMonitorPriceTax"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:ems="7"
+            android:ems="5"
             android:hint="@string/tax"
             android:inputType="numberDecimal"
-
             android:padding="5dp" />
 
         <EditText
             android:id="@+id/editTextMonitorPrice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:ems="7"
+            android:ems="5"
             android:hint="@string/price"
             android:inputType="number"
             android:padding="5dp" />
@@ -1187,7 +1165,7 @@
             android:id="@+id/editTextServiceRate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:ems="7"
+            android:ems="5"
             android:hint="@string/rate"
             android:inputType="number"
             android:padding="5dp" />
@@ -1196,7 +1174,7 @@
             android:id="@+id/editTextServicePriceTax"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:ems="7"
+            android:ems="5"
             android:hint="@string/tax"
             android:inputType="numberDecimal"
             android:padding="5dp" />
@@ -1205,7 +1183,7 @@
             android:id="@+id/editTextServicePrice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:ems="7"
+            android:ems="5"
             android:hint="@string/price"
             android:inputType="number"
             android:padding="5dp" />
@@ -1262,7 +1240,7 @@
             android:id="@+id/editTextExtrasRate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:ems="7"
+            android:ems="5"
             android:hint="@string/rate"
             android:inputType="number"
             android:padding="5dp" />
@@ -1271,7 +1249,7 @@
             android:id="@+id/editTextExtrasPriceTax"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:ems="7"
+            android:ems="5"
             android:hint="@string/tax"
             android:inputType="numberDecimal"
             android:padding="5dp" />
@@ -1280,7 +1258,7 @@
             android:id="@+id/editTextExtrasPrice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:ems="7"
+            android:ems="5"
             android:hint="@string/price"
             android:inputType="number"
             android:padding="5dp" />

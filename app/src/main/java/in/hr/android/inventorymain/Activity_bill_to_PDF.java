@@ -926,7 +926,7 @@ public class Activity_bill_to_PDF extends AppCompatActivity {
         //Toast.makeText(Activity_bill_to_PDF.this, "Total Value is : RS.  " + totalAmount, Toast.LENGTH_SHORT).show();
 
         //File file = new File(this.getExternalFilesDir("/"), cursor.getInt(0) + "_CustomBuilds.pdf");
-        File file = new File(this.getExternalFilesDir("/"), "CustomBuilds.pdf");
+        File file = new File(this.getExternalFilesDir("/"), customerBillName +"_CustomBuilds.pdf");
 
         try {
             pdfDocument.writeTo(new FileOutputStream(file));
