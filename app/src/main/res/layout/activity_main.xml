@@ -25,7 +25,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
-        android:onClick="firebase"
+        android:onClick="printSelectedInvoice"
         android:text="Print"
         android:backgroundTint="#41F1B8"
         app:layout_constraintStart_toStartOf="parent"
