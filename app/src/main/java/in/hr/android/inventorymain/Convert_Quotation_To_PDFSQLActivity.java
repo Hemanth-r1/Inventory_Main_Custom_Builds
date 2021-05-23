@@ -648,7 +648,7 @@ public class Convert_Quotation_To_PDFSQLActivity extends AppCompatActivity {
         canvas.drawText(policy6, currentPageWidth + 40, totalPageHeight - 70, paint);
         pdfDocument.finishPage(page);
 
-        File file = new File(this.getExternalFilesDir("/Quotes"), dateFormat.format(date.getTime())+"/"+timeFormat.format(date.getTime())+"_CustomBuilds.pdf");
+        File file = new File(this.getExternalFilesDir("/Quotes"), billName + dateFormat.format(date.getTime())+"_CBS.pdf");
         try {
             pdfDocument.writeTo(new FileOutputStream(file));
         } catch (IOException e) {

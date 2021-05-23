@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.app.ProgressDialog;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -247,6 +248,10 @@ public class MainActivity extends AppCompatActivity {
 
     public void refresh(View view) {
 
+        ProgressDialog progressDialog = new ProgressDialog(this) ;
+        progressDialog.setMessage("Please Wait...");
+        progressDialog.show();
+
         String[] column2 = {"billNo", "billName", "date", "time", "mobileNo", "amount"};
         Cursor cursor2 = databaseBill.query("BillTable", column2, null, null, null, null, null);
         Toast.makeText(this, String.valueOf(cursor2), Toast.LENGTH_SHORT).show();
@@ -286,5 +291,7 @@ public class MainActivity extends AppCompatActivity {
             dataTableQuote.inflate(this);
         }
         cursor.close();
+
+        progressDialog.dismiss();
     }
 }
