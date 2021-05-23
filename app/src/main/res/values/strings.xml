@@ -33,4 +33,5 @@
     <string name="customer_address_line3">Address Line 3</string>
     <string name="rate">Rate</string>
     <string name="description2">Description 2</string>
+    <string name="payment_remarks">Payment Remarks</string>
 </resources>

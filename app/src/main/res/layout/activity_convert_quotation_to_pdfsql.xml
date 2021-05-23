@@ -7,31 +7,10 @@
     android:orientation="vertical"
     tools:context=".Convert_Quotation_To_PDFSQLActivity">
 
-    <EditText
-        android:id="@+id/editTextBillName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="8"
-        android:hint="@string/enter_bill_name"
-        android:importantForAutofill="no"
-        android:inputType="textPersonName" />
-
-    <EditText
-        android:id="@+id/editTextCustomerNumber"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_toEndOf="@+id/editTextBillName"
-        android:ems="8"
-        android:hint="@string/quote_mobile_number"
-        android:importantForAutofill="no"
-        android:inputType="phone" />
-
     <TextView
         android:id="@+id/textHeading"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/editTextBillName"
-        android:layout_marginTop="15dp"
         android:layout_marginBottom="1dp"
         android:text="@string/quote_text_message" />
 
@@ -52,6 +31,38 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/editTextBillName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ems="8"
+                        android:hint="@string/enter_bill_name"
+                        android:inputType="textPersonName" />
+
+                    <EditText
+                        android:id="@+id/editTextCustomerNumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toEndOf="@+id/editTextBillName"
+                        android:ems="8"
+                        android:hint="@string/quote_mobile_number"
+                        android:inputType="phone" />
+                    <EditText
+                        android:id="@+id/paymentRemarks"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toEndOf="@+id/editTextBillName"
+                        android:ems="8"
+                        android:hint="@string/payment_remarks"
+                        android:inputType="textMultiLine" />
+                </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="wrap_content"

@@ -1,6 +1,9 @@
 package in.hr.android.inventorymain;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -18,6 +21,7 @@ import ir.androidexception.datatable.model.DataTableHeader;
 import ir.androidexception.datatable.model.DataTableRow;
 
 import android.content.Intent;
+import android.widget.ScrollView;
 import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -40,6 +44,12 @@ public class MainActivity extends AppCompatActivity {
 
     ArrayList<DataTableRow> rowsQuote = new ArrayList<>();
     ArrayList<DataTableRow> rowsBill = new ArrayList<>();
+    ScrollView scrollView, scrollView2;
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +62,9 @@ public class MainActivity extends AppCompatActivity {
         dataTableQuote = findViewById(R.id.data_table);
         dataTableBill = findViewById(R.id.data_table2);
 
+        scrollView =findViewById(R.id.scrollView1);
+        scrollView2 = findViewById(R.id.scrollView2);
+
         floatingAddButton = findViewById(R.id.floatingAddQuoteButton);
         floatingNewButton = findViewById(R.id.floatingAddBillButton);
 
@@ -62,12 +75,12 @@ public class MainActivity extends AppCompatActivity {
         databaseBill = helperBill.getReadableDatabase();
 
         DataTableHeader header2 = new DataTableHeader.Builder()
-                .item("Invoice No", 4)
+                .item("Invoice No", 3)
                 .item("Bill Name", 4)
-                .item("Date", 4)
-                .item("Time", 4)
+                .item("Date", 3)
+                .item("Time", 3)
                 .item("Mobile No", 4)
-                .item("Amount", 4)
+                .item("Amount", 3)
                 .build();
 
         DataTableHeader header = new DataTableHeader.Builder()
@@ -81,44 +94,6 @@ public class MainActivity extends AppCompatActivity {
         dataTableBill.setHeader(header2);
         dataTableQuote.setHeader(header);
 
-        String[] column2 = {"billNo", "billName", "date", "time", "mobileNo", "amount"};
-        Cursor cursor2 = databaseBill.query("BillTable", column2, null, null, null, null, null);
-        Toast.makeText(this, String.valueOf(cursor2), Toast.LENGTH_SHORT).show();
-        for (int i = 0; i < cursor2.getCount(); i++) {
-            cursor2.moveToNext();
-            DataTableRow row2 = new DataTableRow.Builder()
-                    .value(String.valueOf(cursor2.getInt(0)))
-                    .value(cursor2.getString(1))
-                    .value(cursor2.getString(2))
-                    .value(String.valueOf(cursor2.getInt(3)))
-                    .value(String.valueOf(cursor2.getInt(4)))
-                    .build();
-            rowsBill.add(row2);
-
-            dataTableBill.setRows(rowsBill);
-            dataTableBill.inflate(this);
-        }
-        cursor2.close();
-
-        String[] column = {"quoteNo", "date", "time", "mobileNo", "amount"};
-        Cursor cursor = databaseQuote.query("QuoteTable", column, null, null, null, null, null);
-
-        for (int i = 0; i < cursor.getCount(); i++) {
-
-            cursor.moveToNext();
-            DataTableRow row = new DataTableRow.Builder()
-                    .value(String.valueOf(cursor.getInt(0)))
-                    .value(cursor.getString(1))
-                    .value(cursor.getString(2))
-                    .value(String.valueOf(cursor.getInt(3)))
-                    .value(String.valueOf(cursor.getInt(4)))
-                    .build();
-            rowsQuote.add(row);
-
-            dataTableQuote.setRows(rowsQuote);
-            dataTableQuote.inflate(this);
-        }
-        cursor.close();
         floatingAddButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -251,17 +226,65 @@ public class MainActivity extends AppCompatActivity {
             pdfDocument.close();
 
             */
-        } else {
         }
     }
 
     public void changeToBill(View view) {
-        dataTableBill.setVisibility(View.VISIBLE);
         dataTableQuote.setVisibility(View.INVISIBLE);
+        dataTableBill.setVisibility(View.VISIBLE);
+
+        scrollView.setVisibility(View.INVISIBLE);
+        scrollView2.setVisibility(View.VISIBLE);
     }
 
     public void changeToQuote(View view) {
-        dataTableQuote.setVisibility(View.VISIBLE);
         dataTableBill.setVisibility(View.INVISIBLE);
+        dataTableQuote.setVisibility(View.VISIBLE);
+
+        scrollView2.setVisibility(View.INVISIBLE);
+        scrollView.setVisibility(View.VISIBLE);
+    }
+
+    public void refresh(View view) {
+
+        String[] column2 = {"billNo", "billName", "date", "time", "mobileNo", "amount"};
+        Cursor cursor2 = databaseBill.query("BillTable", column2, null, null, null, null, null);
+        Toast.makeText(this, String.valueOf(cursor2), Toast.LENGTH_SHORT).show();
+        for (int i = 0; i < cursor2.getCount(); i++) {
+            cursor2.moveToNext();
+            DataTableRow row2 = new DataTableRow.Builder()
+                    .value(String.valueOf(cursor2.getInt(0)))
+                    .value(cursor2.getString(1))
+                    .value(cursor2.getString(2))
+                    .value(cursor2.getString(3))
+                    .value(String.valueOf(cursor2.getInt(4)))
+                    .value(String.valueOf(cursor2.getInt(5)))
+                    .build();
+            rowsBill.add(row2);
+
+            dataTableBill.setRows(rowsBill);
+            dataTableBill.inflate(this);
+        }
+        cursor2.close();
+
+        String[] column = {"quoteNo", "date", "time", "mobileNo", "amount"};
+        Cursor cursor = databaseQuote.query("QuoteTable", column, null, null, null, null, null);
+
+        for (int i = 0; i < cursor.getCount(); i++) {
+
+            cursor.moveToNext();
+            DataTableRow row = new DataTableRow.Builder()
+                    .value(String.valueOf(cursor.getInt(0)))
+                    .value(cursor.getString(1))
+                    .value(cursor.getString(2))
+                    .value(String.valueOf(cursor.getInt(3)))
+                    .value(String.valueOf(cursor.getInt(4)))
+                    .build();
+            rowsQuote.add(row);
+
+            dataTableQuote.setRows(rowsQuote);
+            dataTableQuote.inflate(this);
+        }
+        cursor.close();
     }
 }
